@@ -39,18 +39,6 @@ pre: " <b> 1.5. </b> "
   * Reorder and remove operations reflect immediately in UI after API calls.
   * `uiSlice` (`planEditorDay`, `plansReloadKey`) keeps plan editor state in sync across navigator.
 
-### AWS Knowledge Learned:
-
-* Learned core Amazon RDS concepts for PostgreSQL production usage: managed backup, maintenance windows, parameter groups, and service limitations.
-* Understood database isolation through private subnets and security groups that only permit backend services to connect.
-* Studied snapshot and point-in-time recovery concepts to protect user-owned workout data from operator error or faulty releases.
-* Reinforced migration discipline by treating Flyway scripts as deterministic deployment artifacts that must behave safely across environments.
-* Learned why cloud database connections are a finite resource and why application-side connection pooling requires deliberate tuning.
-* Understood the future path toward read scaling through read replicas when reporting or analytics traffic increases.
-* Connected data retention and recovery strategy to product concerns such as auditability, reversibility, and long-term user trust.
-
-In summary, week 5 linked application data design to AWS-managed relational database practices and recovery planning.
-
 ### My Personal AWS Lab Notes (Individual Learning):
 
 **Follow-up Review — CloudFront Distribution Flow (Deep Dive from Lab 130)**
@@ -72,6 +60,14 @@ During this week I documented and consolidated the CloudFront knowledge gained f
   4. CloudFront handles global distribution and edge caching.
   5. Different security policies can be applied per cache behavior.
 * Used Amazon Q to ask follow-up questions about edge cases (e.g., how path matching works when patterns overlap) and converted the answers into the above architecture notes.
+
+### AWS Knowledge Summary (Concluded from Lab Notes):
+
+* Reconfirmed default-root behavior and path-preserving request routing in CloudFront distributions.
+* Understood the practical value of one domain with behavior-based origin selection for mixed static and dynamic workloads.
+* Distinguished cache invalidation from URL versioning and when each approach is more appropriate.
+* Solidified origin strategy: S3 for durable static delivery, EC2 for dynamic application logic.
+* Used Amazon Q follow-up checks to validate routing edge cases and strengthen architecture confidence.
 
 ### Next Week Plan:
 

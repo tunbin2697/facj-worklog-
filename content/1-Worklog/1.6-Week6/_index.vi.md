@@ -33,18 +33,6 @@ pre: " <b> 1.6. </b> "
   * `WorkoutSessionScreen` hướng dẫn user qua tất cả bài tập/set với timer nghỉ.
   * Vòng lặp tập luyện hoàn chỉnh được test end-to-end.
 
-### Kiến thức AWS đã học:
-
-* Học cách thiết kế structured logging cho cloud với các trường như severity, requestId, userId, endpoint và errorCode để lọc log nhanh trên CloudWatch.
-* Xác định các chỉ số quan trọng cho luồng workout realtime như độ trễ tạo session, tỷ lệ ghi log set thành công và tính nhất quán của active session.
-* Nắm nguyên tắc tạo CloudWatch Alarm dựa trên p95 latency, tỷ lệ lỗi 5xx và dấu hiệu quá tải database.
-* Hiểu cách xây dashboard vận hành theo hướng actionable, phục vụ ra quyết định thay vì chỉ hiển thị quá nhiều metric rời rạc.
-* Thực hành tư duy xử lý sự cố cơ bản: phát hiện, phân loại, giảm thiểu, xác nhận và ghi nhận bài học sau sự cố.
-* Củng cố nguyên tắc rollback-first khi release lỗi để giảm tác động tới người dùng trước khi điều tra nguyên nhân gốc.
-* Chuẩn bị định hướng tích hợp SNS hoặc kênh thông báo tương đương cho các cảnh báo mức critical trong tương lai.
-
-Tóm lại, tuần 6 nâng góc nhìn từ viết tính năng sang vận hành và giám sát hệ thống trên môi trường cloud.
-
 ### Nhật ký lab AWS cá nhân (học độc lập):
 
 **Tự học — Luồng xác thực Cognito (từ đầu đến cuối)**
@@ -82,6 +70,14 @@ Tuần này tôi ghi chép luồng OAuth2 Cognito đầy đủ để hỗ trợ 
 * Củng cố mô hình validate JWT với Spring Security theo issuer/JWKS và kiểm tra claim nghiêm ngặt.
 * Làm rõ mô hình trust bằng asymmetric key: Cognito ký bằng private key, backend verify bằng public key.
 * Ghi chú các điểm dễ nhầm và biện pháp giảm rủi ro về hết hạn token, giới hạn revoke, và nguy cơ token bị lộ.
+
+### Tóm tắt kiến thức AWS (rút ra từ nhật ký lab):
+
+* Hệ thống hóa đầy đủ luồng OAuth2 Authorization Code + PKCE của Cognito cho client mobile/web.
+* Phân tách chuẩn vai trò token: Access Token cho authorize API, ID Token cho danh tính, Refresh Token cho duy trì phiên.
+* Nắm ranh giới tin cậy RS256: Cognito ký bằng private key, dịch vụ xác minh bằng public key từ JWKS.
+* Nhận diện giới hạn revoke của JWT stateless và áp dụng giảm thiểu bằng access token ngắn hạn cùng revoke refresh token.
+* Củng cố thực hành bảo mật token ở lớp truyền tải và lưu trữ để giảm rủi ro bị đánh cắp phiên.
 
 ### Kế hoạch tuần tiếp theo:
 

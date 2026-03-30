@@ -36,18 +36,6 @@ pre: " <b> 1.5. </b> "
   * `CreatePlanScreen` validate trước khi submit.
   * `PlanEditScreen` theo ngày dễ dùng, sử dụng `uiSlice` để sync trạng thái.
 
-### Kiến thức AWS đã học:
-
-* Nắm các khái niệm quan trọng khi vận hành PostgreSQL trên Amazon RDS: backup managed, maintenance window, parameter group và giới hạn dịch vụ.
-* Hiểu cách cô lập database qua private subnet và security group chỉ cho backend truy cập.
-* Nghiên cứu snapshot và point-in-time recovery để bảo vệ dữ liệu kế hoạch tập và dữ liệu cá nhân của người dùng.
-* Củng cố kỷ luật migration bằng cách xem Flyway script như artifact deploy bắt buộc phải deterministic giữa nhiều môi trường.
-* Hiểu vì sao kết nối tới cloud database là tài nguyên hữu hạn và connection pooling phía ứng dụng cần được cấu hình cẩn thận.
-* Nắm hướng scale đọc bằng read replica khi sau này hệ thống phát sinh nhiều truy vấn thống kê hoặc báo cáo.
-* Liên hệ chiến lược lưu trữ và khôi phục dữ liệu với nhu cầu audit, phục hồi lỗi thao tác và niềm tin người dùng.
-
-Tóm lại, tuần 5 gắn thiết kế dữ liệu của dự án với các nguyên tắc vận hành database managed service trên AWS.
-
 ### Nhật ký lab AWS cá nhân (học độc lập):
 
 **Ôn tập sâu — CloudFront Distribution Flow (tổng hợp từ Lab 130)**
@@ -75,6 +63,14 @@ Tuần này tôi hệ thống lại kiến thức CloudFront từ Lab 130 (tuầ
 * Làm rõ khi nào nên dùng URL versioning và khi nào cần invalidation thủ công trong vòng lặp cập nhật nội dung.
 * So sánh ưu/nhược điểm S3 origin và EC2 origin để định hướng tách static content và API.
 * Dùng thêm Amazon Q để kiểm chứng mental model CDN và chuẩn hóa lại ghi chú kỹ thuật cá nhân.
+
+### Tóm tắt kiến thức AWS (rút ra từ nhật ký lab):
+
+* Củng cố chắc luồng default root object và cơ chế giữ nguyên path khi CloudFront chuyển request về origin.
+* Hiểu giá trị thực tế của kiến trúc một domain với định tuyến origin theo cache behavior cho tải tĩnh và động.
+* Phân biệt rõ khi nào dùng invalidation và khi nào dùng URL versioning để cập nhật nội dung hiệu quả.
+* Chuẩn hóa nguyên tắc chọn origin: S3 cho static ổn định, EC2 cho xử lý động.
+* Dùng Amazon Q để kiểm chứng các trường hợp biên và tăng độ tin cậy của mô hình kiến trúc CDN.
 
 ### Kế hoạch tuần tiếp theo:
 

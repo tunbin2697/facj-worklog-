@@ -38,18 +38,6 @@ pre: " <b> 1.6. </b> "
   * `WorkoutSuccessScreen` shows achieved stats and prevents accidental back navigation.
   * Complete workout loop tested end-to-end: plan → start session → log sets → rest timer → finish → success.
 
-### AWS Knowledge Learned:
-
-* Learned structured logging design for cloud operations, including fields like severity, requestId, userId, endpoint, and errorCode for fast filtering.
-* Identified practical service indicators for the workout flow: session creation latency, log-write success rate, and active-session consistency.
-* Studied CloudWatch alarm design around p95 latency, 5xx error thresholds, and database pressure indicators.
-* Learned how to compose dashboards so they remain actionable for engineering review instead of becoming noisy metric walls.
-* Practiced a basic incident-response workflow: detect, triage, mitigate, validate, and document follow-up improvements.
-* Reinforced a rollback-first mindset for bad releases so user impact is minimized before root-cause analysis completes.
-* Prepared for future alert routing through SNS or similar channels when critical production signals need escalation.
-
-In summary, week 6 strengthened the operational and monitoring perspective required for reliable cloud-backed workout tracking.
-
 ### My Personal AWS Lab Notes (Individual Learning):
 
 **Self-study — AWS Cognito Authentication Flow (End-to-End)**
@@ -94,6 +82,14 @@ This week I documented the complete Cognito OAuth2 auth flow to support the team
 * **Limitations and mitigations**:
   * JWT is stateless — revoking an access token mid-session is not instant. If a user logs out or an account is disabled, the access token still works until it expires (typically 1 hour). Mitigation: use short-lived access tokens and revoke refresh tokens at logout via `POST /oauth2/revoke`.
   * Stolen access tokens are valid until expiry. Mitigation: HTTPS only, short expiration, HttpOnly cookies on web, XSS protection.
+
+### AWS Knowledge Summary (Concluded from Lab Notes):
+
+* Consolidated the Cognito OAuth2 authorization-code flow with PKCE into a clear end-to-end model for mobile/web clients.
+* Separated token responsibilities correctly: Access Token for API authorization, ID Token for identity display, Refresh Token for session continuity.
+* Understood RS256 trust boundaries where Cognito signs with private keys and services verify with JWKS public keys.
+* Identified JWT revocation limits in stateless systems and practical mitigations with short access-token TTL and refresh-token revocation.
+* Reinforced secure token handling practices across transport and storage to reduce token-theft risk.
 
 ### Next Week Plan:
 

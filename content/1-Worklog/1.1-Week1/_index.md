@@ -16,7 +16,7 @@ pre: " <b> 1.1. </b> "
 ### Tasks to be carried out this week:
 | Day | Task | Start Date | Completion Date | Reference Material |
 | --- | ---- | ---------- | --------------- | ------------------ |
-| 2   | - Project kickoff: define scope, features, and MVP requirements <br>&emsp; + Core features: workout plans, nutrition tracking, body metrics, session logging <br>&emsp; + Auth via AWS Cognito <br>&emsp; + Admin panel for exercise & plan management | 01/06/2026 | 01/06/2026 | |
+| 2   | - Project kickoff: define scope, features, and MVP requirements <br>&emsp; + Core features: workout plans, nutrition tracking, body metrics, session logging | 01/06/2026 | 01/06/2026 | |
 | 3   | - Initialize **Backend** project with Spring Boot 3 + Maven <br>&emsp; + Scaffold with `spring-boot-starter-web`, `spring-data-jpa`, `spring-security` <br>&emsp; + Configure `pom.xml`: Flyway, Lombok, jjwt 0.11.5, AWS SDK v1 <br>&emsp; + Establish package structure: `common/`, `config/`, `module/` | 01/07/2026 | 01/07/2026 | <https://start.spring.io/> |
 | 4   | - Set up **PostgreSQL** locally with Docker Compose <br>&emsp; + Write `docker-compose.yml` with `postgres:15` service <br>&emsp; + Configure `application.properties`: datasource, JPA `ddl-auto=create-drop`, Flyway <br>&emsp; + Create `.env` / `.env.example` pattern for secrets <br> - Define `EntityBase` `@MappedSuperclass`: `id (UUID)`, `createdAt`, `updatedAt` | 01/08/2026 | 01/08/2026 | <https://docs.docker.com/compose/> |
 | 4   | - Initialize **Frontend** project: React Native + Expo ~54 with TypeScript ~5.9 <br>&emsp; + Scaffold with `npx create-expo-app --template` <br>&emsp; + Configure `tsconfig.json`, `babel.config.js`, `metro.config.js` <br>&emsp; + Install and configure NativeWind v4 + `tailwind.config.js` | 01/08/2026 | 01/08/2026 | <https://docs.expo.dev/> |
@@ -39,18 +39,6 @@ pre: " <b> 1.1. </b> "
 * Docker Compose environment reproducible across team machines.
 * `.env` secret management pattern established — no hardcoded credentials in source.
 
-### AWS Knowledge Learned:
-
-* Learned AWS account bootstrap in a production-minded way: MFA enforcement, admin separation, and least-privilege IAM design for both engineers and CI.
-* Understood how to split identities by purpose: human access, deployment role, and runtime application role to reduce blast radius.
-* Practiced AWS CLI profile strategy for `dev` and `staging`, combined with fixed region selection to avoid accidental cross-environment actions.
-* Learned how the AWS credential provider chain works, and why environment-sourced credentials must never be committed into the repository.
-* Applied tagging standards such as `Project`, `Environment`, `Owner`, and `CostCenter` to support cost tracking and future operations.
-* Understood the AWS Shared Responsibility Model with concrete mapping to the project: application logic, IAM policy, and secret hygiene still belong to the team.
-* Established a cloud-ready configuration mindset early by keeping all sensitive values outside source code and preparing for a future move to Secrets Manager or SSM.
-
-In summary, week 1 built the foundational AWS operating mindset needed before any service-specific implementation started.
-
 ### My Personal AWS Lab Notes (Individual Learning):
 
 **Lab 000001 — AWS Account Setup and IAM Bootstrap**
@@ -72,6 +60,14 @@ In summary, week 1 built the foundational AWS operating mindset needed before an
 * **Edge Locations**: AWS CDN network nodes used by CloudFront (CDN), WAF (Web Application Firewall), and Route 53 (DNS). Edge locations serve cached content closer to end users.
 * **IAM vs Root user**: Root user = the original account email/password — never use for daily tasks. IAM users are sub-accounts with specific permissions. IAM groups simplify permission management across teams and reduce blast radius from compromised credentials.
 * **Cost optimization levers**: Reserved Instances (commit to 1–3 year term for up to 72% savings), Savings Plans (flexible commitment), Spot Instances (up to 90% cheaper but can be interrupted at any time — not suitable for critical workloads). Additional levers: auto-scaling to avoid idle capacity, serverless (pay only when running), tagging for cost allocation, and Architecture Review via Well-Architected Framework.
+
+### AWS Knowledge Summary (Concluded from Lab Notes):
+
+* Established a secure AWS account baseline by enforcing MFA, minimizing root-user usage, and delegating daily work to IAM identities.
+* Understood budgets and support plans as governance controls that improve cost visibility and response readiness, while not directly stopping spend.
+* Connected Region, AZ, and Edge Location concepts to real architecture decisions for availability, latency, and service placement.
+* Clarified IAM boundaries between root user, IAM users, and groups to reduce credential blast radius.
+* Identified major cloud cost levers (RI, Savings Plans, Spot, autoscaling, serverless, tagging) as design-time decisions.
 
 ### Next Week Plan:
 

@@ -34,18 +34,6 @@ pre: " <b> 1.4. </b> "
   * `PlanExercisePicker` liệt kê bài tập với context nhóm cơ; chọn bài tập thêm vào kế hoạch user.
 * `DatabaseSeeder` seed dữ liệu nhóm cơ + bài tập ban đầu khi khởi động ứng dụng.
 
-### Kiến thức AWS đã học:
-
-* Học cách thiết kế kiến trúc media với Amazon S3 cho file nhị phân và PostgreSQL cho metadata để mỗi hệ thống lưu đúng loại dữ liệu phù hợp.
-* Xây dựng quy ước object key như `workouts/`, `exercises/`, `foods/` để phục vụ tổ chức dữ liệu, cleanup và áp lifecycle policy dễ dàng.
-* Hiểu nguyên tắc private-by-default cho bucket và lý do không nên lạm dụng public ACL với tài nguyên của ứng dụng.
-* Nắm các tùy chọn mã hóa server-side như SSE-S3 và SSE-KMS, cùng tình huống nên dùng KMS để kiểm soát chặt hơn.
-* Hiểu vai trò của S3 versioning trong việc bảo vệ trước các trường hợp ghi đè hoặc xóa nhầm file media.
-* Phân tích được trade-off chi phí lưu trữ và băng thông đối với ảnh, từ đó thấy rõ tầm quan trọng của tối ưu dung lượng file.
-* Chuẩn bị mô hình lưu trữ sẵn sàng để sau này đặt CloudFront trước S3 mà không phải đổi business logic hiện có.
-
-Tóm lại, tuần 4 biến kiến thức về S3 thành một định hướng kiến trúc media rõ ràng cho ứng dụng.
-
 ### Nhật ký lab AWS cá nhân (học độc lập):
 
 **Sự kiện — AWS re:Invent 2025 Recap (Track AI/ML)**
@@ -80,6 +68,14 @@ Tóm lại, tuần 4 biến kiến thức về S3 thành một định hướng 
 * Xử lý lỗi thực tế khi phục vụ nội dung từ EC2 bằng user-data (cài Node.js/Express sai thư mục, cần chỉnh và restart PM2).
 * Hoàn thành workshop Cognito và ghi nhận các lưu ý khi deploy (phụ thuộc runtime, SAM build với container, bucket name phải unique).
 * Làm rõ thêm về invalidation, cache behavior và path-based routing qua trao đổi với Amazon Q.
+
+### Tóm tắt kiến thức AWS (rút ra từ nhật ký lab):
+
+* Chuẩn hóa tư duy CloudFront như lớp định tuyến theo path có thể đứng trước nhiều origin trong cùng một distribution.
+* Làm rõ mô hình phân phối nội dung tĩnh an toàn với S3 private origin kết hợp cơ chế truy cập của CloudFront.
+* Nắm kinh nghiệm vận hành thực tế cho EC2 origin và chiến lược làm mới cache bằng invalidation hoặc URL versioning.
+* Thực hành các ràng buộc triển khai với SAM: phụ thuộc runtime, build bằng container và yêu cầu bucket S3 unique toàn cục.
+* Củng cố hiểu biết Cognito qua việc kiểm tra password policy và tự đối chiếu quan hệ giữa user pool, app client, hosted UI.
 
 ### Kế hoạch tuần tiếp theo:
 

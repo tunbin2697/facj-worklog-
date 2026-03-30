@@ -119,43 +119,17 @@
                 href="/3-blogstranslated/3.6-blog6/"
                 />
   </url><url>
-    <loc>/5-workshop/5.3-s3-vpc/5.3.1-create-gwe/</loc>
+    <loc>/5-workshop/5.3-s3-vpc/5.3.1-create-ec2/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="/vi/5-workshop/5.3-s3-vpc/5.3.1-create-gwe/"
+                href="/vi/5-workshop/5.3-s3-vpc/5.3.1-create-ec2/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/5-workshop/5.3-s3-vpc/5.3.1-create-gwe/"
-                />
-  </url><url>
-    <loc>/5-workshop/5.1-workshop-overview/</loc>
-    <lastmod>2024-01-01T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="/vi/5-workshop/5.1-workshop-overview/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/5-workshop/5.1-workshop-overview/"
-                />
-  </url><url>
-    <loc>/5-workshop/5.4-s3-onprem/5.4.1-prepare/</loc>
-    <lastmod>2024-01-01T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="/vi/5-workshop/5.4-s3-onprem/5.4.1-prepare/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/5-workshop/5.4-s3-onprem/5.4.1-prepare/"
+                href="/5-workshop/5.3-s3-vpc/5.3.1-create-ec2/"
                 />
   </url><url>
     <loc>/1-worklog/</loc>
@@ -169,6 +143,19 @@
                 rel="alternate"
                 hreflang="en"
                 href="/1-worklog/"
+                />
+  </url><url>
+    <loc>/5-workshop/5.1-workshop-overview/</loc>
+    <lastmod>2024-01-01T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="/vi/5-workshop/5.1-workshop-overview/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/5-workshop/5.1-workshop-overview/"
                 />
   </url><url>
     <loc>/4-eventparticipated/4.2-event2/</loc>
@@ -197,17 +184,17 @@
                 href="/1-worklog/1.2-week2/"
                 />
   </url><url>
-    <loc>/5-workshop/5.4-s3-onprem/5.4.2-create-interface-enpoint/</loc>
+    <loc>/5-workshop/5.3-s3-vpc/5.3.2-create-cognito/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="/vi/5-workshop/5.4-s3-onprem/5.4.2-create-interface-enpoint/"
+                href="/vi/5-workshop/5.3-s3-vpc/5.3.2-create-cognito/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/5-workshop/5.4-s3-onprem/5.4.2-create-interface-enpoint/"
+                href="/5-workshop/5.3-s3-vpc/5.3.2-create-cognito/"
                 />
   </url><url>
     <loc>/5-workshop/5.2-prerequiste/</loc>
@@ -236,19 +223,6 @@
                 href="/2-proposal/"
                 />
   </url><url>
-    <loc>/5-workshop/5.3-s3-vpc/5.3.2-test-gwe/</loc>
-    <lastmod>2024-01-01T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="/vi/5-workshop/5.3-s3-vpc/5.3.2-test-gwe/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/5-workshop/5.3-s3-vpc/5.3.2-test-gwe/"
-                />
-  </url><url>
     <loc>/1-worklog/1.3-week3/</loc>
     <lastmod>2026-01-19T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -262,6 +236,19 @@
                 href="/1-worklog/1.3-week3/"
                 />
   </url><url>
+    <loc>/5-workshop/5.3-s3-vpc/5.3.3-application-load-balancer/</loc>
+    <lastmod>2024-01-01T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="/vi/5-workshop/5.3-s3-vpc/5.3.3-application-load-balancer/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/5-workshop/5.3-s3-vpc/5.3.3-application-load-balancer/"
+                />
+  </url><url>
     <loc>/5-workshop/5.3-s3-vpc/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -273,19 +260,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="/5-workshop/5.3-s3-vpc/"
-                />
-  </url><url>
-    <loc>/5-workshop/5.4-s3-onprem/5.4.3-test-endpoint/</loc>
-    <lastmod>2024-01-01T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="/vi/5-workshop/5.4-s3-onprem/5.4.3-test-endpoint/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/5-workshop/5.4-s3-onprem/5.4.3-test-endpoint/"
                 />
   </url><url>
     <loc>/3-blogstranslated/</loc>
@@ -327,30 +301,30 @@
                 href="/1-worklog/1.4-week4/"
                 />
   </url><url>
-    <loc>/5-workshop/5.4-s3-onprem/</loc>
+    <loc>/5-workshop/5.3-s3-vpc/5.3.4-configure-authentication/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="/vi/5-workshop/5.4-s3-onprem/"
+                href="/vi/5-workshop/5.3-s3-vpc/5.3.4-configure-authentication/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/5-workshop/5.4-s3-onprem/"
+                href="/5-workshop/5.3-s3-vpc/5.3.4-configure-authentication/"
                 />
   </url><url>
-    <loc>/5-workshop/5.4-s3-onprem/5.4.4-dns-simulation/</loc>
+    <loc>/5-workshop/5.4-test-evaluate/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="/vi/5-workshop/5.4-s3-onprem/5.4.4-dns-simulation/"
+                href="/vi/5-workshop/5.4-test-evaluate/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/5-workshop/5.4-s3-onprem/5.4.4-dns-simulation/"
+                href="/5-workshop/5.4-test-evaluate/"
                 />
   </url><url>
     <loc>/1-worklog/1.5-week5/</loc>
@@ -366,17 +340,17 @@
                 href="/1-worklog/1.5-week5/"
                 />
   </url><url>
-    <loc>/5-workshop/5.5-policy/</loc>
+    <loc>/5-workshop/5.5-cleanup/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="/vi/5-workshop/5.5-policy/"
+                href="/vi/5-workshop/5.5-cleanup/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/5-workshop/5.5-policy/"
+                href="/5-workshop/5.5-cleanup/"
                 />
   </url><url>
     <loc>/5-workshop/</loc>
@@ -403,19 +377,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="/1-worklog/1.6-week6/"
-                />
-  </url><url>
-    <loc>/5-workshop/5.6-cleanup/</loc>
-    <lastmod>2024-01-01T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="/vi/5-workshop/5.6-cleanup/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/5-workshop/5.6-cleanup/"
                 />
   </url><url>
     <loc>/6-self-evaluation/</loc>

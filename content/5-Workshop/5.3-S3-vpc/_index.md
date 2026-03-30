@@ -1,18 +1,20 @@
 ---
-title : "Access S3 from VPC"
+title : "Step-by-step"
 date : 2024-01-01
 weight : 3
 chapter : false
 pre : " <b> 5.3. </b> "
 ---
 
-#### Using Gateway endpoint
+# 5.3 Step-by-step
 
-In this section, you will create **a Gateway eendpoint** to access **Amazon S3** from **an EC2 instance**. **The Gateway endpoint** will allow upload an object to S3 buckets without using **the Public Internet**. To create an endpoint, you must specify the VPC in which you want to create the endpoint, and the service (in this case, S3) to which you want to establish the connection.
+This section contains the implementation sequence.
 
-![overview](/images/5-Workshop/5.3-S3-vpc/diagram2.png)
+1. [5.3.1 EC2 backend](5.3.1-create-gwe/)
+2. [5.3.2 Cognito user pool](5.3.2-test-gwe/)
+3. [5.3.3 Application Load Balancer](5.3.3-application-load-balancer/)
+4. [5.3.4 Configure authentication and routing rules](5.3.4-configure-authentication/)
 
-#### Content
-
-- [Create gateway endpoint](3.1-create-gwe/)
-- [Test gateway endpoint](3.2-test-gwe/)
+{{% notice tip %}}
+Follow these pages in order to complete the deployment flow.
+{{% /notice %}}

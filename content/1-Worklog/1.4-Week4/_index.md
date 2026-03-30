@@ -36,18 +36,6 @@ pre: " <b> 1.4. </b> "
   * `PlanExercisePicker` lists all exercises with muscle group context; exercise selection adds to user plan.
 * `DatabaseSeeder` populates initial muscle group + exercise data on app start for local dev.
 
-### AWS Knowledge Learned:
-
-* Learned to design media architecture with Amazon S3 for binary objects and PostgreSQL for metadata, keeping each storage system in the role it handles best.
-* Designed object key naming conventions such as `workouts/`, `exercises/`, and `foods/` to simplify organization, cleanup, and lifecycle policy targeting.
-* Understood private-by-default bucket access and why broad public ACL usage should be avoided for application assets.
-* Studied server-side encryption options, especially SSE-S3 and SSE-KMS, and when KMS-backed control is worth the extra complexity.
-* Learned the value of S3 versioning for protection against accidental overwrite or deletion of important media files.
-* Understood storage and transfer cost tradeoffs for image-heavy applications, especially why optimization of size and format matters.
-* Prepared the storage model so CloudFront can later sit in front of S3 without forcing business logic changes in the app.
-
-In summary, week 4 translated AWS storage knowledge into a maintainable media architecture for exercises and plans.
-
 ### My Personal AWS Lab Notes (Individual Learning):
 
 **Event — AWS re:Invent 2025 Recap (AI/ML Track)**
@@ -76,6 +64,14 @@ In summary, week 4 translated AWS storage knowledge into a maintainable media ar
   ```
   Useful to check why a test user’s password is rejected during sign-up.
 * **Recommendation**: The workshop is mostly copy-paste code-template deployment. For deeper understanding, manually configure each Cognito resource through the console to see how user pools, app clients, and hosted UI connect.
+
+### AWS Knowledge Summary (Concluded from Lab Notes):
+
+* Formalized CloudFront as a path-based routing layer that can front multiple origins under one distribution domain.
+* Clarified secure static delivery patterns using private S3 origins with CloudFront access control.
+* Learned practical origin operations, including EC2 app troubleshooting and cache refresh strategy via invalidation or URL versioning.
+* Practiced SAM deployment constraints: runtime dependencies, containerized build fallback, and globally unique S3 buckets.
+* Strengthened Cognito implementation understanding by validating password policy and mapping user-pool components manually.
 
 ### Next Week Plan:
 

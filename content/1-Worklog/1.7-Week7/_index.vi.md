@@ -34,18 +34,6 @@ pre: " <b> 1.7. </b> "
   * URL hình ảnh được cache trong bộ nhớ — không gọi API trung lặp.
   * Tile kế hoạch và danh sách bài tập hiển thị hình ảnh từ S3.
 
-### Kiến thức AWS đã học:
-
-* Hiểu cách dùng presigned URL của S3 để client upload hoặc download file an toàn mà không cần cầm credential AWS trực tiếp.
-* Biết cách chọn thời hạn presigned URL ngắn cho tài nguyên nhạy cảm nhưng vẫn cân bằng được trải nghiệm người dùng.
-* Nắm các yêu cầu validate upload như giới hạn content-type, kích thước file và key path để giảm rủi ro lạm dụng.
-* Thiết kế lifecycle policy cho ảnh cũ hoặc file tạm nhằm tối ưu chi phí bằng cách chuyển storage class hoặc xóa theo thời hạn.
-* Hiểu cơ chế phân phối nội dung có kiểm soát để hạn chế hotlink và việc tái sử dụng media ngoài ý muốn.
-* Nắm mối liên hệ giữa object ownership và bucket policy để tránh lỗi quyền truy cập khó chẩn đoán.
-* Liên kết chiến lược cache media với mục tiêu giảm chi phí cloud và tăng tốc độ tải giao diện.
-
-Tóm lại, tuần 7 chuyển kiến thức về S3 từ mức khái niệm sang mô hình phục vụ media an toàn và tối ưu hơn cho dự án.
-
 ### Nhật ký lab AWS cá nhân (học độc lập):
 
 **Lab 22 — Tối ưu chi phí EC2 với Lambda + EventBridge**
@@ -77,6 +65,14 @@ Tóm lại, tuần 7 chuyển kiến thức về S3 từ mức khái niệm sang
   * **Fargate**: AWS quản lý compute. Chỉ cần khai báo CPU/memory mỗi task. Không cần vá OS hay scale instance. Phù hợp workload biến động hoặc team không muốn quản lý infrastructure.
 * **Network mode `awsvpc`**: Mỗi Task được cấp riêng 1 ENI với IP riêng. Security Group gắn ở mức **task**, không phải EC2 instance — kiểm soát traffic chi tiết hơn cho từng task trong cùng cluster.
 * **Kết hợp Load Balancer**: ALB phân phối traffic đến các task. Target Group phải dùng loại **`ip`** (không phải `instance`) cho Fargate vì mỗi task có IP riêng qua `awsvpc`. Path và ngưỡng health check phải khớp với endpoint thực tế của ứng dụng.
+
+### Tóm tắt kiến thức AWS (rút ra từ nhật ký lab):
+
+* Triển khai được mô hình điều khiển lịch chạy EC2 bằng EventBridge + Lambda và phân biệt đúng ngữ nghĩa thời gian của `cron` so với `rate`.
+* Thiết lập thực hành tagging và Resource Groups làm nền tảng cho quản trị chi phí, điều kiện IAM và tự động hóa vận hành.
+* Làm rõ các khối lõi của ECS (cluster, task definition, task, service) và cách chúng ảnh hưởng đến vòng đời triển khai.
+* So sánh được EC2 launch type và Fargate theo tiêu chí mức kiểm soát hạ tầng và chi phí vận hành.
+* Nắm yêu cầu mạng `awsvpc` và target type `ip` của ALB để định tuyến traffic ổn định ở mức task.
 
 ### Kế hoạch tuần tiếp theo:
 

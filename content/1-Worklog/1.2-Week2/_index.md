@@ -40,18 +40,6 @@ pre: " <b> 1.2. </b> "
   * `authSlice` correctly toggles `isAuthenticated`; `RootNavigator` redirects to the right stack.
   * Axios interceptor auto-attaches Bearer token — subsequent API calls authenticated.
 
-### AWS Knowledge Learned:
-
-* Studied Cognito User Pools in detail: app clients, callback URLs, logout URLs, OAuth scopes, and token lifetime tradeoffs for a mobile application.
-* Understood the PKCE flow end to end, including `code_verifier`, `code_challenge`, and `S256`, and why it is essential for public clients.
-* Distinguished ID token and access token in a real API context, reinforcing that backend authorization must rely on access token claims rather than ID token data.
-* Learned a robust JWT validation path: `iss`, `aud`, `exp`, `nbf`, `token_use`, and signature validation through Cognito JWKs.
-* Practiced mapping `cognito:groups` into internal app roles like `ROLE_ADMIN` and `ROLE_USER` to support secure RBAC.
-* Understood refresh-token storage boundaries for mobile clients, especially secure storage, rotation handling, and forced logout on invalid refresh.
-* Reinforced the importance of using the immutable `sub` claim as the stable user identity across all backend modules.
-
-In summary, week 2 connected AWS identity concepts directly to the authentication and authorization model of the project.
-
 ### My Personal AWS Lab Notes (Individual Learning):
 
 **Lab 2 — IAM Role Setup for Daily Use**
@@ -74,7 +62,18 @@ In summary, week 2 connected AWS identity concepts directly to the authenticatio
   * Gateway endpoints (S3, DynamoDB) do not use ENIs and route through the route table.
 * Fixed a tricky **EC2 Instance Connect Endpoint** misconfiguration: the EIC security group must allow outbound to the private subnet, AND the private instance security group must allow inbound from the EIC security group.
 * Set up a **VPN connection** to simulate hybrid on-prem networking: a second VPC acting as the on-prem side, using AWS Site-to-Site VPN to connect private IPs securely.
-* Lab 10 — **Active Directory**: Used AWS Managed Microsoft AD (via AWS Directory Service) deployed into two private subnets to simulate an on-prem Windows domain controller for DNS and user management.
+
+**Lab 10 — Active Directory**: 
+
+Used AWS Managed Microsoft AD (via AWS Directory Service) deployed into two private subnets to simulate an on-prem Windows domain controller for DNS and user management.
+
+### AWS Knowledge Summary (Concluded from Lab Notes):
+
+* Confirmed IAM roles with temporary credentials are safer than long-lived access keys for compute workloads and automation.
+* Internalized VPC routing design across public/private subnets with IGW and NAT to control internet exposure.
+* Distinguished Security Groups (stateful, ENI-level) from NACLs (stateless, subnet-level) for layered network security.
+* Learned how VPC endpoints and Site-to-Site VPN extend private connectivity to AWS services and hybrid networks.
+* Applied private-subnet deployment for managed directory services to support enterprise identity patterns securely.
 
 ### Next Week Plan:
 

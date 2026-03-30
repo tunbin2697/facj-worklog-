@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Access S3 from VPC on BaoKhang in FACJ</title>
+    <title>Step-by-step on BaoKhang in FACJ</title>
     <link>/5-workshop/5.3-s3-vpc/</link>
-    <description>Recent content in Access S3 from VPC on BaoKhang in FACJ</description>
+    <description>Recent content in Step-by-step on BaoKhang in FACJ</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Mon, 01 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="/5-workshop/5.3-s3-vpc/index.xml" rel="self" type="application/rss+xml" />
   </channel>

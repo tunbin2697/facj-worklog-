@@ -38,18 +38,6 @@ pre: " <b> 1.7. </b> "
   * In-flight deduplication ensures concurrent requests for the same image share a single promise.
   * Workout plan tiles and exercise list items now display associated images from S3.
 
-### AWS Knowledge Learned:
-
-* Learned how S3 presigned URLs support secure client upload and download without exposing long-lived AWS credentials.
-* Understood how to choose short expiration windows for sensitive URLs while still preserving acceptable UX.
-* Studied upload validation concerns such as MIME type restrictions, size limits, and constrained key paths to reduce abuse.
-* Learned to design lifecycle policies that move stale media to cheaper storage classes and remove obsolete temporary assets.
-* Understood controlled content distribution patterns to prevent uncontrolled reuse or hotlinking of application media.
-* Learned how object ownership and bucket policy rules can create subtle access bugs if not aligned correctly.
-* Connected media caching decisions with both performance improvements and cloud cost reduction.
-
-In summary, week 7 turned S3 knowledge into a practical and secure media delivery model for the app.
-
 ### My Personal AWS Lab Notes (Individual Learning):
 
 **Lab 22 — EC2 Cost Optimization with Lambda + EventBridge**
@@ -81,6 +69,14 @@ In summary, week 7 turned S3 knowledge into a practical and secure media deliver
   * **Fargate**: AWS manages the underlying compute. You only define CPU/memory per task. No instances to patch or scale. Better for variable workloads or teams that don't want infrastructure management.
 * **Networking — `awsvpc` mode**: Each Task gets its own Elastic Network Interface (ENI) with a private IP. Security Groups are attached at the **task level**, not the EC2 instance level. This enables fine-grained traffic control per task in the same cluster.
 * **Load balancer integration**: ALB distributes traffic across running tasks. Target Group must use **`ip` target type** (not `instance`) for Fargate, because each task has its own IP via `awsvpc`. Health check path and thresholds must match the application's actual health endpoint.
+
+### AWS Knowledge Summary (Concluded from Lab Notes):
+
+* Implemented event-driven EC2 schedule control with EventBridge + Lambda, including correct use of `cron` versus `rate` timing semantics.
+* Established tagging and resource-group practices as the foundation for cost allocation, IAM conditions, and operational automation.
+* Clarified ECS building blocks (cluster, task definition, task, service) and how they map to deployment lifecycle decisions.
+* Compared EC2 and Fargate launch models based on control versus operational overhead.
+* Understood `awsvpc` networking and ALB `ip` target-type requirements for reliable task-level routing.
 
 ### Next Week Plan:
 

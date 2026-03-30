@@ -40,18 +40,6 @@ pre: " <b> 1.3. </b> "
   * User data collected (gender, DOB, height, weight, goals, diet prefs, workout prefs) ready to be stored in profile.
   * Onboarding completion dispatches `completeOnboarding()` and calls the backend sync endpoint.
 
-### AWS Knowledge Learned:
-
-* Learned the cloud deployment implications of CORS when frontend and backend live on different domains or subdomains.
-* Understood preflight `OPTIONS` behavior and how misconfigured headers or methods can silently break authenticated production traffic.
-* Mapped the current API structure to a future API Gateway style boundary with clear separation of public, authenticated, and admin routes.
-* Recognized why standardized error envelopes make CloudWatch troubleshooting faster and client-side debugging more predictable.
-* Practiced the idea of request correlation using request IDs or trace IDs so multi-service debugging becomes easier later.
-* Understood how centralized exception handling supports cleaner alarm rules because error shapes become consistent.
-* Prepared the code structure for future tracing and observability integration by keeping responses and logs structured.
-
-In summary, week 3 focused on AWS-relevant API governance and observability foundations rather than infrastructure provisioning alone.
-
 ### My Personal AWS Lab Notes (Individual Learning):
 
 **Lab 14 — Import On-Premise VM to AWS (https://000014.awsstudygroup.com/)**
@@ -75,6 +63,14 @@ In summary, week 3 focused on AWS-relevant API governance and observability foun
 * **S3 ACL for EC2 export**: The EC2 export API (legacy pre-IAM) requires bucket ACL permissions, not just IAM policies. Had to enable ACLs on the bucket and add a **Canonical ID** grantee with Write + Read Bucket ACL permissions. S3 bucket owner enforced mode must be turned off to use ACLs. Note: the Canonical ID for All Other Regions was used (not GovCloud US).
 * **AMI concept**: Learned that AMIs (Amazon Machine Images) are saved templates used to launch EC2 instances. The import-image process creates an AMI from the uploaded disk image.
 * **Key Pairs**: Used to SSH into EC2 instances. Supports RSA and ED25519 types (similar to SSH key pairs). Key pairs are NOT re-downloadable after creation — losing them means losing SSH access.
+
+### AWS Knowledge Summary (Concluded from Lab Notes):
+
+* Learned VM import prerequisites clearly: BIOS boot support, compatible kernel, and correct source image format handling.
+* Reinforced operational precision with globally unique S3 bucket naming and exact object-key matching in import commands.
+* Understood `import-image` as a long-running asynchronous workflow that requires status polling and patient verification.
+* Identified legacy ACL dependencies in EC2 import/export flows and how they differ from modern bucket-owner-enforced patterns.
+* Connected AMI creation and key-pair lifecycle practices to reusable EC2 provisioning and access strategy.
 
 ### Next Week Plan:
 

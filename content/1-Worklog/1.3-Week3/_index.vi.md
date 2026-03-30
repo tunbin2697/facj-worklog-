@@ -40,18 +40,6 @@ pre: " <b> 1.3. </b> "
   * Dữ liệu user được thu thập đầy đủ (giới tính, ngày sinh, chiều cao, cân nặng, mục tiêu, sở thích)
   * Hoàn thành onboarding dispatch `completeOnboarding()` và gọi API sync.
 
-### Kiến thức AWS đã học:
-
-* Hiểu tác động của CORS khi frontend và backend được triển khai trên các domain hoặc subdomain khác nhau trên cloud.
-* Nắm cơ chế preflight `OPTIONS` và các lỗi phổ biến khi cấu hình thiếu method hoặc header trong môi trường production.
-* Biết cách chia ranh giới endpoint public, authenticated và admin theo tư duy sẵn sàng tích hợp API Gateway về sau.
-* Nhận ra giá trị của response envelope chuẩn hóa trong việc theo dõi log và phân tích lỗi trên CloudWatch.
-* Áp dụng tư duy request correlation thông qua requestId hoặc traceId để phục vụ debug hệ thống phân tán.
-* Hiểu vì sao centralized exception handling giúp tạo cảnh báo dễ hơn vì pattern lỗi trở nên đồng nhất.
-* Chuẩn bị cấu trúc code thuận lợi cho tracing và observability về sau bằng cách chuẩn hóa log và response.
-
-Tóm lại, tuần 3 tập trung vào những kiến thức AWS liên quan đến quản trị API và khả năng quan sát hệ thống.
-
 ### Nhật ký lab AWS cá nhân (học độc lập):
 
 **Lab 14 — Import máy ảo On-Premise vào AWS (https://000014.awsstudygroup.com/)**
@@ -81,6 +69,14 @@ Tóm lại, tuần 3 tập trung vào những kiến thức AWS liên quan đế
 * Nắm các ràng buộc legacy của EC2 import/export, đặc biệt là yêu cầu ACL và khác biệt với bucket owner enforced hiện đại.
 * Bổ sung cảnh báo kỹ thuật: tránh UEFI cho image import, kiểm tra tương thích kernel, và chủ động chờ thời gian xử lý dài.
 * Củng cố tư duy về AMI, key pair, và vòng đời image làm nền tảng tái sử dụng cho các môi trường EC2.
+
+### Tóm tắt kiến thức AWS (rút ra từ nhật ký lab):
+
+* Nắm rõ các điều kiện tiên quyết khi import VM lên AWS: BIOS boot, kernel tương thích và xử lý đúng định dạng image.
+* Củng cố tính chính xác vận hành với bucket S3 unique toàn cục và object key phải khớp tuyệt đối trong lệnh import.
+* Hiểu `import-image` là quy trình bất đồng bộ, thời gian dài và bắt buộc theo dõi trạng thái định kỳ.
+* Nhận diện các phụ thuộc ACL mang tính legacy trong luồng EC2 import/export và sự khác biệt với mô hình bucket hiện đại.
+* Liên kết kiến thức AMI và vòng đời key pair với chiến lược provision EC2 có thể tái sử dụng.
 
 ### Kế hoạch tuần tiếp theo:
 

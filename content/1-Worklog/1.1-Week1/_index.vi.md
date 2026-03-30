@@ -39,18 +39,6 @@ pre: " <b> 1.1. </b> "
 * Môi trường Docker Compose có thể tái tạo nhất quán trên các máy khác nhau trong nhóm.
 * Pattern quản lý secrets qua `.env` được thiết lập — không có credential hardcode trong source code.
 
-### Kiến thức AWS đã học:
-
-* Nắm cách thiết lập tài khoản AWS theo hướng production ngay từ đầu: bật MFA, tách quyền quản trị, và thiết kế IAM theo nguyên tắc least privilege cho cả lập trình viên lẫn CI.
-* Hiểu cách chia định danh theo đúng mục đích sử dụng: người dùng thao tác thủ công, role deploy, và role runtime của ứng dụng để giảm blast radius.
-* Thực hành dùng AWS CLI profile cho `dev` và `staging`, kết hợp cố định region để tránh thao tác nhầm môi trường.
-* Hiểu cơ chế credential provider chain và lý do không bao giờ được commit access key hoặc secret key vào repository.
-* Áp dụng chuẩn tagging như `Project`, `Environment`, `Owner`, `CostCenter` để phục vụ quản trị chi phí và vận hành sau này.
-* Nắm Shared Responsibility Model ở mức thực tế: AWS chịu trách nhiệm hạ tầng nền, còn team vẫn chịu trách nhiệm code, IAM và bảo mật secret.
-* Hình thành tư duy cloud-ready cho cấu hình hệ thống: toàn bộ giá trị nhạy cảm tách khỏi source code và sẵn sàng chuyển sang Secrets Manager hoặc SSM.
-
-Tóm lại, tuần 1 đặt nền tảng tư duy vận hành AWS bài bản trước khi đi vào từng dịch vụ cụ thể.
-
 ### Nhật ký lab AWS cá nhân (học độc lập):
 
 **Lab 000001 — Tạo tài khoản AWS và thiết lập IAM cơ bản**
@@ -78,6 +66,14 @@ Tóm lại, tuần 1 đặt nền tảng tư duy vận hành AWS bài bản trư
 * Củng cố nguyên tắc hạn chế dùng root user hằng ngày, tách danh tính thao tác bằng IAM user/role.
 * Thực hành tạo nhiều loại budget (cost, usage, reservation, saving plan) để kiểm soát chi phí sớm.
 * Tham khảo AWS Well-Architected và liên hệ trực tiếp với hướng triển khai của team.
+
+### Tóm tắt kiến thức AWS (rút ra từ nhật ký lab):
+
+* Thiết lập nền tảng bảo mật tài khoản AWS đúng chuẩn bằng MFA, hạn chế dùng root user và phân quyền công việc hằng ngày qua IAM.
+* Hiểu budget và support plan là lớp quản trị giúp cảnh báo sớm chi phí và tăng khả năng phản ứng, nhưng không tự động chặn chi tiêu.
+* Liên kết được các khái niệm Region, AZ, Edge Location với quyết định kiến trúc thực tế về độ sẵn sàng, độ trễ và vị trí dịch vụ.
+* Làm rõ ranh giới root user, IAM user và IAM group để giảm blast radius khi có rủi ro credential.
+* Xác định các đòn bẩy chi phí chính (RI, Savings Plans, Spot, autoscaling, serverless, tagging) ngay từ giai đoạn thiết kế.
 
 ### Kế hoạch tuần tiếp theo:
 
