@@ -1,6 +1,7 @@
 # Change the default theme to be use when building the site with Hugo
 baseURL = "https://tunbin2697.github.io/facj-worklog-/"
 theme = "hugo-theme-learn"
+canonifyURLs = true
 
 # For search functionality
 [outputs]
