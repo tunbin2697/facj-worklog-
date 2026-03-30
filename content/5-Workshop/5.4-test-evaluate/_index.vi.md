@@ -68,6 +68,16 @@ Dùng trình duyệt để kiểm tra luồng redirect tới Cognito Hosted UI v
 - Backend trả `Guest` hoặc không có identity: xác nhận ALB chèn OIDC headers và backend đọc `x-amzn-oidc-identity`.
 - Health checks lỗi: kiểm tra ứng dụng đang lắng nghe cổng đúng và security group cho phép traffic từ ALB.
 
+## Ảnh kết quả
+
+![Guest route](/images/5-Workshop/workshop-resource/result/guest.png)
+
+![Chuyển hướng khi chưa đăng nhập](/images/5-Workshop/workshop-resource/result/unauth-to-login.gif)
+
+![Health check](/images/5-Workshop/workshop-resource/result/health.png)
+
+![Admin route](/images/5-Workshop/workshop-resource/result/admin.png)
+
 ## Giám sát & log
 
 - Log ứng dụng EC2 (CloudWatch) — cấu hình CloudWatch Agent hoặc stream logs.

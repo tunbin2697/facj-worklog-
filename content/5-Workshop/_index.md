@@ -6,7 +6,7 @@ chapter: false
 pre: " <b> 5. </b> "
 ---
 
-# Secure Web Application using Amazon Cognito + Application Load Balancer + EC2
+## Secure Web Application using Amazon Cognito + Application Load Balancer + EC2
 
 ## Overview
 
@@ -16,7 +16,7 @@ This workshop demonstrates an AWS security pattern for web applications: users r
 
 1. [5.1 Workshop Overview](5.1-workshop-overview/)
 2. [5.2 Prerequisites](5.2-prerequiste/)
-3. [5.3 Step-by-step](5.3-s3-vpc/)
+3. [5.3 Step-by-step](5.3-step-by-step/)
 4. [5.4 Test and Evaluate Results](5.4-test-evaluate/)
 5. [5.5 Clean-up](5.5-cleanup/)
 

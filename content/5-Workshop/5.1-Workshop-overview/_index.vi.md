@@ -29,7 +29,7 @@ Trang này giữ ở mức tổng quan ngắn gọn. Vui lòng mở từng mục
 ## Mục lục
 
 1. [5.2 Điều kiện tiên quyết](../5.2-prerequiste/)
-2. [5.3 Hướng dẫn từng bước](../5.3-s3-vpc/)
+2. [5.3 Hướng dẫn từng bước](../5.3-step-by-step/)
 3. [5.4 Kiểm thử và đánh giá kết quả](../5.4-test-evaluate/)
 4. [5.5 Dọn dẹp tài nguyên](../5.5-cleanup/)
 
@@ -40,7 +40,8 @@ Trang này giữ ở mức tổng quan ngắn gọn. Vui lòng mở từng mục
 3. Path bảo vệ sẽ chuyển hướng sang Cognito Hosted UI.
 4. Sau khi đăng nhập, ALB forward vào EC2 kèm identity headers.
 
-```text
-[Insert architecture diagram here]
-```
+![Sơ đồ kiến trúc workshop](/images/5-Workshop/workshop-resource/diagram/aws%20architecture%20diagram%20workshop.png)
+
+![Sơ đồ EC2 private](/images/5-Workshop/workshop-resource/diagram/private%20ec2%20-%20aws%20architeture%20diagram%20workshop%20.png)
+
 CLI (optional): use AWS CLI to automate user/group creation for larger demos.

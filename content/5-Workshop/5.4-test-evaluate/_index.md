@@ -68,6 +68,16 @@ Use a browser to validate the full Cognito Hosted UI redirect flow and token exc
 - Backend shows `Guest` or no identity: ensure ALB listener forwards OIDC headers and the backend reads `x-amzn-oidc-identity`.
 - Health checks failing: confirm application is listening on expected port and security groups allow ALB -> EC2 traffic.
 
+## Result screenshots
+
+![Guest route](/images/5-Workshop/workshop-resource/result/guest.png)
+
+![Unauthenticated redirect](/images/5-Workshop/workshop-resource/result/unauth-to-login.gif)
+
+![Health check](/images/5-Workshop/workshop-resource/result/health.png)
+
+![Admin route](/images/5-Workshop/workshop-resource/result/admin.png)
+
 ## Monitoring & logs
 
 - EC2 application logs (CloudWatch) — configure CloudWatch Agent or stream application logs.

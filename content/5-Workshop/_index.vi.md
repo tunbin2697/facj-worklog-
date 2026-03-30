@@ -6,7 +6,7 @@ chapter: false
 pre: " <b> 5. </b> "
 ---
 
-# Secure Web Application using Amazon Cognito + Application Load Balancer + EC2
+## Secure Web Application using Amazon Cognito + Application Load Balancer + EC2
 
 ## Tổng quan
 
