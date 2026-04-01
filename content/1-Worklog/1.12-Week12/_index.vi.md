@@ -18,15 +18,15 @@ pre: " <b> 1.12. </b> "
 | Ngày | Nhiệm vụ | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
 | --- | --- | --- | --- | --- |
 | 1 | - Chuẩn bị cho bài thuyết trình cuối <br>&emsp; + Tổng duyệt lần cuối cùng cùng với team <br>&emsp; + Chuẩn bị video demo dự phòng cho ứng dụng myFit <br>&emsp; + Kiểm tra lại thiết lập kỹ thuật của API và Bedrock | 30/03/2026 | 30/03/2026 | [Presentation] |
-| 2 | - Thuyết trình cuối cùng <br>&emsp; + Trình bày myFit trước ban lãnh đạo FCJ <br>&emsp; + Demo trực tiếp kèm phần hỏi đáp (Q&A) <br>&emsp; + Nhận được lời khen về kiến trúc Spring Boot và AWS vững chắc | 31/03/2026 | 31/03/2026 | [Presentation Recording] |
+| 2 | - Thuyết trình cuối cùng <br>&emsp; + Trình bày myFit trước ban lãnh đạo FCAJ <br>&emsp; + Demo trực tiếp kèm phần hỏi đáp (Q&A) <br>&emsp; + Nhận được lời khen về kiến trúc Spring Boot và AWS vững chắc | 31/03/2026 | 31/03/2026 | [Presentation Recording] |
 | 3 | - Tự đánh giá <br>&emsp; + Hoàn thành biểu mẫu tự đánh giá <br>&emsp; + Nhìn lại hành trình 12 tuần <br>&emsp; + Xác định các điểm mạnh kỹ thuật và các lĩnh vực cần phát triển thêm | 01/04/2026 | 01/04/2026 | [Evaluation Form] |
-| 4 | - Phản hồi về chương trình <br>&emsp; + Viết phản hồi chi tiết cho chương trình FCJ <br>&emsp; + Nêu bật những trải nghiệm tích cực <br>&emsp; + Đề xuất cải thiện cho các thực tập sinh trong tương lai | 02/04/2026 | 02/04/2026 | [Feedback Form] |
+| 4 | - Phản hồi về chương trình <br>&emsp; + Viết phản hồi chi tiết cho chương trình FCAJ <br>&emsp; + Nêu bật những trải nghiệm tích cực <br>&emsp; + Đề xuất cải thiện cho các thực tập sinh trong tương lai | 02/04/2026 | 02/04/2026 | [Feedback Form] |
 | 6-7 | - Ăn mừng & tổng kết <br>&emsp; + Tiệc ăn mừng cùng team <br>&emsp; + Chuyển giao kiến thức và bàn giao dự án <br>&emsp; + Đăng bài trên LinkedIn về trải nghiệm thực tập | 04/04/2026 | 05/04/2026 | [Photos] |
 
 ### Thành tựu Tuần 12
 
 * **Bài thuyết trình cuối:**
-  * Trình bày thành công ứng dụng myFit trước các bên liên quan và mentor của FCJ.
+  * Trình bày thành công ứng dụng myFit trước các bên liên quan và mentor của FCAJ.
   * Demo trực tiếp ứng dụng React Native và tính năng AI Chat Bedrock diễn ra suôn sẻ, không gặp sự cố kỹ thuật.
 
 * **Hoàn thành dự án:**
@@ -61,13 +61,13 @@ pre: " <b> 1.12. </b> "
 
 ### Suy ngẫm cuối cùng
 
-Kỳ thực tập 12 tuần thông qua chương trình FCJ là một trải nghiệm mang tính bước ngoặt. Từ việc thiết kế các schema PostgreSQL ban đầu ở Tuần 1 cho đến khi triển khai một ứng dụng React Native tích hợp AI hoàn chỉnh ở Tuần 12, hành trình này đã giúp tôi hiểu rõ tầm quan trọng của:
+Kỳ thực tập 12 tuần thông qua chương trình FCAJ là một trải nghiệm mang tính bước ngoặt. Từ việc thiết kế các schema PostgreSQL ban đầu ở Tuần 1 cho đến khi triển khai một ứng dụng React Native tích hợp AI hoàn chỉnh ở Tuần 12, hành trình này đã giúp tôi hiểu rõ tầm quan trọng của:
 
 1. **Security by design**, đặc biệt là phòng chống IDOR, quản lý JWT stateless và tích hợp AWS Cognito một cách an toàn.
 2. **Separation of concerns** trong toàn bộ hệ thống (sử dụng Redux cho auth, React Query cho server cache và giữ cho backend service layer sạch sẽ).
 3. **Vận hành cloud theo mô hình Well-Architected**, đảm bảo containerization ổn định và có lộ trình triển khai AWS rõ ràng.
 4. **Hợp tác nhóm và tài liệu hóa**, là chìa khóa để đảm bảo khả năng bảo trì và bàn giao dự án thành công.
 
-Tôi vô cùng biết ơn các mentor của FCJ, các AWS Solution Architect và đồng nghiệp đã giúp trải nghiệm này trở nên đáng nhớ. Đây không phải là điểm kết thúc, mà là nền tảng vững chắc cho hành trình cloud và full-stack trong tương lai của tôi! ☁️🚀
+Tôi vô cùng biết ơn các mentor của FCAJ, các AWS Solution Architect và đồng nghiệp đã giúp trải nghiệm này trở nên đáng nhớ. Đây không phải là điểm kết thúc, mà là nền tảng vững chắc cho hành trình cloud và full-stack trong tương lai của tôi! ☁️🚀
 
 
