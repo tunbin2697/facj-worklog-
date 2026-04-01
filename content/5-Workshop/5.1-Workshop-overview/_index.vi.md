@@ -42,6 +42,6 @@ Trang này giữ ở mức tổng quan ngắn gọn. Vui lòng mở từng mục
 
 ![Sơ đồ kiến trúc workshop](/images/5-Workshop/workshop-resource/diagram/aws%20architecture%20diagram%20workshop.png)
 
-![Sơ đồ EC2 private](/images/5-Workshop/workshop-resource/diagram/private%20ec2%20-%20aws%20architeture%20diagram%20workshop%20.png)
+![Sơ đồ EC2 private](/images/5-Workshop/workshop-resource/diagram/private%20ec2%20-%20aws%20architeture%20diagram%20workshop.png)
 
 CLI (optional): use AWS CLI to automate user/group creation for larger demos.

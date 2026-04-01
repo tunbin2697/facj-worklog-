@@ -1,126 +1,52 @@
 ---
-title: "Blog 3"
-date: 2024-01-01
-weight: 1
+title: "AWS Weekly Roundup: AWS AI/ML Scholars program, Agent Plugin for AWS Serverless, and more (March 30, 2026)"
+date: 2026-03-30
+weight: 3
 chapter: false
 pre: " <b> 3.3. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
+
+{{% notice info %}}
+Reproduced with permission for educational use. Original: "AWS Weekly Roundup: AWS AI/ML Scholars program, Agent Plugin for AWS Serverless, and more (March 30, 2026)" by Prasad Rao — https://aws.amazon.com/blogs/aws/aws-weekly-roundup-aws-ai-ml-scholars-program-agent-plugin-for-aws-serverless-and-more-march-30-2026/
 {{% /notice %}}
 
-# Getting Started with Healthcare Data Lakes: Using Microservices
+# AWS Weekly Roundup: AWS AI/ML Scholars program, Agent Plugin for AWS Serverless, and more (March 30, 2026)
 
-Data lakes can help hospitals and healthcare facilities turn data into business insights, maintain business continuity, and protect patient privacy. A **data lake** is a centralized, managed, and secure repository to store all your data, both in its raw and processed forms for analysis. Data lakes allow you to break down data silos and combine different types of analytics to gain insights and make better business decisions.
+Last week, what excited me most was the [launch of the 2026 AWS AI and ML Scholars program](https://www.linkedin.com/posts/swaminathansivasubramanian_excited-to-share-that-applications-are-ugcPost-7442263176475410433-8c8k?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAUt4OcBCLB3u7KY4pbSog9XZD5vI10JCzU) by [Swami Sivasubramanian](https://www.linkedin.com/in/swaminathansivasubramanian/), VP of AWS Agentic AI, to provide free AI education to up to 100,000 learners worldwide. The program has two phases: a Challenge phase where you will learn foundational generative AI skills, followed by a fully funded three-month Udacity Nanodegree for the top 4,500 performers. Anyone 18 or older can apply, with no prior AI or ML experience required. Applications close on June 24, 2026. Visit the [AWS AI and ML Scholars webpage](https://aws.amazon.com/about-aws/our-impact/scholars/?utm_source=linkedin&utm_medium=s-post&utm_campaign=launch) to learn more and apply.
 
-This blog post is part of a larger series on getting started with setting up a healthcare data lake. In my final post of the series, *“Getting Started with Healthcare Data Lakes: Diving into Amazon Cognito”*, I focused on the specifics of using Amazon Cognito and Attribute Based Access Control (ABAC) to authenticate and authorize users in the healthcare data lake solution. In this blog, I detail how the solution evolved at a foundational level, including the design decisions I made and the additional features used. You can access the code samples for the solution in this Git repo for reference.
+![The AWS AI and ML Scholars Program is back](https://d2908q01vomqb2.cloudfront.net/da4b9237bacccdf19c0760cab7aec4a8359010b0/2026/03/27/AWS-AIML.png)
 
----
+I am also excited about the start of [AWS Summit](https://aws.amazon.com/events/summits/) season, kicking off with AWS Summit Paris on April 1, followed by London on April 22. AWS Summits are free in-person events where builders and innovators can learn about Cloud and AI, think big, and make new connections. [Explore the AWS Summits](https://aws.amazon.com/events/summits/#empowering-you-to-innovate-with-aws) near you and join us in person.
 
-## Architecture Guidance
+Now, let us dive into this week's AWS news.
 
-The main change since the last presentation of the overall architecture is the decomposition of a single service into a set of smaller services to improve maintainability and flexibility. Integrating a large volume of diverse healthcare data often requires specialized connectors for each format; by keeping them encapsulated separately as microservices, we can add, remove, and modify each connector without affecting the others. The microservices are loosely coupled via publish/subscribe messaging centered in what I call the “pub/sub hub.”
+## Last week's launches
 
-This solution represents what I would consider another reasonable sprint iteration from my last post. The scope is still limited to the ingestion and basic parsing of **HL7v2 messages** formatted in **Encoding Rules 7 (ER7)** through a REST interface.
+Here are last week's launches that caught my attention:
 
-**The solution architecture is now as follows:**
+- [Announcing Amazon Aurora PostgreSQL serverless database creation in seconds](https://aws.amazon.com/blogs/aws/announcing-amazon-aurora-postgresql-serverless-database-creation-in-seconds/) - Amazon Aurora PostgreSQL now offers express configuration, a streamlined setup with preconfigured defaults that supports creating and connecting to a database in seconds. With just two clicks, you can launch an Aurora PostgreSQL serverless database. You can modify certain settings during or after creation.
+- [Amazon Aurora PostgreSQL now available with the AWS Free Tier](https://aws.amazon.com/about-aws/whats-new/2026/03/amazon-aurora-postgresql-aws-free-tier/) - Amazon Aurora PostgreSQL is now available on the AWS Free Tier. If you are new to AWS, you receive $100 in AWS credits upon sign-up and can earn an additional $100 in credits by using services like Amazon Relational Database Service (Amazon RDS).
+- [Announcing Agent Plugin for AWS Serverless](https://aws.amazon.com/about-aws/whats-new/2026/03/agent-plugin-aws-serverless/) - With the new Agent Plugin for AWS Serverless, you can easily build, deploy, troubleshoot, and manage serverless applications using AI coding assistants like Kiro, Claude Code, and Cursor. This plugin extends AI assistants with structured capabilities by packaging skills, sub-agents, and Model Context Protocol (MCP) servers into one modular unit. It automatically loads the guidance and expertise you need throughout development to build production-ready serverless applications on AWS.
+- [Amazon SageMaker Studio now supports Kiro and Cursor IDEs as remote IDEs](https://aws.amazon.com/about-aws/whats-new/2026/03/amazon-sagemaker-studio-kiro-cursor/) - You can now remotely connect from Kiro and Cursor IDEs to Amazon SageMaker Studio. This lets you use your existing Kiro and Cursor setup, including spec-driven development, conversational coding, and automated feature generation, while accessing the scalable compute resources of Amazon SageMaker Studio.
+- [Introducing visual customization capability in AWS Management Console](https://aws.amazon.com/blogs/aws/customize-your-aws-management-console-experience-with-visual-settings-including-account-color-region-and-service-visibility/) - You can now customize your AWS Management Console with visual settings like account color and control which regions and services you see. Hiding unused regions and services helps you focus better and work faster by reducing cognitive load and unnecessary scrolling.
+- [Announcing Aurora DSQL connector to simplify building Ruby applications](https://aws.amazon.com/about-aws/whats-new/2026/03/aurora-dsql-connector-for-ruby/) - You can now use the Aurora DSQL Connector for Ruby (pg gem) to easily build Ruby applications on Aurora DSQL. The Ruby Connector simplifies authentication and improves security by automatically generating tokens for each connection, eliminating the risks of traditional passwords while maintaining full compatibility with existing pg gem features.
+- [AWS Lambda increases the file descriptor limit for functions running on Lambda Managed Instances](https://aws.amazon.com/about-aws/whats-new/2026/03/aws-Lambda-file-descriptors-increase-4096/) - AWS Lambda increases the file descriptor limit from 1,024 to 4,096, a 4x increase, for functions running on Lambda Managed Instances (LMI). You can now run I/O intensive workloads such as high-concurrency web services and file-heavy data processing pipelines without running into file descriptor limits.
+- [AWS Lambda now supports up to 32 GB of memory and 16 vCPUs for Lambda Managed Instances](https://aws.amazon.com/about-aws/whats-new/2026/03/lambda-32-gb-memory-16-vcpus/) - AWS Lambda functions on Lambda Managed Instances now support up to 32 GB of memory and 16 vCPUs. You can run compute-intensive workloads like data processing, media transcoding, and scientific simulations without managing infrastructure. Plus, you can adjust the memory-to-vCPU ratio (2:1, 4:1, or 8:1) to fit your workload.
+- [Announcing Bidirectional Streaming API for Amazon Polly](https://aws.amazon.com/blogs/machine-learning/introducing-amazon-polly-bidirectional-streaming-real-time-speech-synthesis-for-conversational-ai/) - Traditional text-to-speech APIs use a request-response pattern. The new Bidirectional Streaming API for Amazon Polly is designed for conversational AI applications that generate text or audio incrementally, like large language model (LLM) responses. This lets you start synthesizing audio before the full text is available.
 
-> *Figure 1. Overall architecture; colored boxes represent distinct services.*
+For a full list of AWS announcements, be sure to keep an eye on our [News Blog](https://aws.amazon.com/blogs/aws/) channel and the [What's New with AWS](https://aws.amazon.com/new/) page.
 
----
+## Upcoming AWS events
 
-While the term *microservices* has some inherent ambiguity, certain traits are common:  
-- Small, autonomous, loosely coupled  
-- Reusable, communicating through well-defined interfaces  
-- Specialized to do one thing well  
-- Often implemented in an **event-driven architecture**
+Check your calendar and sign up for upcoming AWS events:
 
-When determining where to draw boundaries between microservices, consider:  
-- **Intrinsic**: technology used, performance, reliability, scalability  
-- **Extrinsic**: dependent functionality, rate of change, reusability  
-- **Human**: team ownership, managing *cognitive load*
+- [AWS Summits](https://aws.amazon.com/events/summits/) - As I mentioned earlier, join AWS Summits in 2026 for free in-person events where you can explore emerging cloud and AI technologies, learn best practices, and network with industry peers and experts. Upcoming Summits include Paris (April 1), London (April 22), Bengaluru (April 23-24), Singapore (May 6), Tel Aviv (May 6), and Stockholm (May 7).
+- [AWS Community Days](https://aws.amazon.com/developer/community/community-days/) - Community-led conferences where content is planned, sourced, and delivered by community leaders, featuring technical discussions, workshops, and hands-on labs. Upcoming events include San Francisco (April 10) and Romania (April 23-24).
 
----
+Join the [AWS Builder Center](https://builder.aws.com/) to connect with builders, share solutions, and access content that supports your development. Browse the [AWS Events and Webinars](https://aws.amazon.com/events/) for upcoming AWS-led in-person and virtual events and developer-focused events.
 
-## Technology Choices and Communication Scope
+That is all for this week. Check back next Monday for another [Weekly Roundup](https://aws.amazon.com/blogs/aws/tag/week-in-review/?trk=7c8639c6-87c6-47d6-9bd0-a5812eecb848&sc_channel=el).
 
-| Communication scope                       | Technologies / patterns to consider                                                        |
-| ----------------------------------------- | ------------------------------------------------------------------------------------------ |
-| Within a single microservice              | Amazon Simple Queue Service (Amazon SQS), AWS Step Functions                               |
-| Between microservices in a single service | AWS CloudFormation cross-stack references, Amazon Simple Notification Service (Amazon SNS) |
-| Between services                          | Amazon EventBridge, AWS Cloud Map, Amazon API Gateway                                      |
+- [Prasad](https://www.linkedin.com/in/kprasadrao/)
 
----
-
-## The Pub/Sub Hub
-
-Using a **hub-and-spoke** architecture (or message broker) works well with a small number of tightly related microservices.  
-- Each microservice depends only on the *hub*  
-- Inter-microservice connections are limited to the contents of the published message  
-- Reduces the number of synchronous calls since pub/sub is a one-way asynchronous *push*
-
-Drawback: **coordination and monitoring** are needed to avoid microservices processing the wrong message.
-
----
-
-## Core Microservice
-
-Provides foundational data and communication layer, including:  
-- **Amazon S3** bucket for data  
-- **Amazon DynamoDB** for data catalog  
-- **AWS Lambda** to write messages into the data lake and catalog  
-- **Amazon SNS** topic as the *hub*  
-- **Amazon S3** bucket for artifacts such as Lambda code
-
-> Only allow indirect write access to the data lake through a Lambda function → ensures consistency.
-
----
-
-## Front Door Microservice
-
-- Provides an API Gateway for external REST interaction  
-- Authentication & authorization based on **OIDC** via **Amazon Cognito**  
-- Self-managed *deduplication* mechanism using DynamoDB instead of SNS FIFO because:  
-  1. SNS deduplication TTL is only 5 minutes  
-  2. SNS FIFO requires SQS FIFO  
-  3. Ability to proactively notify the sender that the message is a duplicate  
-
----
-
-## Staging ER7 Microservice
-
-- Lambda “trigger” subscribed to the pub/sub hub, filtering messages by attribute  
-- Step Functions Express Workflow to convert ER7 → JSON  
-- Two Lambdas:  
-  1. Fix ER7 formatting (newline, carriage return)  
-  2. Parsing logic  
-- Result or error is pushed back into the pub/sub hub  
-
----
-
-## New Features in the Solution
-
-### 1. AWS CloudFormation Cross-Stack References
-Example *outputs* in the core microservice:
-```yaml
-Outputs:
-  Bucket:
-    Value: !Ref Bucket
-    Export:
-      Name: !Sub ${AWS::StackName}-Bucket
-  ArtifactBucket:
-    Value: !Ref ArtifactBucket
-    Export:
-      Name: !Sub ${AWS::StackName}-ArtifactBucket
-  Topic:
-    Value: !Ref Topic
-    Export:
-      Name: !Sub ${AWS::StackName}-Topic
-  Catalog:
-    Value: !Ref Catalog
-    Export:
-      Name: !Sub ${AWS::StackName}-Catalog
-  CatalogArn:
-    Value: !GetAtt Catalog.Arn
-    Export:
-      Name: !Sub ${AWS::StackName}-CatalogArn
+*This post is part of our Weekly Roundup series. Check back each week for a quick roundup of interesting news and announcements from AWS.*

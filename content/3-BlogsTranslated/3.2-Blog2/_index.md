@@ -1,126 +1,95 @@
 ---
-title: "Blog 2"
-date: 2024-01-01
-weight: 1
+title: "Customize your AWS Management Console experience with visual settings including account color, region and service visibility"
+date: 2026-03-26
+weight: 2
 chapter: false
 pre: " <b> 3.2. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
+
+{{% notice info %}}
+Reproduced with permission for educational use. Original: "Customize your AWS Management Console experience with visual settings including account color, region and service visibility" by Channy Yun, 26 MAR 2026 — https://aws.amazon.com/blogs/aws/customize-your-aws-management-console-experience-with-visual-settings-including-account-color-region-and-service-visibility/
 {{% /notice %}}
 
-# Getting Started with Healthcare Data Lakes: Using Microservices
+# Customize your AWS Management Console experience with visual settings including account color, region and service visibility
 
-Data lakes can help hospitals and healthcare facilities turn data into business insights, maintain business continuity, and protect patient privacy. A **data lake** is a centralized, managed, and secure repository to store all your data, both in its raw and processed forms for analysis. Data lakes allow you to break down data silos and combine different types of analytics to gain insights and make better business decisions.
+by [Channy Yun (윤석찬)](https://aws.amazon.com/blogs/aws/author/channy-yun/) | on 26 MAR 2026
 
-This blog post is part of a larger series on getting started with setting up a healthcare data lake. In my final post of the series, *“Getting Started with Healthcare Data Lakes: Diving into Amazon Cognito”*, I focused on the specifics of using Amazon Cognito and Attribute Based Access Control (ABAC) to authenticate and authorize users in the healthcare data lake solution. In this blog, I detail how the solution evolved at a foundational level, including the design decisions I made and the additional features used. You can access the code samples for the solution in this Git repo for reference.
+In August 2025, we introduced [AWS User Experience Customization (UXC)](https://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/getting-started-uxc.html) capability to tailor user interfaces (UIs) to meet your specific needs and complete your tasks efficiently. With this capability, your account administrator can customize some UI component of [AWS Management Console](https://console.aws.amazon.com/) such as [assigning a color to an AWS account](https://aws.amazon.com/about-aws/whats-new/2025/08/aws-management-console-assigning-color-aws-account/) for easier identification.
 
----
+Today, we are announcing additional customization capability in UXC that enables selective display of relevant AWS Regions and services for your team members. By hiding unused Regions and services, you can reduce cognitive load and eliminate unnecessary clicks and scrolling, helping you focus better and work faster. With this launch, we offer the ability to customize account color, Region, and service visibility together.
 
-## Architecture Guidance
+## Categorize account by color
 
-The main change since the last presentation of the overall architecture is the decomposition of a single service into a set of smaller services to improve maintainability and flexibility. Integrating a large volume of diverse healthcare data often requires specialized connectors for each format; by keeping them encapsulated separately as microservices, we can add, remove, and modify each connector without affecting the others. The microservices are loosely coupled via publish/subscribe messaging centered in what I call the “pub/sub hub.”
+You can set a color for your accounts to visually distinguish between them. To get started, sign in to the [AWS Management Console](https://console.aws.amazon.com/) and choose your account name on the navigation bar. Your account color is not set yet. To set the color, choose **Account**.
 
-This solution represents what I would consider another reasonable sprint iteration from my last post. The scope is still limited to the ingestion and basic parsing of **HL7v2 messages** formatted in **Encoding Rules 7 (ER7)** through a REST interface.
+![](https://d2908q01vomqb2.cloudfront.net/da4b9237bacccdf19c0760cab7aec4a8359010b0/2026/03/18/2026-aws-uxc-1-change-color-1.png)
 
-**The solution architecture is now as follows:**
+In the **Account display settings**, select your preferred account color and choose **Update**. You can see the chosen color in the navigation bar.
 
-> *Figure 1. Overall architecture; colored boxes represent distinct services.*
+![](https://d2908q01vomqb2.cloudfront.net/da4b9237bacccdf19c0760cab7aec4a8359010b0/2026/03/18/2026-aws-uxc-1-change-color-setting.png)
 
----
+By changing the account color, you can clearly distinguish the account's purpose. For example, you can use orange for development accounts, light blue for test accounts, and red for production accounts.
 
-While the term *microservices* has some inherent ambiguity, certain traits are common:  
-- Small, autonomous, loosely coupled  
-- Reusable, communicating through well-defined interfaces  
-- Specialized to do one thing well  
-- Often implemented in an **event-driven architecture**
+## Customize Regions and services visibility
 
-When determining where to draw boundaries between microservices, consider:  
-- **Intrinsic**: technology used, performance, reliability, scalability  
-- **Extrinsic**: dependent functionality, rate of change, reusability  
-- **Human**: team ownership, managing *cognitive load*
+You can control which AWS Regions appear in the Region selector or which AWS services appear in the console navigation. In other words, you can set to show only the Regions and services that are relevant to your account.
 
----
+To get started, choose the gear icon on the navigation bar and choose **See all user settings**. If you are in an administrator role, you can see a new **Account settings** tab in the unified settings. If you have not configured a setting, all Regions and services are visible.
 
-## Technology Choices and Communication Scope
+![](https://d2908q01vomqb2.cloudfront.net/da4b9237bacccdf19c0760cab7aec4a8359010b0/2026/03/18/2026-aws-uxc-2-visible-setting-1.png)
 
-| Communication scope                       | Technologies / patterns to consider                                                        |
-| ----------------------------------------- | ------------------------------------------------------------------------------------------ |
-| Within a single microservice              | Amazon Simple Queue Service (Amazon SQS), AWS Step Functions                               |
-| Between microservices in a single service | AWS CloudFormation cross-stack references, Amazon Simple Notification Service (Amazon SNS) |
-| Between services                          | Amazon EventBridge, AWS Cloud Map, Amazon API Gateway                                      |
+To set visible Regions, choose **Edit** in the **Visible Regions** section. Select your visible Regions to **All available Regions** or **Select Regions** and configure your list. Choose **Save changes**.
 
----
+![](https://d2908q01vomqb2.cloudfront.net/da4b9237bacccdf19c0760cab7aec4a8359010b0/2026/03/18/2026-aws-uxc-2-visible-setting-1-Regions.png)
 
-## The Pub/Sub Hub
+After configuring visible Region setting, you will find only selected Regions in the Regions selector on the navigation bar in the console.
 
-Using a **hub-and-spoke** architecture (or message broker) works well with a small number of tightly related microservices.  
-- Each microservice depends only on the *hub*  
-- Inter-microservice connections are limited to the contents of the published message  
-- Reduces the number of synchronous calls since pub/sub is a one-way asynchronous *push*
+![](https://d2908q01vomqb2.cloudfront.net/da4b9237bacccdf19c0760cab7aec4a8359010b0/2026/03/18/2026-aws-uxc-3-Regions.png)
 
-Drawback: **coordination and monitoring** are needed to avoid microservices processing the wrong message.
+You can also set visible services in the same way. Search or select services from the category. I used the **Popular services** category to select my favorites. When you finish selection, choose **Save changes**.
 
----
+![](https://d2908q01vomqb2.cloudfront.net/da4b9237bacccdf19c0760cab7aec4a8359010b0/2026/03/18/2026-aws-uxc-2-visible-setting-2-Services.png)
 
-## Core Microservice
+After configuring visible services setting, you will find only selected services in the **All services** menu on the navigation bar.
 
-Provides foundational data and communication layer, including:  
-- **Amazon S3** bucket for data  
-- **Amazon DynamoDB** for data catalog  
-- **AWS Lambda** to write messages into the data lake and catalog  
-- **Amazon SNS** topic as the *hub*  
-- **Amazon S3** bucket for artifacts such as Lambda code
+![](https://d2908q01vomqb2.cloudfront.net/da4b9237bacccdf19c0760cab7aec4a8359010b0/2026/03/18/2026-aws-uxc-4-Services.png)
 
-> Only allow indirect write access to the data lake through a Lambda function → ensures consistency.
+When you search the service name in the search bar, you can only choose selected services.
 
----
+![](https://d2908q01vomqb2.cloudfront.net/da4b9237bacccdf19c0760cab7aec4a8359010b0/2026/03/18/2026-aws-uxc-4-Services-search.png)
 
-## Front Door Microservice
+The Regions and services visibility settings control only the appearance of services and Regions in the console. They do not restrict access through the [AWS Command Line Interface (AWS CLI)](https://aws.amazon.com/cli/), [AWS SDKs](https://builder.aws.com/build/tools), AWS APIs, or [Amazon Q Developer](https://aws.amazon.com/q/developer/).
 
-- Provides an API Gateway for external REST interaction  
-- Authentication & authorization based on **OIDC** via **Amazon Cognito**  
-- Self-managed *deduplication* mechanism using DynamoDB instead of SNS FIFO because:  
-  1. SNS deduplication TTL is only 5 minutes  
-  2. SNS FIFO requires SQS FIFO  
-  3. Ability to proactively notify the sender that the message is a duplicate  
+You can also manage these account customization settings programmatically with new `visibleServices` and `visibleRegions` parameters. For example, you can use [AWS CloudFormation](https://aws.amazon.com/cloudformation/) sample template:
 
----
-
-## Staging ER7 Microservice
-
-- Lambda “trigger” subscribed to the pub/sub hub, filtering messages by attribute  
-- Step Functions Express Workflow to convert ER7 → JSON  
-- Two Lambdas:  
-  1. Fix ER7 formatting (newline, carriage return)  
-  2. Parsing logic  
-- Result or error is pushed back into the pub/sub hub  
-
----
-
-## New Features in the Solution
-
-### 1. AWS CloudFormation Cross-Stack References
-Example *outputs* in the core microservice:
 ```yaml
-Outputs:
-  Bucket:
-    Value: !Ref Bucket
-    Export:
-      Name: !Sub ${AWS::StackName}-Bucket
-  ArtifactBucket:
-    Value: !Ref ArtifactBucket
-    Export:
-      Name: !Sub ${AWS::StackName}-ArtifactBucket
-  Topic:
-    Value: !Ref Topic
-    Export:
-      Name: !Sub ${AWS::StackName}-Topic
-  Catalog:
-    Value: !Ref Catalog
-    Export:
-      Name: !Sub ${AWS::StackName}-Catalog
-  CatalogArn:
-    Value: !GetAtt Catalog.Arn
-    Export:
-      Name: !Sub ${AWS::StackName}-CatalogArn
+AWSTemplateFormatVersion: "2010-09-09"
+Description: Customize AWS Console appearance for this account
+
+Resources:
+  AccountCustomization:
+    Type: AWS::UXC::AccountCustomization
+    Properties:
+      AccountColor: red
+      VisibleServices:
+        - s3
+        - ec2
+        - lambda
+      VisibleRegions:
+        - us-east-1
+        - us-west-2
+```
+
+And you can deploy your CloudFormation template.
+
+```bash
+$ aws cloudformation deploy \
+  --template-file account-customization.yaml \
+  --stack-name my-account-customization
+```
+
+To learn more, visit the [AWS User Experience Customization API Reference](https://docs.aws.amazon.com/awsconsolehelpdocs/latest/APIReference/Welcome.html) and [AWS CloudFormation template reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-uxc-accountcustomization.html).
+
+Give it a try in the [AWS Management Console](https://console.aws.amazon.com/) today and provide feedback by selecting the **Feedback** link at the bottom of the console, posting to the [AWS re:Post forum for the AWS Management Console](https://repost.aws/tags/TAnTglnGsnR_CdJMgsyCH_uA/aws-management-console), or reaching out to your AWS Support contacts.
+
+- [Channy](https://linkedin.com/in/channy/)

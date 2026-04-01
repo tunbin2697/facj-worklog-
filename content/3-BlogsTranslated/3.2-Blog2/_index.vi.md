@@ -1,127 +1,95 @@
 ---
-title: "Blog 2"
-date: 2024-01-01
-weight: 1
+title: "Tuy chinh AWS Management Console voi mau tai khoan, region va dich vu hien thi"
+date: 2026-03-26
+weight: 2
 chapter: false
 pre: " <b> 3.2. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
+{{% notice info %}}
+Bản dịch tiếng Việt phục vụ mục đích học tập. Bài gốc: "Customize your AWS Management Console experience with visual settings including account color, region and service visibility" by Channy Yun, 26 MAR 2026 — https://aws.amazon.com/blogs/aws/customize-your-aws-management-console-experience-with-visual-settings-including-account-color-region-and-service-visibility/
 {{% /notice %}}
 
-# Bắt đầu với healthcare data lakes: Sử dụng microservices
+# Tuy chinh AWS Management Console voi mau tai khoan, region va dich vu hien thi
 
-Các data lake có thể giúp các bệnh viện và cơ sở y tế chuyển dữ liệu thành những thông tin chi tiết về doanh nghiệp và duy trì hoạt động kinh doanh liên tục, đồng thời bảo vệ quyền riêng tư của bệnh nhân. **Data lake** là một kho lưu trữ tập trung, được quản lý và bảo mật để lưu trữ tất cả dữ liệu của bạn, cả ở dạng ban đầu và đã xử lý để phân tích. data lake cho phép bạn chia nhỏ các kho chứa dữ liệu và kết hợp các loại phân tích khác nhau để có được thông tin chi tiết và đưa ra các quyết định kinh doanh tốt hơn.
+Tac gia goc: [Channy Yun (윤석찬)](https://aws.amazon.com/blogs/aws/author/channy-yun/) | Ngay dang: 26 MAR 2026
 
-Bài đăng trên blog này là một phần của loạt bài lớn hơn về việc bắt đầu cài đặt data lake dành cho lĩnh vực y tế. Trong bài đăng blog cuối cùng của tôi trong loạt bài, *“Bắt đầu với data lake dành cho lĩnh vực y tế: Đào sâu vào Amazon Cognito”*, tôi tập trung vào các chi tiết cụ thể của việc sử dụng Amazon Cognito và Attribute Based Access Control (ABAC) để xác thực và ủy quyền người dùng trong giải pháp data lake y tế. Trong blog này, tôi trình bày chi tiết cách giải pháp đã phát triển ở cấp độ cơ bản, bao gồm các quyết định thiết kế mà tôi đã đưa ra và các tính năng bổ sung được sử dụng. Bạn có thể truy cập các code samples cho giải pháp tại Git repo này để tham khảo.
+Vào tháng 8/2025, AWS đã giới thiệu khả năng [AWS User Experience Customization (UXC)](https://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/getting-started-uxc.html), cho phép tùy chỉnh giao diện người dùng (UI) theo nhu cầu cụ thể để hoàn thành công việc hiệu quả hơn. Với khả năng này, quản trị viên tài khoản có thể tùy chỉnh một số thành phần giao diện của [AWS Management Console](https://console.aws.amazon.com/), ví dụ như [gán màu cho tài khoản AWS](https://aws.amazon.com/about-aws/whats-new/2025/08/aws-management-console-assigning-color-aws-account/) để dễ nhận diện.
 
----
+Hôm nay, AWS công bố thêm khả năng tùy chỉnh trong UXC, cho phép hiển thị chọn lọc các AWS Region và dịch vụ phù hợp cho từng thành viên trong nhóm. Bằng cách ẩn các Region và dịch vụ không dùng, bạn có thể giảm tải nhận thức, giảm thao tác thừa khi nhấp và cuộn, từ đó tập trung tốt hơn và làm việc nhanh hơn. Với lần ra mắt này, bạn có thể tùy chỉnh đồng thời màu tài khoản, Region, và khả năng hiển thị dịch vụ.
 
-## Hướng dẫn kiến trúc
+## Phân loại tài khoản bằng màu
 
-Thay đổi chính kể từ lần trình bày cuối cùng của kiến trúc tổng thể là việc tách dịch vụ đơn lẻ thành một tập hợp các dịch vụ nhỏ để cải thiện khả năng bảo trì và tính linh hoạt. Việc tích hợp một lượng lớn dữ liệu y tế khác nhau thường yêu cầu các trình kết nối chuyên biệt cho từng định dạng; bằng cách giữ chúng được đóng gói riêng biệt với microservices, chúng ta có thể thêm, xóa và sửa đổi từng trình kết nối mà không ảnh hưởng đến những kết nối khác. Các microservices được kết nối rời thông qua tin nhắn publish/subscribe tập trung trong cái mà tôi gọi là “pub/sub hub”.
+Bạn có thể đặt màu cho từng tài khoản để phân biệt trực quan. Để bắt đầu, đăng nhập [AWS Management Console](https://console.aws.amazon.com/) và chọn tên tài khoản trên thanh điều hướng. Nếu tài khoản chưa có màu, hãy chọn **Account** để thiết lập.
 
-Giải pháp này đại diện cho những gì tôi sẽ coi là một lần lặp nước rút hợp lý khác từ last post của tôi. Phạm vi vẫn được giới hạn trong việc nhập và phân tích cú pháp đơn giản của các **HL7v2 messages** được định dạng theo **Quy tắc mã hóa 7 (ER7)** thông qua giao diện REST.
+![](https://d2908q01vomqb2.cloudfront.net/da4b9237bacccdf19c0760cab7aec4a8359010b0/2026/03/18/2026-aws-uxc-1-change-color-1.png)
 
-**Kiến trúc giải pháp bây giờ như sau:**
+Trong **Account display settings**, chọn màu tài khoản mong muốn rồi bấm **Update**. Sau đó bạn sẽ thấy màu đã chọn xuất hiện trên thanh điều hướng.
 
-> *Hình 1. Kiến trúc tổng thể; những ô màu thể hiện những dịch vụ riêng biệt.*
+![](https://d2908q01vomqb2.cloudfront.net/da4b9237bacccdf19c0760cab7aec4a8359010b0/2026/03/18/2026-aws-uxc-1-change-color-setting.png)
 
----
+Việc thay đổi màu tài khoản giúp bạn phân biệt mục đích của từng môi trường rõ ràng hơn. Ví dụ: dùng màu cam cho tài khoản development, xanh nhạt cho test, và đỏ cho production.
 
-Mặc dù thuật ngữ *microservices* có một số sự mơ hồ cố hữu, một số đặc điểm là chung:  
-- Chúng nhỏ, tự chủ, kết hợp rời rạc  
-- Có thể tái sử dụng, giao tiếp thông qua giao diện được xác định rõ  
-- Chuyên biệt để giải quyết một việc  
-- Thường được triển khai trong **event-driven architecture**
+## Tùy chỉnh hiển thị Region và dịch vụ
 
-Khi xác định vị trí tạo ranh giới giữa các microservices, cần cân nhắc:  
-- **Nội tại**: công nghệ được sử dụng, hiệu suất, độ tin cậy, khả năng mở rộng  
-- **Bên ngoài**: chức năng phụ thuộc, tần suất thay đổi, khả năng tái sử dụng  
-- **Con người**: quyền sở hữu nhóm, quản lý *cognitive load*
+Bạn có thể kiểm soát những AWS Region nào xuất hiện trong bộ chọn Region hoặc những dịch vụ nào xuất hiện trong điều hướng console. Nói cách khác, bạn có thể cấu hình để chỉ hiển thị Region và dịch vụ liên quan đến tài khoản của mình.
 
----
+Để bắt đầu, chọn biểu tượng bánh răng trên thanh điều hướng rồi chọn **See all user settings**. Nếu bạn đang dùng vai trò quản trị viên, bạn sẽ thấy tab mới **Account settings** trong phần thiết lập hợp nhất. Nếu chưa cấu hình gì, tất cả Region và dịch vụ đều hiển thị.
 
-## Lựa chọn công nghệ và phạm vi giao tiếp
+![](https://d2908q01vomqb2.cloudfront.net/da4b9237bacccdf19c0760cab7aec4a8359010b0/2026/03/18/2026-aws-uxc-2-visible-setting-1.png)
 
-| Phạm vi giao tiếp                        | Các công nghệ / mô hình cần xem xét                                                        |
-| ---------------------------------------- | ------------------------------------------------------------------------------------------ |
-| Trong một microservice                   | Amazon Simple Queue Service (Amazon SQS), AWS Step Functions                               |
-| Giữa các microservices trong một dịch vụ | AWS CloudFormation cross-stack references, Amazon Simple Notification Service (Amazon SNS) |
-| Giữa các dịch vụ                         | Amazon EventBridge, AWS Cloud Map, Amazon API Gateway                                      |
+Để đặt Region hiển thị, chọn **Edit** trong phần **Visible Regions**. Chọn **All available Regions** hoặc **Select Regions** rồi cấu hình danh sách của bạn. Sau đó chọn **Save changes**.
 
----
+![](https://d2908q01vomqb2.cloudfront.net/da4b9237bacccdf19c0760cab7aec4a8359010b0/2026/03/18/2026-aws-uxc-2-visible-setting-1-Regions.png)
 
-## The pub/sub hub
+Sau khi cấu hình, bạn sẽ chỉ thấy các Region đã chọn trong bộ chọn Region trên thanh điều hướng.
 
-Việc sử dụng kiến trúc **hub-and-spoke** (hay message broker) hoạt động tốt với một số lượng nhỏ các microservices liên quan chặt chẽ.  
-- Mỗi microservice chỉ phụ thuộc vào *hub*  
-- Kết nối giữa các microservice chỉ giới hạn ở nội dung của message được xuất  
-- Giảm số lượng synchronous calls vì pub/sub là *push* không đồng bộ một chiều
+![](https://d2908q01vomqb2.cloudfront.net/da4b9237bacccdf19c0760cab7aec4a8359010b0/2026/03/18/2026-aws-uxc-3-Regions.png)
 
-Nhược điểm: cần **phối hợp và giám sát** để tránh microservice xử lý nhầm message.
+Bạn cũng có thể cấu hình dịch vụ hiển thị theo cách tương tự. Tìm kiếm hoặc chọn dịch vụ theo nhóm. Trong ví dụ, tác giả dùng nhóm **Popular services** để chọn các dịch vụ hay dùng. Khi hoàn tất, chọn **Save changes**.
 
----
+![](https://d2908q01vomqb2.cloudfront.net/da4b9237bacccdf19c0760cab7aec4a8359010b0/2026/03/18/2026-aws-uxc-2-visible-setting-2-Services.png)
 
-## Core microservice
+Sau khi cấu hình, bạn sẽ chỉ thấy các dịch vụ đã chọn trong menu **All services** trên thanh điều hướng.
 
-Cung cấp dữ liệu nền tảng và lớp truyền thông, gồm:  
-- **Amazon S3** bucket cho dữ liệu  
-- **Amazon DynamoDB** cho danh mục dữ liệu  
-- **AWS Lambda** để ghi message vào data lake và danh mục  
-- **Amazon SNS** topic làm *hub*  
-- **Amazon S3** bucket cho artifacts như mã Lambda
+![](https://d2908q01vomqb2.cloudfront.net/da4b9237bacccdf19c0760cab7aec4a8359010b0/2026/03/18/2026-aws-uxc-4-Services.png)
 
-> Chỉ cho phép truy cập ghi gián tiếp vào data lake qua hàm Lambda → đảm bảo nhất quán.
+Khi tìm kiếm tên dịch vụ trong ô search, bạn cũng chỉ có thể chọn các dịch vụ đã cấu hình hiển thị.
 
----
+![](https://d2908q01vomqb2.cloudfront.net/da4b9237bacccdf19c0760cab7aec4a8359010b0/2026/03/18/2026-aws-uxc-4-Services-search.png)
 
-## Front door microservice
+Lưu ý: thiết lập hiển thị Region và dịch vụ chỉ ảnh hưởng đến giao diện console. Thiết lập này không giới hạn quyền truy cập qua [AWS Command Line Interface (AWS CLI)](https://aws.amazon.com/cli/), [AWS SDKs](https://builder.aws.com/build/tools), AWS APIs, hoặc [Amazon Q Developer](https://aws.amazon.com/q/developer/).
 
-- Cung cấp API Gateway để tương tác REST bên ngoài  
-- Xác thực & ủy quyền dựa trên **OIDC** thông qua **Amazon Cognito**  
-- Cơ chế *deduplication* tự quản lý bằng DynamoDB thay vì SNS FIFO vì:
-  1. SNS deduplication TTL chỉ 5 phút
-  2. SNS FIFO yêu cầu SQS FIFO
-  3. Chủ động báo cho sender biết message là bản sao
+Bạn cũng có thể quản lý các thiết lập tùy chỉnh này theo lập trình với hai tham số mới `visibleServices` và `visibleRegions`. Ví dụ, bạn có thể dùng mẫu [AWS CloudFormation](https://aws.amazon.com/cloudformation/) sau:
 
----
-
-## Staging ER7 microservice
-
-- Lambda “trigger” đăng ký với pub/sub hub, lọc message theo attribute  
-- Step Functions Express Workflow để chuyển ER7 → JSON  
-- Hai Lambda:
-  1. Sửa format ER7 (newline, carriage return)
-  2. Parsing logic  
-- Kết quả hoặc lỗi được đẩy lại vào pub/sub hub
-
----
-
-## Tính năng mới trong giải pháp
-
-### 1. AWS CloudFormation cross-stack references
-Ví dụ *outputs* trong core microservice:
 ```yaml
-Outputs:
-  Bucket:
-    Value: !Ref Bucket
-    Export:
-      Name: !Sub ${AWS::StackName}-Bucket
-  ArtifactBucket:
-    Value: !Ref ArtifactBucket
-    Export:
-      Name: !Sub ${AWS::StackName}-ArtifactBucket
-  Topic:
-    Value: !Ref Topic
-    Export:
-      Name: !Sub ${AWS::StackName}-Topic
-  Catalog:
-    Value: !Ref Catalog
-    Export:
-      Name: !Sub ${AWS::StackName}-Catalog
-  CatalogArn:
-    Value: !GetAtt Catalog.Arn
-    Export:
-      Name: !Sub ${AWS::StackName}-CatalogArn
+AWSTemplateFormatVersion: "2010-09-09"
+Description: Customize AWS Console appearance for this account
+
+Resources:
+  AccountCustomization:
+    Type: AWS::UXC::AccountCustomization
+    Properties:
+      AccountColor: red
+      VisibleServices:
+        - s3
+        - ec2
+        - lambda
+      VisibleRegions:
+        - us-east-1
+        - us-west-2
+```
+
+Bạn có thể triển khai template CloudFormation bằng lệnh:
+
+```bash
+$ aws cloudformation deploy \
+  --template-file account-customization.yaml \
+  --stack-name my-account-customization
+```
+
+Để tìm hiểu thêm, xem [AWS User Experience Customization API Reference](https://docs.aws.amazon.com/awsconsolehelpdocs/latest/APIReference/Welcome.html) và [AWS CloudFormation template reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-uxc-accountcustomization.html).
+
+Hãy thử ngay trong [AWS Management Console](https://console.aws.amazon.com/) và gửi phản hồi bằng cách chọn liên kết **Feedback** ở cuối trang console, đăng lên [AWS re:Post forum for the AWS Management Console](https://repost.aws/tags/TAnTglnGsnR_CdJMgsyCH_uA/aws-management-console), hoặc liên hệ AWS Support như thường lệ.
+
+- [Channy](https://linkedin.com/in/channy/)

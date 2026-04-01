@@ -47,18 +47,6 @@ pre: " <b> 1.11. </b> "
   * **React Native + NativeWind** là một sự kết hợp mạnh mẽ — cú pháp quen thuộc với TailwindCSS giúp tăng tốc đáng kể việc phát triển UI mobile.
   * Việc tách trách nhiệm **Redux + React Query** hoạt động hiệu quả: Redux quản lý trạng thái auth/session; React Query quản lý cache dữ liệu từ server và cơ chế refetch nền.
 
-### Kiến thức AWS học được:
-
-* Thực hiện đánh giá theo mô hình **Well-Architected** dựa trên năm trụ cột: Security, Reliability, Performance Efficiency, Cost Optimization và Operational Excellence.
-* Tài liệu hóa khả năng **độ tin cậy hệ thống** thông qua kiểm tra health dependency, kế hoạch backup & restore, và các kỳ vọng thực tế về RPO/RTO.
-* Áp dụng tư duy **FinOps** bằng cách rà soát cơ hội tối ưu tài nguyên, lifecycle policies, cảnh báo ngân sách và dọn dẹp tài nguyên không sử dụng.
-* Tổng hợp checklist **tăng cường bảo mật** bao gồm kiểm tra IAM, chính sách token, phạm vi mã hóa, quản lý secret và audit logs.
-* Chuẩn bị **runbook vận hành cloud** cho deployment, rollback, phản ứng sự cố và kiểm tra vận hành định kỳ.
-* Xác định tiêu chí **sẵn sàng bàn giao** như: môi trường có thể tái tạo, tài liệu môi trường đầy đủ và ranh giới trách nhiệm rõ ràng.
-* Xây dựng **lộ trình AWS trong tương lai** bao gồm ECS + tăng cường ALB, tối ưu CloudFront, cải thiện observability và triển khai production theo từng giai đoạn.
-
-Tóm lại, tuần 11 đã chuyển các kiến thức AWS học được trong dự án thành **một bản đánh giá vận hành và kế hoạch bàn giao hệ thống**.
-
 ### Kế hoạch tuần tiếp theo:
 
 * Thực hiện **bài thuyết trình cuối cùng** cho tất cả các bên liên quan.

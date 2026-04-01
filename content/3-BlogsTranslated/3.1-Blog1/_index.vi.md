@@ -1,126 +1,115 @@
 ---
-title: "Blog 1"
-date: 2024-01-01
+title: "Cong bo Amazon Aurora PostgreSQL serverless co the tao co so du lieu trong vai giay"
+date: 2026-03-25
 weight: 1
 chapter: false
 pre: " <b> 3.1. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
+
+{{% notice info %}}
+Bản dịch tiếng Việt phục vụ mục đích học tập. Bài gốc: "Announcing Amazon Aurora PostgreSQL serverless database creation in seconds" by Channy Yun, 25 MAR 2026 — https://aws.amazon.com/blogs/aws/announcing-amazon-aurora-postgresql-serverless-database-creation-in-seconds/
 {{% /notice %}}
 
-# Bắt đầu với healthcare data lakes: Sử dụng microservices
+# Cong bo Amazon Aurora PostgreSQL serverless co the tao co so du lieu trong vai giay
 
-Các data lake có thể giúp các bệnh viện và cơ sở y tế chuyển dữ liệu thành những thông tin chi tiết về doanh nghiệp và duy trì hoạt động kinh doanh liên tục, đồng thời bảo vệ quyền riêng tư của bệnh nhân. **Data lake** là một kho lưu trữ tập trung, được quản lý và bảo mật để lưu trữ tất cả dữ liệu của bạn, cả ở dạng ban đầu và đã xử lý để phân tích. data lake cho phép bạn chia nhỏ các kho chứa dữ liệu và kết hợp các loại phân tích khác nhau để có được thông tin chi tiết và đưa ra các quyết định kinh doanh tốt hơn.
+Tac gia goc: [Channy Yun (윤석찬)](https://aws.amazon.com/blogs/aws/author/channy-yun/) | Ngay dang: 25 MAR 2026
 
-Bài đăng trên blog này là một phần của loạt bài lớn hơn về việc bắt đầu cài đặt data lake dành cho lĩnh vực y tế. Trong bài đăng blog cuối cùng của tôi trong loạt bài, *“Bắt đầu với data lake dành cho lĩnh vực y tế: Đào sâu vào Amazon Cognito”*, tôi tập trung vào các chi tiết cụ thể của việc sử dụng Amazon Cognito và Attribute Based Access Control (ABAC) để xác thực và ủy quyền người dùng trong giải pháp data lake y tế. Trong blog này, tôi trình bày chi tiết cách giải pháp đã phát triển ở cấp độ cơ bản, bao gồm các quyết định thiết kế mà tôi đã đưa ra và các tính năng bổ sung được sử dụng. Bạn có thể truy cập các code samples cho giải pháp tại Git repo này để tham khảo.
+Tại re:Invent 2025, [Colin Lazier](https://www.linkedin.com/in/colinlazier/), Phó Chủ tịch mảng cơ sở dữ liệu tại AWS, đã nhấn mạnh tầm quan trọng của việc xây dựng sản phẩm theo tốc độ của ý tưởng, giúp rút ngắn hành trình từ ý tưởng đến ứng dụng chạy thực tế. Khách hàng hiện đã có thể tạo bảng [Amazon DynamoDB](https://aws.amazon.com/dynamodb/) sẵn sàng cho production và cơ sở dữ liệu [Amazon Aurora DSQL](https://aws.amazon.com/rds/aurora/dsql/) chỉ trong vài giây. Trước đó, ông cũng đã [demo trước](https://youtu.be/MBvyZENChk0?si=meDKK2zJturw-hK0&t=1084) khả năng tạo cơ sở dữ liệu [Amazon Aurora serverless](https://aws.amazon.com/rds/aurora/serverless/) với tốc độ tương tự, và kể từ đó nhiều khách hàng đã yêu cầu khả năng này.
 
----
+![](https://d2908q01vomqb2.cloudfront.net/da4b9237bacccdf19c0760cab7aec4a8359010b0/2026/02/27/2026-aurora-express-1-reinvent-preview.jpg)
 
-## Hướng dẫn kiến trúc
+Hôm nay, AWS công bố chính thức (GA) cấu hình express mới cho Amazon Aurora PostgreSQL, mang lại trải nghiệm tạo cơ sở dữ liệu tinh gọn với các cấu hình mặc định được thiết lập sẵn để bạn bắt đầu chỉ trong vài giây.
 
-Thay đổi chính kể từ lần trình bày cuối cùng của kiến trúc tổng thể là việc tách dịch vụ đơn lẻ thành một tập hợp các dịch vụ nhỏ để cải thiện khả năng bảo trì và tính linh hoạt. Việc tích hợp một lượng lớn dữ liệu y tế khác nhau thường yêu cầu các trình kết nối chuyên biệt cho từng định dạng; bằng cách giữ chúng được đóng gói riêng biệt với microservices, chúng ta có thể thêm, xóa và sửa đổi từng trình kết nối mà không ảnh hưởng đến những kết nối khác. Các microservices được kết nối rời thông qua tin nhắn publish/subscribe tập trung trong cái mà tôi gọi là “pub/sub hub”.
+Chỉ với hai lần nhấp, bạn có thể có ngay một cơ sở dữ liệu Aurora PostgreSQL serverless sẵn sàng sử dụng trong vài giây. Bạn vẫn có thể linh hoạt điều chỉnh một số thiết lập trong và sau khi tạo. Ví dụ, bạn có thể thay đổi dải công suất cho instance serverless ngay lúc tạo, thêm read replica, hoặc chỉnh parameter group sau khi cơ sở dữ liệu được tạo xong. Cụm Aurora với express configuration được tạo mà không cần mạng [Amazon Virtual Private Cloud (Amazon VPC)](https://aws.amazon.com/vpc/), đồng thời có internet access gateway để kết nối an toàn từ các công cụ phát triển quen thuộc - không cần VPN hoặc AWS Direct Connect. Express configuration cũng mặc định bật xác thực [AWS Identity and Access Management (IAM)](https://aws.amazon.com/iam/) cho tài khoản quản trị, cho phép xác thực không mật khẩu ngay từ đầu mà không cần cấu hình thêm.
 
-Giải pháp này đại diện cho những gì tôi sẽ coi là một lần lặp nước rút hợp lý khác từ last post của tôi. Phạm vi vẫn được giới hạn trong việc nhập và phân tích cú pháp đơn giản của các **HL7v2 messages** được định dạng theo **Quy tắc mã hóa 7 (ER7)** thông qua giao diện REST.
+Sau khi được tạo, bạn có thể sử dụng các tính năng có sẵn của Aurora PostgreSQL serverless như triển khai thêm read replica cho tính sẵn sàng cao và khả năng failover tự động. Lần ra mắt này cũng giới thiệu lớp định tuyến internet access gateway mới cho Aurora. Instance serverless mới của bạn được bật tính năng này mặc định, cho phép ứng dụng kết nối an toàn từ bất kỳ đâu qua internet bằng PostgreSQL wire protocol từ nhiều công cụ phát triển khác nhau. Gateway này được phân tán trên nhiều Availability Zone, mang lại mức độ sẵn sàng cao tương đương cụm Aurora.
 
-**Kiến trúc giải pháp bây giờ như sau:**
+Việc tạo và kết nối Aurora trong vài giây đồng nghĩa với việc thay đổi cách bắt đầu xây dựng ứng dụng. AWS đã ra mắt nhiều khả năng phối hợp với nhau để giúp bạn onboard và vận hành ứng dụng trên Aurora. Aurora hiện đã có trên [AWS Free Tier](https://aws.amazon.com/free/), giúp bạn có trải nghiệm thực hành Aurora mà không cần chi phí ban đầu. Sau khi tạo xong, bạn có thể truy vấn trực tiếp cơ sở dữ liệu Aurora trong [AWS CloudShell](https://aws.amazon.com/cloudshell/) hoặc thông qua ngôn ngữ lập trình và công cụ phát triển nhờ thành phần định tuyến truy cập internet mới của Aurora. Với các tích hợp như v0 by [Vercel](https://vercel.com/), bạn có thể dùng ngôn ngữ tự nhiên để bắt đầu xây dựng ứng dụng với các lợi ích của Aurora.
 
-> *Hình 1. Kiến trúc tổng thể; những ô màu thể hiện những dịch vụ riêng biệt.*
+## Tạo Aurora PostgreSQL serverless trong vài giây
 
----
+Để bắt đầu, vào [Aurora and RDS console](https://console.aws.amazon.com/rds/) và trong thanh điều hướng chọn **Dashboard**. Sau đó chọn **Create** với biểu tượng tên lửa.
 
-Mặc dù thuật ngữ *microservices* có một số sự mơ hồ cố hữu, một số đặc điểm là chung:  
-- Chúng nhỏ, tự chủ, kết hợp rời rạc  
-- Có thể tái sử dụng, giao tiếp thông qua giao diện được xác định rõ  
-- Chuyên biệt để giải quyết một việc  
-- Thường được triển khai trong **event-driven architecture**
+![](https://d2908q01vomqb2.cloudfront.net/da4b9237bacccdf19c0760cab7aec4a8359010b0/2026/03/16/2026-aurora-express-configuration-1-1024x431.jpg)
 
-Khi xác định vị trí tạo ranh giới giữa các microservices, cần cân nhắc:  
-- **Nội tại**: công nghệ được sử dụng, hiệu suất, độ tin cậy, khả năng mở rộng  
-- **Bên ngoài**: chức năng phụ thuộc, tần suất thay đổi, khả năng tái sử dụng  
-- **Con người**: quyền sở hữu nhóm, quản lý *cognitive load*
+Xem lại các cấu hình dựng sẵn trong hộp thoại **Create with express configuration**. Bạn có thể chỉnh DB cluster identifier hoặc dải công suất nếu cần. Chọn **Create database**.
 
----
+![](https://d2908q01vomqb2.cloudfront.net/da4b9237bacccdf19c0760cab7aec4a8359010b0/2026/03/16/2026-aurora-express-configuration-2-1024x820.png)
 
-## Lựa chọn công nghệ và phạm vi giao tiếp
+Bạn cũng có thể dùng [AWS Command Line Interface (AWS CLI)](https://aws.amazon.com/cli/) hoặc [AWS SDKs](https://builder.aws.com/build/tools/) với tham số `--with-express-configuration` để tạo cả cluster và instance trong cluster chỉ với một API call, sẵn sàng để chạy truy vấn sau vài giây. Xem thêm tại [Creating an Aurora PostgreSQL DB cluster with express configuration](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_GettingStartedAurora.CreatingConnecting.AuroraPostgreSQL.html).
 
-| Phạm vi giao tiếp                        | Các công nghệ / mô hình cần xem xét                                                        |
-| ---------------------------------------- | ------------------------------------------------------------------------------------------ |
-| Trong một microservice                   | Amazon Simple Queue Service (Amazon SQS), AWS Step Functions                               |
-| Giữa các microservices trong một dịch vụ | AWS CloudFormation cross-stack references, Amazon Simple Notification Service (Amazon SNS) |
-| Giữa các dịch vụ                         | Amazon EventBridge, AWS Cloud Map, Amazon API Gateway                                      |
+Dưới đây là lệnh CLI để tạo cluster:
 
----
+```bash
+$ aws rds create-db-cluster --db-cluster-identifier channy-express-db \
+	--engine aurora-postgresql \
+	--with-express-configuration
+```
 
-## The pub/sub hub
+Cơ sở dữ liệu Aurora PostgreSQL serverless của bạn sẽ sẵn sàng chỉ trong vài giây. Banner thành công sẽ xác nhận quá trình tạo, và trạng thái database sẽ chuyển sang **Available**.
 
-Việc sử dụng kiến trúc **hub-and-spoke** (hay message broker) hoạt động tốt với một số lượng nhỏ các microservices liên quan chặt chẽ.  
-- Mỗi microservice chỉ phụ thuộc vào *hub*  
-- Kết nối giữa các microservice chỉ giới hạn ở nội dung của message được xuất  
-- Giảm số lượng synchronous calls vì pub/sub là *push* không đồng bộ một chiều
+![](https://d2908q01vomqb2.cloudfront.net/da4b9237bacccdf19c0760cab7aec4a8359010b0/2026/02/27/2026-aurora-express-configuration-3.jpg)
 
-Nhược điểm: cần **phối hợp và giám sát** để tránh microservice xử lý nhầm message.
+Sau khi database sẵn sàng, vào tab **Connectivity & security** để xem ba tùy chọn kết nối. Khi kết nối qua SDK, API hoặc công cụ bên thứ ba (bao gồm agent), chọn **Code snippets**. Bạn có thể chọn nhiều ngôn ngữ như .NET, Golang, JDBC, Node.js, PHP, PSQL, Python, và TypeScript. Bạn có thể copy code ở từng bước và chạy trực tiếp trong công cụ của mình.
 
----
+Ví dụ, đoạn Python dưới đây được tạo động theo cấu hình xác thực:
 
-## Core microservice
+```python
+import psycopg2
+import boto3
 
-Cung cấp dữ liệu nền tảng và lớp truyền thông, gồm:  
-- **Amazon S3** bucket cho dữ liệu  
-- **Amazon DynamoDB** cho danh mục dữ liệu  
-- **AWS Lambda** để ghi message vào data lake và danh mục  
-- **Amazon SNS** topic làm *hub*  
-- **Amazon S3** bucket cho artifacts như mã Lambda
+auth_token = boto3.client('rds', region_name='ap-south-1').generate_db_auth_token(DBHostname='channy-express-db-instance-1.abcdef.ap-south-1.rds.amazonaws.com', Port=5432, DBUsername='postgres', Region='ap-south-1')
 
-> Chỉ cho phép truy cập ghi gián tiếp vào data lake qua hàm Lambda → đảm bảo nhất quán.
+conn = None
+try:
+	conn = psycopg2.connect(
+		host='channy-express-db-instance-1.abcdef.ap-south-1.rds.amazonaws.com',
+		port=5432,
+		database='postgres',
+		user='postgres',
+		password=auth_token,
+		sslmode='require'
+	)
+	cur = conn.cursor()
+	cur.execute('SELECT version();')
+	print(cur.fetchone()[0])
+	cur.close()
+except Exception as e:
+	print(f"Database error: {e}")
+	raise
+finally:
+	if conn:
+		conn.close()
+```
 
----
+Chọn **CloudShell** để truy cập nhanh AWS CLI chạy trực tiếp từ console. Khi chọn Launch **CloudShell**, bạn sẽ thấy lệnh đã được điền sẵn thông tin liên quan để kết nối tới cluster cụ thể của bạn. Sau khi kết nối shell, bạn sẽ thấy `psql login` và dấu nhắc `postgres =>` để chạy câu lệnh SQL.
 
-## Front door microservice
+![](https://d2908q01vomqb2.cloudfront.net/da4b9237bacccdf19c0760cab7aec4a8359010b0/2026/02/27/2026-aurora-express-configuration-4.jpg)
 
-- Cung cấp API Gateway để tương tác REST bên ngoài  
-- Xác thực & ủy quyền dựa trên **OIDC** thông qua **Amazon Cognito**  
-- Cơ chế *deduplication* tự quản lý bằng DynamoDB thay vì SNS FIFO vì:
-  1. SNS deduplication TTL chỉ 5 phút
-  2. SNS FIFO yêu cầu SQS FIFO
-  3. Chủ động báo cho sender biết message là bản sao
+Bạn cũng có thể chọn **Endpoints** để dùng các công cụ chỉ hỗ trợ username/password như pgAdmin. Khi chọn **Get token**, bạn dùng token xác thực [AWS Identity and Access Management (IAM)](https://aws.amazon.com/iam/) do công cụ tạo ra trong ô password. Token được tạo cho master username đã thiết lập lúc tạo database. Token có hiệu lực 15 phút mỗi lần. Nếu công cụ bạn dùng ngắt kết nối, bạn cần tạo lại token.
 
----
+## Tăng tốc xây dựng ứng dụng với Aurora
 
-## Staging ER7 microservice
+Tại re:Invent 2025, AWS đã [công bố cập nhật chương trình AWS Free Tier](https://aws.amazon.com/blogs/aws/aws-free-tier-update-new-customers-can-get-started-and-explore-aws-with-up-to-200-in-credits/), cung cấp tối đa $200 tín dụng AWS có thể dùng trên nhiều dịch vụ. Bạn nhận $100 tín dụng khi đăng ký và có thể nhận thêm $100 khi sử dụng các dịch vụ như Amazon Relational Database Service (Amazon RDS), AWS Lambda, và Amazon Bedrock. Ngoài ra, Amazon Aurora hiện đã có trong tập dịch vụ cơ sở dữ liệu đủ điều kiện của [Free Tier](https://aws.amazon.com/free/database/).
 
-- Lambda “trigger” đăng ký với pub/sub hub, lọc message theo attribute  
-- Step Functions Express Workflow để chuyển ER7 → JSON  
-- Hai Lambda:
-  1. Sửa format ER7 (newline, carriage return)
-  2. Parsing logic  
-- Kết quả hoặc lỗi được đẩy lại vào pub/sub hub
+![](https://d2908q01vomqb2.cloudfront.net/da4b9237bacccdf19c0760cab7aec4a8359010b0/2026/02/27/2026-aurora-express-configuration-5-1024x447.jpg)
 
----
+Các developer đang ngày càng ưa chuộng những nền tảng như Vercel, nơi ngôn ngữ tự nhiên đã đủ để xây dựng ứng dụng sẵn sàng production. AWS đã [công bố tích hợp với Vercel Marketplace](https://aws.amazon.com/about-aws/whats-new/2025/12/aws-databases-are-available-on-the-vercel/) để tạo và kết nối cơ sở dữ liệu AWS trực tiếp từ Vercel trong vài giây, cùng với [v0 by Vercel](https://aws.amazon.com/about-aws/whats-new/2026/01/aws-databases-available-vercel-v0/), một công cụ AI giúp biến ý tưởng thành ứng dụng full-stack sẵn sàng production trong vài phút. Tích hợp này bao gồm Aurora PostgreSQL, Aurora DSQL, và DynamoDB. Bạn cũng có thể kết nối cơ sở dữ liệu hiện có tạo bằng express configuration với Vercel. Xem thêm tại [AWS for Vercel](https://vercel.com/marketplace/aws).
 
-## Tính năng mới trong giải pháp
+![](https://d2908q01vomqb2.cloudfront.net/da4b9237bacccdf19c0760cab7aec4a8359010b0/2026/02/27/2026-aurora-express-configuration-6-1024x663.jpg)
 
-### 1. AWS CloudFormation cross-stack references
-Ví dụ *outputs* trong core microservice:
-```yaml
-Outputs:
-  Bucket:
-    Value: !Ref Bucket
-    Export:
-      Name: !Sub ${AWS::StackName}-Bucket
-  ArtifactBucket:
-    Value: !Ref ArtifactBucket
-    Export:
-      Name: !Sub ${AWS::StackName}-ArtifactBucket
-  Topic:
-    Value: !Ref Topic
-    Export:
-      Name: !Sub ${AWS::StackName}-Topic
-  Catalog:
-    Value: !Ref Catalog
-    Export:
-      Name: !Sub ${AWS::StackName}-Catalog
-  CatalogArn:
-    Value: !GetAtt Catalog.Arn
-    Export:
-      Name: !Sub ${AWS::StackName}-CatalogArn
+Tương tự Vercel, AWS đang đưa cơ sở dữ liệu vào trải nghiệm của các hệ sinh thái phổ biến và tích hợp trực tiếp với framework, công cụ AI coding assistant, môi trường phát triển, và toolchain để mở khóa khả năng xây dựng theo tốc độ của ý tưởng.
+
+AWS đã giới thiệu [Aurora PostgreSQL integration with Kiro powers](https://aws.amazon.com/about-aws/whats-new/2025/12/amazon-aurora-postgresql-integration-kiro-powers/), giúp developer xây dựng ứng dụng dùng Aurora PostgreSQL nhanh hơn nhờ phát triển có hỗ trợ AI agent qua [Kiro](https://kiro.dev). Bạn có thể dùng Kiro power cho Aurora PostgreSQL trong [Kiro IDE](https://kiro.dev/powers/#how-do-i-install-powers) và từ [Kiro powers webpage](https://kiro.dev/powers/) để cài đặt một lần nhấp. Để tìm hiểu thêm, xem [Introducing Amazon Aurora powers for Kiro](https://aws.amazon.com/blogs/database/introducing-amazon-aurora-powers-for-kiro/) và [Amazon Aurora Postgres MCP Server](https://awslabs.github.io/mcp/servers/postgres-mcp-server).
+
+![](https://d2908q01vomqb2.cloudfront.net/da4b9237bacccdf19c0760cab7aec4a8359010b0/2026/02/27/2026-aurora-express-configuration-7-1024x697.png)
+
+## Hiện đã khả dụng
+
+Bạn có thể tạo Aurora PostgreSQL serverless trong vài giây ngay hôm nay tại tất cả AWS commercial Regions. Để xem khả dụng theo khu vực và lộ trình, truy cập [AWS Capabilities by Region](https://builder.aws.com/build/capabilities/explore).
+
+Bạn chỉ trả phí theo mức công suất tiêu thụ dựa trên Aurora Capacity Units (ACUs), tính theo giây từ mức zero capacity, tự động khởi động, dừng, và scale up/down theo nhu cầu ứng dụng. Xem thêm tại [Amazon Aurora Pricing page](https://aws.amazon.com/rds/aurora/pricing/).
+
+Hãy thử ngay trong [Aurora and RDS console](https://console.aws.amazon.com/rds/) và gửi phản hồi qua [AWS re:Post for Aurora PostgreSQL](https://repost.aws/tags/TAxfQ-h0UrRZ69nv5Q_M-BRQ/aurora-postgresql) hoặc qua kênh AWS Support quen thuộc của bạn.
+
+- [Channy](https://linkedin.com/in/channy)

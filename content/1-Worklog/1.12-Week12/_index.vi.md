@@ -53,11 +53,6 @@ pre: " <b> 1.12. </b> "
 | Tối ưu | 11 | Hoàn thiện UI, kiểm thử E2E, sẵn sàng Docker Compose |
 | Hoàn thiện | 12 | Tài liệu, thuyết trình cuối, nộp báo cáo |
 
-**Các dịch vụ AWS đã làm chủ:**
-* Amazon Cognito, Amazon S3, Amazon Bedrock
-* AWS Secrets Manager, IAM Policies, KMS
-* Lập kế hoạch kiến trúc cho ECS (Fargate), ALB, Route 53 và CloudFront
-
 **Thống kê dự án:**
 * Hơn **10 module REST API cốt lõi** được phát triển hoàn chỉnh (Auth, Food, Workout, Metrics, ...)
 * **6 luồng người dùng đầy đủ** được thiết kế và kiểm thử thành công

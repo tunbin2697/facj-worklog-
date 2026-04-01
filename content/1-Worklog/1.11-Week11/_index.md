@@ -44,18 +44,6 @@ pre: " <b> 1.11. </b> "
   * **React Native + NativeWind** is a powerful combination — TailwindCSS-familiar syntax dramatically speeds up mobile UI development.
   * **Redux + React Query** separation of concerns works well: Redux manages auth/session state; React Query manages server cache and background refetching.
 
-### AWS Knowledge Learned:
-
-* Performed a Well-Architected style review using the five pillars: Security, Reliability, Performance Efficiency, Cost Optimization, and Operational Excellence.
-* Documented reliability posture through dependency health checks, backup and restore planning, and realistic RPO/RTO expectations.
-* Applied a FinOps mindset by reviewing right-sizing opportunities, lifecycle policies, budget alerts, and idle resource cleanup.
-* Consolidated a practical security hardening checklist covering IAM review, token policies, encryption coverage, secret handling, and audit logs.
-* Prepared cloud runbooks for deployment, rollback, incident response, and routine operational validation.
-* Defined handover readiness criteria such as reproducible setup, complete environment documentation, and explicit ownership boundaries.
-* Built a forward AWS roadmap including ECS plus ALB hardening, CloudFront tuning, better observability, and staged production rollout.
-
-In summary, week 11 turned the AWS topics learned during the project into an operational review and handover plan.
-
 ### Next Week Plan:
 
 * Final presentation to all stakeholders.

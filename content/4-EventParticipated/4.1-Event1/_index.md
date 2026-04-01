@@ -89,7 +89,8 @@ These features highlight AWS’s focus on providing scalable infrastructure for 
 
 #### Some event photos
 
-![Event Check-in](/images/4-Event/event2a.jpg "Check-in")
-![Networking with attendees](/images/4-Event/event2b.jpg "Networking")
+![AWS re:Invent Recap photo 1](/images/event/AWS%20reInvent%202025%20Recap%20Vietnam%20Edition/153579dd169e97c0ce8f2.jpg "AWS re:Invent Recap photo 1")
+![AWS re:Invent Recap photo 2](/images/event/AWS%20reInvent%202025%20Recap%20Vietnam%20Edition/619d0f756036e168b827.jpg "AWS re:Invent Recap photo 2")
+![AWS re:Invent Recap photo 3](/images/event/AWS%20reInvent%202025%20Recap%20Vietnam%20Edition/85f27d1a12599307ca481.jpg "AWS re:Invent Recap photo 3")
 
 > Overall, the event provided a comprehensive overview of the major announcements from AWS re:Invent 2025, particularly in the areas of Generative AI, agent-based architectures, and modern data platforms. The sessions also offered practical insights into AWS services that could be applied to real-world systems such as the NutriTrack architecture, while giving participants the opportunity to connect directly with AWS Solution Architects and members of the local cloud community.

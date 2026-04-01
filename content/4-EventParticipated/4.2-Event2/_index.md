@@ -29,8 +29,6 @@ Standalone Large Language Models (LLMs) often face limitations due to a lack of 
 - **Tool integration:** Accessing APIs, databases, and external services.
 - Leveraging the **Strands Agents** framework with an **Agentic Loop** (tool calling mechanism), combining System Prompts and Knowledge Bases to make autonomous decisions and adapt dynamically.
 
-![AI Agent Workflow](/images/4-Event/Agent.png "AI Agent Architecture")
-
 #### Automated Prompt Engineering
 
 Communicating with AI is an art. Generic prompts lead to poor results, wasted Tokens (increasing costs), and inconsistent outputs. 
@@ -45,7 +43,6 @@ A standard, high-quality Prompt should contain 7 core components:
 
 The optimized AWS architecture for managing prompts includes **Amazon DynamoDB** (for millisecond response storage), **Amazon CloudWatch** (for monitoring logs, latency, and errors), and **Amazon Bedrock**.
 
-![Prompt Structure and AWS Architecture](/images/4-Event/prompt.png "Prompt Engineering & AWS")
 
 #### AIoT Projects: Smart Locker Management
 
@@ -54,11 +51,11 @@ Solving the manual borrowing process in clubs with an automated smart locker sys
 - **AWS Cloud Integration:** - **AWS IoT Core:** Acts as the central hub routing sensor events (RFID scans, door states) to Lambda and DynamoDB, enabling scalability without a local server.
   - **AWS Rekognition:** Performs facial recognition, comparing captured images with the member database to authorize access.
 
-![Hardware and AWS Architecture for AIoT](/images/4-Event/AIot.png "AIoT Smart Locker Architecture")
 
 #### Some event photos
 
-![Event Check-in](/images/4-Event/event1a.jpg "Check-in")
-![Photo with speakers](/images/4-Event/event1b.jpg "Networking")
+![Cloudmasteries GEN AI photo 1](/images/event/Cloudmasteries%20GEN%20AI%20event/0S0A0199.jpg "Cloudmasteries GEN AI photo 1")
+![Cloudmasteries GEN AI photo 2](/images/event/Cloudmasteries%20GEN%20AI%20event/0S0A9983.jpg "Cloudmasteries GEN AI photo 2")
+![Cloudmasteries GEN AI photo 3](/images/event/Cloudmasteries%20GEN%20AI%20event/0S0A9994.jpg "Cloudmasteries GEN AI photo 3")
 
 > Overall, the event not only provided deep insights into modern AI trends like Agents and Prompt Engineering but also offered practical knowledge on how to combine IoT hardware with the flexible AWS infrastructure to solve real-world problems.

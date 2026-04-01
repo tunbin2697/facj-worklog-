@@ -53,11 +53,6 @@ pre: " <b> 1.12. </b> "
 | Optimization | 11 | UI Polish, E2E Testing, Docker Compose readiness |
 | Finalization | 12 | Documentation, final presentation, report submission |
 
-**AWS Services Mastered:**
-* Amazon Cognito, Amazon S3, Amazon Bedrock
-* AWS Secrets Manager, IAM Policies, KMS
-* Architecture planning for ECS (Fargate), ALB, Route 53, and CloudFront
-
 **Project Statistics:**
 * 10+ core REST API modules fully developed (Auth, Food, Workout, Metrics, etc.)
 * 6 comprehensive user journeys mapped and successfully tested

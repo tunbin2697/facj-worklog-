@@ -7,26 +7,26 @@
     <meta name="description" content="">
 <meta name="author" content="journeyoftheaverageguy@gmail.com">
 
-    <link rel="icon" href="/images/favicon.png" type="image/png">
+    <link rel="icon" href="https://tunbin2697.github.io/facj-worklog-/images/favicon.png" type="image/png">
 
-    <title>Blog 1 :: BaoKhang in FACJ</title>
+    <title>Cong bo Amazon Aurora PostgreSQL serverless co the tao co so du lieu trong vai giay :: BaoKhang in FACJ</title>
 
     
-    <link href="/css/nucleus.css?1774794156" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1774794156" rel="stylesheet">
-    <link href="/css/hybrid.css?1774794156" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1774794156" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1774794156" rel="stylesheet">
-    <link href="/css/auto-complete.css?1774794156" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1774794156" rel="stylesheet">
-    <link href="/css/theme.css?1774794156" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1774794156" rel="stylesheet">
+    <link href="https://tunbin2697.github.io/facj-worklog-/css/nucleus.css?1775038441" rel="stylesheet">
+    <link href="https://tunbin2697.github.io/facj-worklog-/css/fontawesome-all.min.css?1775038441" rel="stylesheet">
+    <link href="https://tunbin2697.github.io/facj-worklog-/css/hybrid.css?1775038441" rel="stylesheet">
+    <link href="https://tunbin2697.github.io/facj-worklog-/css/featherlight.min.css?1775038441" rel="stylesheet">
+    <link href="https://tunbin2697.github.io/facj-worklog-/css/perfect-scrollbar.min.css?1775038441" rel="stylesheet">
+    <link href="https://tunbin2697.github.io/facj-worklog-/css/auto-complete.css?1775038441" rel="stylesheet">
+    <link href="https://tunbin2697.github.io/facj-worklog-/css/atom-one-dark-reasonable.css?1775038441" rel="stylesheet">
+    <link href="https://tunbin2697.github.io/facj-worklog-/css/theme.css?1775038441" rel="stylesheet">
+    <link href="https://tunbin2697.github.io/facj-worklog-/css/hugo-theme.css?1775038441" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1774794156" rel="stylesheet">
+    <link href="https://tunbin2697.github.io/facj-worklog-/css/theme-workshop.css?1775038441" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1774794156"></script>
+    <script src="https://tunbin2697.github.io/facj-worklog-/js/jquery-3.3.1.min.js?1775038441"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -36,14 +36,14 @@
     </style>
     
   </head>
-  <body class="" data-url="/vi/3-blogstranslated/3.1-blog1/">
+  <body class="" data-url="https://tunbin2697.github.io/facj-worklog-/vi/3-blogstranslated/3.1-blog1/">
     <nav id="sidebar" class="showVisitedLinks">
 
 
 
   <div id="header-wrapper">
     <div id="header">
-      <a id="logo" href="/">
+      <a id="logo" href="https://tunbin2697.github.io/facj-worklog-/">
 
 <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" width="30%"><defs><style>.cls-1{fill:#fff;}.cls-2{fill:#f90;fill-rule:evenodd;}</style></defs><title>AWS-Logo_White-Color</title><path class="cls-1" d="M14.09,10.85a4.7,4.7,0,0,0,.19,1.48,7.73,7.73,0,0,0,.54,1.19.77.77,0,0,1,.12.38.64.64,0,0,1-.32.49l-1,.7a.83.83,0,0,1-.44.15.69.69,0,0,1-.49-.23,3.8,3.8,0,0,1-.6-.77q-.25-.42-.51-1a6.14,6.14,0,0,1-4.89,2.3,4.54,4.54,0,0,1-3.32-1.19,4.27,4.27,0,0,1-1.22-3.2A4.28,4.28,0,0,1,3.61,7.75,6.06,6.06,0,0,1,7.69,6.46a12.47,12.47,0,0,1,1.76.13q.92.13,1.91.36V5.73a3.65,3.65,0,0,0-.79-2.66A3.81,3.81,0,0,0,7.86,2.3a7.71,7.71,0,0,0-1.79.22,12.78,12.78,0,0,0-1.79.57,4.55,4.55,0,0,1-.58.22l-.26,0q-.35,0-.35-.52V2a1.09,1.09,0,0,1,.12-.58,1.2,1.2,0,0,1,.47-.35A10.88,10.88,0,0,1,5.77.32,10.19,10.19,0,0,1,8.36,0a6,6,0,0,1,4.35,1.35,5.49,5.49,0,0,1,1.38,4.09ZM7.34,13.38a5.36,5.36,0,0,0,1.72-.31A3.63,3.63,0,0,0,10.63,12,2.62,2.62,0,0,0,11.19,11a5.63,5.63,0,0,0,.16-1.44v-.7a14.35,14.35,0,0,0-1.53-.28,12.37,12.37,0,0,0-1.56-.1,3.84,3.84,0,0,0-2.47.67A2.34,2.34,0,0,0,5,11a2.35,2.35,0,0,0,.61,1.76A2.4,2.4,0,0,0,7.34,13.38Zm13.35,1.8a1,1,0,0,1-.64-.16,1.3,1.3,0,0,1-.35-.65L15.81,1.51a3,3,0,0,1-.15-.67.36.36,0,0,1,.41-.41H17.7a1,1,0,0,1,.65.16,1.4,1.4,0,0,1,.33.65l2.79,11,2.59-11A1.17,1.17,0,0,1,24.39.6a1.1,1.1,0,0,1,.67-.16H26.4a1.1,1.1,0,0,1,.67.16,1.17,1.17,0,0,1,.32.65L30,12.39,32.88,1.25A1.39,1.39,0,0,1,33.22.6a1,1,0,0,1,.65-.16h1.54a.36.36,0,0,1,.41.41,1.36,1.36,0,0,1,0,.26,3.64,3.64,0,0,1-.12.41l-4,12.86a1.3,1.3,0,0,1-.35.65,1,1,0,0,1-.64.16H29.25a1,1,0,0,1-.67-.17,1.26,1.26,0,0,1-.32-.67L25.67,3.64,23.11,14.34a1.26,1.26,0,0,1-.32.67,1,1,0,0,1-.67.17Zm21.36.44a11.28,11.28,0,0,1-2.56-.29,7.44,7.44,0,0,1-1.92-.67,1,1,0,0,1-.61-.93v-.84q0-.52.38-.52a.9.9,0,0,1,.31.06l.42.17a8.77,8.77,0,0,0,1.83.58,9.78,9.78,0,0,0,2,.2,4.48,4.48,0,0,0,2.43-.55,1.76,1.76,0,0,0,.86-1.57,1.61,1.61,0,0,0-.45-1.16A4.29,4.29,0,0,0,43,9.22l-2.41-.76A5.15,5.15,0,0,1,38,6.78a3.94,3.94,0,0,1-.83-2.41,3.7,3.7,0,0,1,.45-1.85,4.47,4.47,0,0,1,1.19-1.37A5.27,5.27,0,0,1,40.51.29,7.4,7.4,0,0,1,42.6,0a8.87,8.87,0,0,1,1.12.07q.57.07,1.08.19t.95.26a4.27,4.27,0,0,1,.7.29,1.59,1.59,0,0,1,.49.41.94.94,0,0,1,.15.55v.79q0,.52-.38.52a1.76,1.76,0,0,1-.64-.2,7.74,7.74,0,0,0-3.2-.64,4.37,4.37,0,0,0-2.21.47,1.6,1.6,0,0,0-.79,1.48,1.58,1.58,0,0,0,.49,1.18,4.94,4.94,0,0,0,1.83.92L44.55,7a5.08,5.08,0,0,1,2.57,1.6A3.76,3.76,0,0,1,47.9,11a4.21,4.21,0,0,1-.44,1.93,4.4,4.4,0,0,1-1.21,1.47,5.43,5.43,0,0,1-1.85.93A8.25,8.25,0,0,1,42.05,15.62Z"></path><path class="cls-2" d="M45.19,23.81C39.72,27.85,31.78,30,25,30A36.64,36.64,0,0,1,.22,20.57c-.51-.46-.06-1.09.56-.74A49.78,49.78,0,0,0,25.53,26.4,49.23,49.23,0,0,0,44.4,22.53C45.32,22.14,46.1,23.14,45.19,23.81Z"></path><path class="cls-2" d="M47.47,21.21c-.7-.9-4.63-.42-6.39-.21-.53.06-.62-.4-.14-.74,3.13-2.2,8.27-1.57,8.86-.83s-.16,5.89-3.09,8.35c-.45.38-.88.18-.68-.32C46.69,25.8,48.17,22.11,47.47,21.21Z"></path></svg>
 
@@ -57,14 +57,13 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1774794156"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1774794156"></script>
+<script type="text/javascript" src="https://tunbin2697.github.io/facj-worklog-/js/lunr.min.js?1775038441"></script>
+<script type="text/javascript" src="https://tunbin2697.github.io/facj-worklog-/js/auto-complete.js?1775038441"></script>
 <script type="text/javascript">
     
-        var baseurl = "\/vi";
-    
+    var baseurl = "https:\/\/tunbin2697.github.io\/facj-worklog-\/\/vi";
 </script>
-<script type="text/javascript" src="/js/search.js?1774794156"></script>
+<script type="text/javascript" src="https://tunbin2697.github.io/facj-worklog-/js/search.js?1775038441"></script>
 
     
   </div>
@@ -87,7 +86,7 @@
         
         
         ">
-      <a href="/vi/1-worklog/">
+      <a href="https://tunbin2697.github.io/facj-worklog-/vi/1-worklog/">
            <b> 1. </b> Nhật ký công việc
           
             <i class="fas fa-check read-icon"></i>
@@ -118,7 +117,7 @@
         
         
         ">
-      <a href="/vi/1-worklog/1.1-week1/">
+      <a href="https://tunbin2697.github.io/facj-worklog-/vi/1-worklog/1.1-week1/">
            <b> 1.1. </b> Worklog Tuần 1
           
             <i class="fas fa-check read-icon"></i>
@@ -146,7 +145,7 @@
         
         
         ">
-      <a href="/vi/1-worklog/1.2-week2/">
+      <a href="https://tunbin2697.github.io/facj-worklog-/vi/1-worklog/1.2-week2/">
            <b> 1.2. </b> Worklog Tuần 2
           
             <i class="fas fa-check read-icon"></i>
@@ -174,7 +173,7 @@
         
         
         ">
-      <a href="/vi/1-worklog/1.3-week3/">
+      <a href="https://tunbin2697.github.io/facj-worklog-/vi/1-worklog/1.3-week3/">
            <b> 1.3. </b> Worklog Tuần 3
           
             <i class="fas fa-check read-icon"></i>
@@ -202,7 +201,7 @@
         
         
         ">
-      <a href="/vi/1-worklog/1.4-week4/">
+      <a href="https://tunbin2697.github.io/facj-worklog-/vi/1-worklog/1.4-week4/">
            <b> 1.4. </b> Worklog Tuần 4
           
             <i class="fas fa-check read-icon"></i>
@@ -230,7 +229,7 @@
         
         
         ">
-      <a href="/vi/1-worklog/1.5-week5/">
+      <a href="https://tunbin2697.github.io/facj-worklog-/vi/1-worklog/1.5-week5/">
            <b> 1.5. </b> Worklog Tuần 5
           
             <i class="fas fa-check read-icon"></i>
@@ -258,7 +257,7 @@
         
         
         ">
-      <a href="/vi/1-worklog/1.6-week6/">
+      <a href="https://tunbin2697.github.io/facj-worklog-/vi/1-worklog/1.6-week6/">
            <b> 1.6. </b> Worklog Tuần 6
           
             <i class="fas fa-check read-icon"></i>
@@ -286,7 +285,7 @@
         
         
         ">
-      <a href="/vi/1-worklog/1.7-week7/">
+      <a href="https://tunbin2697.github.io/facj-worklog-/vi/1-worklog/1.7-week7/">
            <b> 1.7. </b> Worklog Tuần 7
           
             <i class="fas fa-check read-icon"></i>
@@ -314,7 +313,7 @@
         
         
         ">
-      <a href="/vi/1-worklog/1.8-week8/">
+      <a href="https://tunbin2697.github.io/facj-worklog-/vi/1-worklog/1.8-week8/">
            <b> 1.8. </b> Worklog Tuần 8
           
             <i class="fas fa-check read-icon"></i>
@@ -342,7 +341,7 @@
         
         
         ">
-      <a href="/vi/1-worklog/1.9-week9/">
+      <a href="https://tunbin2697.github.io/facj-worklog-/vi/1-worklog/1.9-week9/">
            <b> 1.9. </b> Worklog Tuần 9
           
             <i class="fas fa-check read-icon"></i>
@@ -370,7 +369,7 @@
         
         
         ">
-      <a href="/vi/1-worklog/1.10-week10/">
+      <a href="https://tunbin2697.github.io/facj-worklog-/vi/1-worklog/1.10-week10/">
            <b> 1.10. </b> Worklog Tuần 10
           
             <i class="fas fa-check read-icon"></i>
@@ -398,7 +397,7 @@
         
         
         ">
-      <a href="/vi/1-worklog/1.11-week11/">
+      <a href="https://tunbin2697.github.io/facj-worklog-/vi/1-worklog/1.11-week11/">
            <b> 1.11. </b> Worklog Tuần 11
           
             <i class="fas fa-check read-icon"></i>
@@ -426,8 +425,8 @@
         
         
         ">
-      <a href="/vi/1-worklog/1.12-week12/">
-           <b> 1.12 </b> Worklog Tuần 12
+      <a href="https://tunbin2697.github.io/facj-worklog-/vi/1-worklog/1.12-week12/">
+           <b> 1.12. </b> Worklog Tuần 12
           
             <i class="fas fa-check read-icon"></i>
           
@@ -461,7 +460,7 @@
         
         
         ">
-      <a href="/vi/2-proposal/">
+      <a href="https://tunbin2697.github.io/facj-worklog-/vi/2-proposal/">
            <b> 2. </b> Bản đề xuất
           
             <i class="fas fa-check read-icon"></i>
@@ -487,7 +486,7 @@
         
         
         ">
-      <a href="/vi/3-blogstranslated/">
+      <a href="https://tunbin2697.github.io/facj-worklog-/vi/3-blogstranslated/">
            <b> 3. </b> Các bài blogs đã dịch
           
             <i class="fas fa-check read-icon"></i>
@@ -513,13 +512,13 @@
  
   
     
-    <li data-nav-id="/vi/3-blogstranslated/3.1-blog1/" title="Blog 1" class="dd-item 
+    <li data-nav-id="/vi/3-blogstranslated/3.1-blog1/" title="Cong bo Amazon Aurora PostgreSQL serverless co the tao co so du lieu trong vai giay" class="dd-item 
         
         active
         
         ">
-      <a href="/vi/3-blogstranslated/3.1-blog1/">
-           <b> 3.1. </b> Blog 1
+      <a href="https://tunbin2697.github.io/facj-worklog-/vi/3-blogstranslated/3.1-blog1/">
+           <b> 3.1. </b> Cong bo Amazon Aurora PostgreSQL serverless co the tao co so du lieu trong vai giay
           
             <i class="fas fa-check read-icon"></i>
           
@@ -541,13 +540,13 @@
  
   
     
-    <li data-nav-id="/vi/3-blogstranslated/3.2-blog2/" title="Blog 2" class="dd-item 
+    <li data-nav-id="/vi/3-blogstranslated/3.2-blog2/" title="Tuy chinh AWS Management Console voi mau tai khoan, region va dich vu hien thi" class="dd-item 
         
         
         
         ">
-      <a href="/vi/3-blogstranslated/3.2-blog2/">
-           <b> 3.2. </b> Blog 2
+      <a href="https://tunbin2697.github.io/facj-worklog-/vi/3-blogstranslated/3.2-blog2/">
+           <b> 3.2. </b> Tuy chinh AWS Management Console voi mau tai khoan, region va dich vu hien thi
           
             <i class="fas fa-check read-icon"></i>
           
@@ -569,13 +568,13 @@
  
   
     
-    <li data-nav-id="/vi/3-blogstranslated/3.3-blog3/" title="Blog 3" class="dd-item 
+    <li data-nav-id="/vi/3-blogstranslated/3.3-blog3/" title="Tong hop tuan AWS: AWS AI/ML Scholars, Agent Plugin cho AWS Serverless, va cac cap nhat khac (30 Mar 2026)" class="dd-item 
         
         
         
         ">
-      <a href="/vi/3-blogstranslated/3.3-blog3/">
-           <b> 3.3. </b> Blog 3
+      <a href="https://tunbin2697.github.io/facj-worklog-/vi/3-blogstranslated/3.3-blog3/">
+           <b> 3.3. </b> Tong hop tuan AWS: AWS AI/ML Scholars, Agent Plugin cho AWS Serverless, va cac cap nhat khac (30 Mar 2026)
           
             <i class="fas fa-check read-icon"></i>
           
@@ -597,69 +596,13 @@
  
   
     
-    <li data-nav-id="/vi/3-blogstranslated/3.4-blog4/" title="Blog 4" class="dd-item 
+    <li data-nav-id="/vi/3-blogstranslated/3.4-blog4/" title="Hai muoi nam Amazon S3 va nhung buoc di tiep theo" class="dd-item 
         
         
         
         ">
-      <a href="/vi/3-blogstranslated/3.4-blog4/">
-           <b> 3.4. </b> Blog 4
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/vi/3-blogstranslated/3.5-blog5/" title="Blog 5" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/vi/3-blogstranslated/3.5-blog5/">
-           <b> 3.6. </b> Blog 5
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/vi/3-blogstranslated/3.6-blog6/" title="Blog 6" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/vi/3-blogstranslated/3.6-blog6/">
-           <b> 3.6. </b> Blog 6
+      <a href="https://tunbin2697.github.io/facj-worklog-/vi/3-blogstranslated/3.4-blog4/">
+           <b> 3.4. </b> Hai muoi nam Amazon S3 va nhung buoc di tiep theo
           
             <i class="fas fa-check read-icon"></i>
           
@@ -693,7 +636,7 @@
         
         
         ">
-      <a href="/vi/4-eventparticipated/">
+      <a href="https://tunbin2697.github.io/facj-worklog-/vi/4-eventparticipated/">
            <b> 4. </b> Các events đã tham gia
           
             <i class="fas fa-check read-icon"></i>
@@ -724,7 +667,7 @@
         
         
         ">
-      <a href="/vi/4-eventparticipated/4.1-event1/">
+      <a href="https://tunbin2697.github.io/facj-worklog-/vi/4-eventparticipated/4.1-event1/">
            <b> 4.1. </b> Tổng kết AWS re:Invent 2025 - Phiên bản Việt Nam
           
             <i class="fas fa-check read-icon"></i>
@@ -752,7 +695,7 @@
         
         
         ">
-      <a href="/vi/4-eventparticipated/4.2-event2/">
+      <a href="https://tunbin2697.github.io/facj-worklog-/vi/4-eventparticipated/4.2-event2/">
            <b> 4.2. </b> Cloud Mastery 2026 #1 AI From Scratch
           
             <i class="fas fa-check read-icon"></i>
@@ -787,7 +730,7 @@
         
         
         ">
-      <a href="/vi/5-workshop/">
+      <a href="https://tunbin2697.github.io/facj-worklog-/vi/5-workshop/">
            <b> 5. </b> Workshop
           
             <i class="fas fa-check read-icon"></i>
@@ -818,7 +761,7 @@
         
         
         ">
-      <a href="/vi/5-workshop/5.1-workshop-overview/">
+      <a href="https://tunbin2697.github.io/facj-worklog-/vi/5-workshop/5.1-workshop-overview/">
            <b> 5.1. </b> Tổng quan Workshop
           
             <i class="fas fa-check read-icon"></i>
@@ -846,7 +789,7 @@
         
         
         ">
-      <a href="/vi/5-workshop/5.2-prerequiste/">
+      <a href="https://tunbin2697.github.io/facj-worklog-/vi/5-workshop/5.2-prerequiste/">
            <b> 5.2. </b> Chuẩn bị
           
             <i class="fas fa-check read-icon"></i>
@@ -869,12 +812,12 @@
  
   
     
-    <li data-nav-id="/vi/5-workshop/5.3-s3-vpc/" title="Hướng dẫn từng bước" class="dd-item 
+    <li data-nav-id="/vi/5-workshop/5.3-step-by-step/" title="Hướng dẫn từng bước" class="dd-item 
         
         
         
         ">
-      <a href="/vi/5-workshop/5.3-s3-vpc/">
+      <a href="https://tunbin2697.github.io/facj-worklog-/vi/5-workshop/5.3-step-by-step/">
            <b> 5.3. </b> Hướng dẫn từng bước
           
             <i class="fas fa-check read-icon"></i>
@@ -900,13 +843,13 @@
  
   
     
-    <li data-nav-id="/vi/5-workshop/5.3-s3-vpc/5.3.1-create-ec2/" title="Tạo EC2 Backend" class="dd-item 
+    <li data-nav-id="/vi/5-workshop/5.3-step-by-step/5.3.1-create-ec2/" title="Tạo EC2 và VPC" class="dd-item 
         
         
         
         ">
-      <a href="/vi/5-workshop/5.3-s3-vpc/5.3.1-create-ec2/">
-           <b> 5.3.1. </b> Tạo EC2 Backend
+      <a href="https://tunbin2697.github.io/facj-worklog-/vi/5-workshop/5.3-step-by-step/5.3.1-create-ec2/">
+           <b> 5.3.1. </b> Tạo EC2 và VPC
           
             <i class="fas fa-check read-icon"></i>
           
@@ -928,12 +871,12 @@
  
   
     
-    <li data-nav-id="/vi/5-workshop/5.3-s3-vpc/5.3.2-create-cognito/" title="Tạo Cognito User Pool" class="dd-item 
+    <li data-nav-id="/vi/5-workshop/5.3-step-by-step/5.3.2-create-cognito/" title="Tạo Cognito User Pool" class="dd-item 
         
         
         
         ">
-      <a href="/vi/5-workshop/5.3-s3-vpc/5.3.2-create-cognito/">
+      <a href="https://tunbin2697.github.io/facj-worklog-/vi/5-workshop/5.3-step-by-step/5.3.2-create-cognito/">
            <b> 5.3.2. </b> Tạo Cognito User Pool
           
             <i class="fas fa-check read-icon"></i>
@@ -956,13 +899,13 @@
  
   
     
-    <li data-nav-id="/vi/5-workshop/5.3-s3-vpc/5.3.3-application-load-balancer/" title="Tạo Application Load Balancer" class="dd-item 
+    <li data-nav-id="/vi/5-workshop/5.3-step-by-step/5.3.3-request-acm/" title="Yêu cầu chứng chỉ ACM" class="dd-item 
         
         
         
         ">
-      <a href="/vi/5-workshop/5.3-s3-vpc/5.3.3-application-load-balancer/">
-           <b> 5.3.3. </b> Tạo Application Load Balancer
+      <a href="https://tunbin2697.github.io/facj-worklog-/vi/5-workshop/5.3-step-by-step/5.3.3-request-acm/">
+           <b> 5.3.3. </b> Yêu cầu chứng chỉ ACM
           
             <i class="fas fa-check read-icon"></i>
           
@@ -984,13 +927,41 @@
  
   
     
-    <li data-nav-id="/vi/5-workshop/5.3-s3-vpc/5.3.4-configure-authentication/" title="Cấu hình xác thực và routing" class="dd-item 
+    <li data-nav-id="/vi/5-workshop/5.3-step-by-step/5.3.4-application-load-balancer/" title="Tạo Application Load Balancer và Target Group" class="dd-item 
         
         
         
         ">
-      <a href="/vi/5-workshop/5.3-s3-vpc/5.3.4-configure-authentication/">
-           <b> 5.3.4. </b> Cấu hình xác thực và routing
+      <a href="https://tunbin2697.github.io/facj-worklog-/vi/5-workshop/5.3-step-by-step/5.3.4-application-load-balancer/">
+           <b> 5.3.4. </b> Tạo Application Load Balancer và Target Group
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/5-workshop/5.3-step-by-step/5.3.5-configure-authentication/" title="Cấu hình xác thực và routing" class="dd-item 
+        
+        
+        
+        ">
+      <a href="https://tunbin2697.github.io/facj-worklog-/vi/5-workshop/5.3-step-by-step/5.3.5-configure-authentication/">
+           <b> 5.3.5. </b> Cấu hình xác thực và routing
           
             <i class="fas fa-check read-icon"></i>
           
@@ -1026,7 +997,7 @@
         
         
         ">
-      <a href="/vi/5-workshop/5.4-test-evaluate/">
+      <a href="https://tunbin2697.github.io/facj-worklog-/vi/5-workshop/5.4-test-evaluate/">
            <b> 5.4. </b> Kiểm thử và đánh giá kết quả
           
             <i class="fas fa-check read-icon"></i>
@@ -1054,7 +1025,7 @@
         
         
         ">
-      <a href="/vi/5-workshop/5.5-cleanup/">
+      <a href="https://tunbin2697.github.io/facj-worklog-/vi/5-workshop/5.5-cleanup/">
            <b> 5.5. </b> Dọn dẹp tài nguyên
           
             <i class="fas fa-check read-icon"></i>
@@ -1089,7 +1060,7 @@
         
         
         ">
-      <a href="/vi/6-self-evaluation/">
+      <a href="https://tunbin2697.github.io/facj-worklog-/vi/6-self-evaluation/">
            <b> 6. </b> Tự đánh giá
           
             <i class="fas fa-check read-icon"></i>
@@ -1115,7 +1086,7 @@
         
         
         ">
-      <a href="/vi/7-feedback/">
+      <a href="https://tunbin2697.github.io/facj-worklog-/vi/7-feedback/">
            <b> 7. </b> Chia sẻ, đóng góp ý kiến
           
             <i class="fas fa-check read-icon"></i>
@@ -1163,7 +1134,7 @@
                   
                     
                     
-                      <option id="en" value="/3-blogstranslated/3.1-blog1/">English</option>
+                      <option id="en" value="https://tunbin2697.github.io/facj-worklog-/3-blogstranslated/3.1-blog1/">English</option>
                     
                   
               
@@ -1177,7 +1148,7 @@
                   
                     
                     
-                      <option id="vi" value="/vi/3-blogstranslated/3.1-blog1/" selected>Tiếng Việt</option>
+                      <option id="vi" value="https://tunbin2697.github.io/facj-worklog-/vi/3-blogstranslated/3.1-blog1/" selected>Tiếng Việt</option>
                     
                   
               
@@ -1267,7 +1238,7 @@
             
           
           
-            <a href='/vi/'>Báo cáo thực tập</a> > <a href='/vi/3-blogstranslated/'>Các bài blogs đã dịch</a> > Blog 1
+            <a href='https://tunbin2697.github.io/facj-worklog-/vi/'>Báo cáo thực tập</a> > <a href='https://tunbin2697.github.io/facj-worklog-/vi/3-blogstranslated/'>Các bài blogs đã dịch</a> > Cong bo Amazon Aurora PostgreSQL serverless co the tao co so du lieu trong vai giay
           
         
           
@@ -1282,17 +1253,9 @@
     <div class="wrapper">
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#hướng-dẫn-kiến-trúc">Hướng dẫn kiến trúc</a></li>
-    <li><a href="#lựa-chọn-công-nghệ-và-phạm-vi-giao-tiếp">Lựa chọn công nghệ và phạm vi giao tiếp</a></li>
-    <li><a href="#the-pubsub-hub">The pub/sub hub</a></li>
-    <li><a href="#core-microservice">Core microservice</a></li>
-    <li><a href="#front-door-microservice">Front door microservice</a></li>
-    <li><a href="#staging-er7-microservice">Staging ER7 microservice</a></li>
-    <li><a href="#tính-năng-mới-trong-giải-pháp">Tính năng mới trong giải pháp</a>
-      <ul>
-        <li><a href="#1-aws-cloudformation-cross-stack-references">1. AWS CloudFormation cross-stack references</a></li>
-      </ul>
-    </li>
+    <li><a href="#tạo-aurora-postgresql-serverless-trong-vài-giây">Tạo Aurora PostgreSQL serverless trong vài giây</a></li>
+    <li><a href="#tăng-tốc-xây-dựng-ứng-dụng-với-aurora">Tăng tốc xây dựng ứng dụng với Aurora</a></li>
+    <li><a href="#hiện-đã-khả-dụng">Hiện đã khả dụng</a></li>
   </ul>
 </nav>
     </div>
@@ -1310,7 +1273,7 @@
           
             <h1>
               
-              Blog 1
+              Cong bo Amazon Aurora PostgreSQL serverless co the tao co so du lieu trong vai giay
             </h1>
           
 
@@ -1319,132 +1282,75 @@
 
 
 	
-<div class="notices warning" ><p>⚠️ <strong>Lưu ý:</strong> Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng <strong>không sao chép nguyên văn</strong> cho bài báo cáo của bạn kể cả warning này.</p>
+<div class="notices info" ><p>Bản dịch tiếng Việt phục vụ mục đích học tập. Bài gốc: &ldquo;Announcing Amazon Aurora PostgreSQL serverless database creation in seconds&rdquo; by Channy Yun, 25 MAR 2026 — <a href="https://aws.amazon.com/blogs/aws/announcing-amazon-aurora-postgresql-serverless-database-creation-in-seconds/">https://aws.amazon.com/blogs/aws/announcing-amazon-aurora-postgresql-serverless-database-creation-in-seconds/</a></p>
 </div>
 
-<h1 id="bắt-đầu-với-healthcare-data-lakes-sử-dụng-microservices">Bắt đầu với healthcare data lakes: Sử dụng microservices</h1>
-<p>Các data lake có thể giúp các bệnh viện và cơ sở y tế chuyển dữ liệu thành những thông tin chi tiết về doanh nghiệp và duy trì hoạt động kinh doanh liên tục, đồng thời bảo vệ quyền riêng tư của bệnh nhân. <strong>Data lake</strong> là một kho lưu trữ tập trung, được quản lý và bảo mật để lưu trữ tất cả dữ liệu của bạn, cả ở dạng ban đầu và đã xử lý để phân tích. data lake cho phép bạn chia nhỏ các kho chứa dữ liệu và kết hợp các loại phân tích khác nhau để có được thông tin chi tiết và đưa ra các quyết định kinh doanh tốt hơn.</p>
-<p>Bài đăng trên blog này là một phần của loạt bài lớn hơn về việc bắt đầu cài đặt data lake dành cho lĩnh vực y tế. Trong bài đăng blog cuối cùng của tôi trong loạt bài, <em>“Bắt đầu với data lake dành cho lĩnh vực y tế: Đào sâu vào Amazon Cognito”</em>, tôi tập trung vào các chi tiết cụ thể của việc sử dụng Amazon Cognito và Attribute Based Access Control (ABAC) để xác thực và ủy quyền người dùng trong giải pháp data lake y tế. Trong blog này, tôi trình bày chi tiết cách giải pháp đã phát triển ở cấp độ cơ bản, bao gồm các quyết định thiết kế mà tôi đã đưa ra và các tính năng bổ sung được sử dụng. Bạn có thể truy cập các code samples cho giải pháp tại Git repo này để tham khảo.</p>
-<hr>
-<h2 id="hướng-dẫn-kiến-trúc">Hướng dẫn kiến trúc</h2>
-<p>Thay đổi chính kể từ lần trình bày cuối cùng của kiến trúc tổng thể là việc tách dịch vụ đơn lẻ thành một tập hợp các dịch vụ nhỏ để cải thiện khả năng bảo trì và tính linh hoạt. Việc tích hợp một lượng lớn dữ liệu y tế khác nhau thường yêu cầu các trình kết nối chuyên biệt cho từng định dạng; bằng cách giữ chúng được đóng gói riêng biệt với microservices, chúng ta có thể thêm, xóa và sửa đổi từng trình kết nối mà không ảnh hưởng đến những kết nối khác. Các microservices được kết nối rời thông qua tin nhắn publish/subscribe tập trung trong cái mà tôi gọi là “pub/sub hub”.</p>
-<p>Giải pháp này đại diện cho những gì tôi sẽ coi là một lần lặp nước rút hợp lý khác từ last post của tôi. Phạm vi vẫn được giới hạn trong việc nhập và phân tích cú pháp đơn giản của các <strong>HL7v2 messages</strong> được định dạng theo <strong>Quy tắc mã hóa 7 (ER7)</strong> thông qua giao diện REST.</p>
-<p><strong>Kiến trúc giải pháp bây giờ như sau:</strong></p>
-<blockquote>
-<p><em>Hình 1. Kiến trúc tổng thể; những ô màu thể hiện những dịch vụ riêng biệt.</em></p>
-</blockquote>
-<hr>
-<p>Mặc dù thuật ngữ <em>microservices</em> có một số sự mơ hồ cố hữu, một số đặc điểm là chung:</p>
+<h1 id="cong-bo-amazon-aurora-postgresql-serverless-co-the-tao-co-so-du-lieu-trong-vai-giay">Cong bo Amazon Aurora PostgreSQL serverless co the tao co so du lieu trong vai giay</h1>
+<p>Tac gia goc: <a href="https://aws.amazon.com/blogs/aws/author/channy-yun/">Channy Yun (윤석찬)</a> | Ngay dang: 25 MAR 2026</p>
+<p>Tại re:Invent 2025, <a href="https://www.linkedin.com/in/colinlazier/">Colin Lazier</a>, Phó Chủ tịch mảng cơ sở dữ liệu tại AWS, đã nhấn mạnh tầm quan trọng của việc xây dựng sản phẩm theo tốc độ của ý tưởng, giúp rút ngắn hành trình từ ý tưởng đến ứng dụng chạy thực tế. Khách hàng hiện đã có thể tạo bảng <a href="https://aws.amazon.com/dynamodb/">Amazon DynamoDB</a> sẵn sàng cho production và cơ sở dữ liệu <a href="https://aws.amazon.com/rds/aurora/dsql/">Amazon Aurora DSQL</a> chỉ trong vài giây. Trước đó, ông cũng đã <a href="https://youtu.be/MBvyZENChk0?si=meDKK2zJturw-hK0&amp;t=1084">demo trước</a> khả năng tạo cơ sở dữ liệu <a href="https://aws.amazon.com/rds/aurora/serverless/">Amazon Aurora serverless</a> với tốc độ tương tự, và kể từ đó nhiều khách hàng đã yêu cầu khả năng này.</p>
+<p><img src="https://d2908q01vomqb2.cloudfront.net/da4b9237bacccdf19c0760cab7aec4a8359010b0/2026/02/27/2026-aurora-express-1-reinvent-preview.jpg" alt=""></p>
+<p>Hôm nay, AWS công bố chính thức (GA) cấu hình express mới cho Amazon Aurora PostgreSQL, mang lại trải nghiệm tạo cơ sở dữ liệu tinh gọn với các cấu hình mặc định được thiết lập sẵn để bạn bắt đầu chỉ trong vài giây.</p>
+<p>Chỉ với hai lần nhấp, bạn có thể có ngay một cơ sở dữ liệu Aurora PostgreSQL serverless sẵn sàng sử dụng trong vài giây. Bạn vẫn có thể linh hoạt điều chỉnh một số thiết lập trong và sau khi tạo. Ví dụ, bạn có thể thay đổi dải công suất cho instance serverless ngay lúc tạo, thêm read replica, hoặc chỉnh parameter group sau khi cơ sở dữ liệu được tạo xong. Cụm Aurora với express configuration được tạo mà không cần mạng <a href="https://aws.amazon.com/vpc/">Amazon Virtual Private Cloud (Amazon VPC)</a>, đồng thời có internet access gateway để kết nối an toàn từ các công cụ phát triển quen thuộc - không cần VPN hoặc AWS Direct Connect. Express configuration cũng mặc định bật xác thực <a href="https://aws.amazon.com/iam/">AWS Identity and Access Management (IAM)</a> cho tài khoản quản trị, cho phép xác thực không mật khẩu ngay từ đầu mà không cần cấu hình thêm.</p>
+<p>Sau khi được tạo, bạn có thể sử dụng các tính năng có sẵn của Aurora PostgreSQL serverless như triển khai thêm read replica cho tính sẵn sàng cao và khả năng failover tự động. Lần ra mắt này cũng giới thiệu lớp định tuyến internet access gateway mới cho Aurora. Instance serverless mới của bạn được bật tính năng này mặc định, cho phép ứng dụng kết nối an toàn từ bất kỳ đâu qua internet bằng PostgreSQL wire protocol từ nhiều công cụ phát triển khác nhau. Gateway này được phân tán trên nhiều Availability Zone, mang lại mức độ sẵn sàng cao tương đương cụm Aurora.</p>
+<p>Việc tạo và kết nối Aurora trong vài giây đồng nghĩa với việc thay đổi cách bắt đầu xây dựng ứng dụng. AWS đã ra mắt nhiều khả năng phối hợp với nhau để giúp bạn onboard và vận hành ứng dụng trên Aurora. Aurora hiện đã có trên <a href="https://aws.amazon.com/free/">AWS Free Tier</a>, giúp bạn có trải nghiệm thực hành Aurora mà không cần chi phí ban đầu. Sau khi tạo xong, bạn có thể truy vấn trực tiếp cơ sở dữ liệu Aurora trong <a href="https://aws.amazon.com/cloudshell/">AWS CloudShell</a> hoặc thông qua ngôn ngữ lập trình và công cụ phát triển nhờ thành phần định tuyến truy cập internet mới của Aurora. Với các tích hợp như v0 by <a href="https://vercel.com/">Vercel</a>, bạn có thể dùng ngôn ngữ tự nhiên để bắt đầu xây dựng ứng dụng với các lợi ích của Aurora.</p>
+<h2 id="tạo-aurora-postgresql-serverless-trong-vài-giây">Tạo Aurora PostgreSQL serverless trong vài giây</h2>
+<p>Để bắt đầu, vào <a href="https://console.aws.amazon.com/rds/">Aurora and RDS console</a> và trong thanh điều hướng chọn <strong>Dashboard</strong>. Sau đó chọn <strong>Create</strong> với biểu tượng tên lửa.</p>
+<p><img src="https://d2908q01vomqb2.cloudfront.net/da4b9237bacccdf19c0760cab7aec4a8359010b0/2026/03/16/2026-aurora-express-configuration-1-1024x431.jpg" alt=""></p>
+<p>Xem lại các cấu hình dựng sẵn trong hộp thoại <strong>Create with express configuration</strong>. Bạn có thể chỉnh DB cluster identifier hoặc dải công suất nếu cần. Chọn <strong>Create database</strong>.</p>
+<p><img src="https://d2908q01vomqb2.cloudfront.net/da4b9237bacccdf19c0760cab7aec4a8359010b0/2026/03/16/2026-aurora-express-configuration-2-1024x820.png" alt=""></p>
+<p>Bạn cũng có thể dùng <a href="https://aws.amazon.com/cli/">AWS Command Line Interface (AWS CLI)</a> hoặc <a href="https://builder.aws.com/build/tools/">AWS SDKs</a> với tham số <code>--with-express-configuration</code> để tạo cả cluster và instance trong cluster chỉ với một API call, sẵn sàng để chạy truy vấn sau vài giây. Xem thêm tại <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_GettingStartedAurora.CreatingConnecting.AuroraPostgreSQL.html">Creating an Aurora PostgreSQL DB cluster with express configuration</a>.</p>
+<p>Dưới đây là lệnh CLI để tạo cluster:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ aws rds create-db-cluster --db-cluster-identifier channy-express-db <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	--engine aurora-postgresql <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>	--with-express-configuration
+</span></span></code></pre></div><p>Cơ sở dữ liệu Aurora PostgreSQL serverless của bạn sẽ sẵn sàng chỉ trong vài giây. Banner thành công sẽ xác nhận quá trình tạo, và trạng thái database sẽ chuyển sang <strong>Available</strong>.</p>
+<p><img src="https://d2908q01vomqb2.cloudfront.net/da4b9237bacccdf19c0760cab7aec4a8359010b0/2026/02/27/2026-aurora-express-configuration-3.jpg" alt=""></p>
+<p>Sau khi database sẵn sàng, vào tab <strong>Connectivity &amp; security</strong> để xem ba tùy chọn kết nối. Khi kết nối qua SDK, API hoặc công cụ bên thứ ba (bao gồm agent), chọn <strong>Code snippets</strong>. Bạn có thể chọn nhiều ngôn ngữ như .NET, Golang, JDBC, Node.js, PHP, PSQL, Python, và TypeScript. Bạn có thể copy code ở từng bước và chạy trực tiếp trong công cụ của mình.</p>
+<p>Ví dụ, đoạn Python dưới đây được tạo động theo cấu hình xác thực:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> psycopg2
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> boto3
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>auth_token <span style="color:#f92672">=</span> boto3<span style="color:#f92672">.</span>client(<span style="color:#e6db74">&#39;rds&#39;</span>, region_name<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;ap-south-1&#39;</span>)<span style="color:#f92672">.</span>generate_db_auth_token(DBHostname<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;channy-express-db-instance-1.abcdef.ap-south-1.rds.amazonaws.com&#39;</span>, Port<span style="color:#f92672">=</span><span style="color:#ae81ff">5432</span>, DBUsername<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;postgres&#39;</span>, Region<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;ap-south-1&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>conn <span style="color:#f92672">=</span> <span style="color:#66d9ef">None</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">try</span>:
+</span></span><span style="display:flex;"><span>	conn <span style="color:#f92672">=</span> psycopg2<span style="color:#f92672">.</span>connect(
+</span></span><span style="display:flex;"><span>		host<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;channy-express-db-instance-1.abcdef.ap-south-1.rds.amazonaws.com&#39;</span>,
+</span></span><span style="display:flex;"><span>		port<span style="color:#f92672">=</span><span style="color:#ae81ff">5432</span>,
+</span></span><span style="display:flex;"><span>		database<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;postgres&#39;</span>,
+</span></span><span style="display:flex;"><span>		user<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;postgres&#39;</span>,
+</span></span><span style="display:flex;"><span>		password<span style="color:#f92672">=</span>auth_token,
+</span></span><span style="display:flex;"><span>		sslmode<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;require&#39;</span>
+</span></span><span style="display:flex;"><span>	)
+</span></span><span style="display:flex;"><span>	cur <span style="color:#f92672">=</span> conn<span style="color:#f92672">.</span>cursor()
+</span></span><span style="display:flex;"><span>	cur<span style="color:#f92672">.</span>execute(<span style="color:#e6db74">&#39;SELECT version();&#39;</span>)
+</span></span><span style="display:flex;"><span>	print(cur<span style="color:#f92672">.</span>fetchone()[<span style="color:#ae81ff">0</span>])
+</span></span><span style="display:flex;"><span>	cur<span style="color:#f92672">.</span>close()
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">except</span> <span style="color:#a6e22e">Exception</span> <span style="color:#66d9ef">as</span> e:
+</span></span><span style="display:flex;"><span>	print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Database error: </span><span style="color:#e6db74">{</span>e<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">raise</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">finally</span>:
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> conn:
+</span></span><span style="display:flex;"><span>		conn<span style="color:#f92672">.</span>close()
+</span></span></code></pre></div><p>Chọn <strong>CloudShell</strong> để truy cập nhanh AWS CLI chạy trực tiếp từ console. Khi chọn Launch <strong>CloudShell</strong>, bạn sẽ thấy lệnh đã được điền sẵn thông tin liên quan để kết nối tới cluster cụ thể của bạn. Sau khi kết nối shell, bạn sẽ thấy <code>psql login</code> và dấu nhắc <code>postgres =&gt;</code> để chạy câu lệnh SQL.</p>
+<p><img src="https://d2908q01vomqb2.cloudfront.net/da4b9237bacccdf19c0760cab7aec4a8359010b0/2026/02/27/2026-aurora-express-configuration-4.jpg" alt=""></p>
+<p>Bạn cũng có thể chọn <strong>Endpoints</strong> để dùng các công cụ chỉ hỗ trợ username/password như pgAdmin. Khi chọn <strong>Get token</strong>, bạn dùng token xác thực <a href="https://aws.amazon.com/iam/">AWS Identity and Access Management (IAM)</a> do công cụ tạo ra trong ô password. Token được tạo cho master username đã thiết lập lúc tạo database. Token có hiệu lực 15 phút mỗi lần. Nếu công cụ bạn dùng ngắt kết nối, bạn cần tạo lại token.</p>
+<h2 id="tăng-tốc-xây-dựng-ứng-dụng-với-aurora">Tăng tốc xây dựng ứng dụng với Aurora</h2>
+<p>Tại re:Invent 2025, AWS đã <a href="https://aws.amazon.com/blogs/aws/aws-free-tier-update-new-customers-can-get-started-and-explore-aws-with-up-to-200-in-credits/">công bố cập nhật chương trình AWS Free Tier</a>, cung cấp tối đa $200 tín dụng AWS có thể dùng trên nhiều dịch vụ. Bạn nhận $100 tín dụng khi đăng ký và có thể nhận thêm $100 khi sử dụng các dịch vụ như Amazon Relational Database Service (Amazon RDS), AWS Lambda, và Amazon Bedrock. Ngoài ra, Amazon Aurora hiện đã có trong tập dịch vụ cơ sở dữ liệu đủ điều kiện của <a href="https://aws.amazon.com/free/database/">Free Tier</a>.</p>
+<p><img src="https://d2908q01vomqb2.cloudfront.net/da4b9237bacccdf19c0760cab7aec4a8359010b0/2026/02/27/2026-aurora-express-configuration-5-1024x447.jpg" alt=""></p>
+<p>Các developer đang ngày càng ưa chuộng những nền tảng như Vercel, nơi ngôn ngữ tự nhiên đã đủ để xây dựng ứng dụng sẵn sàng production. AWS đã <a href="https://aws.amazon.com/about-aws/whats-new/2025/12/aws-databases-are-available-on-the-vercel/">công bố tích hợp với Vercel Marketplace</a> để tạo và kết nối cơ sở dữ liệu AWS trực tiếp từ Vercel trong vài giây, cùng với <a href="https://aws.amazon.com/about-aws/whats-new/2026/01/aws-databases-available-vercel-v0/">v0 by Vercel</a>, một công cụ AI giúp biến ý tưởng thành ứng dụng full-stack sẵn sàng production trong vài phút. Tích hợp này bao gồm Aurora PostgreSQL, Aurora DSQL, và DynamoDB. Bạn cũng có thể kết nối cơ sở dữ liệu hiện có tạo bằng express configuration với Vercel. Xem thêm tại <a href="https://vercel.com/marketplace/aws">AWS for Vercel</a>.</p>
+<p><img src="https://d2908q01vomqb2.cloudfront.net/da4b9237bacccdf19c0760cab7aec4a8359010b0/2026/02/27/2026-aurora-express-configuration-6-1024x663.jpg" alt=""></p>
+<p>Tương tự Vercel, AWS đang đưa cơ sở dữ liệu vào trải nghiệm của các hệ sinh thái phổ biến và tích hợp trực tiếp với framework, công cụ AI coding assistant, môi trường phát triển, và toolchain để mở khóa khả năng xây dựng theo tốc độ của ý tưởng.</p>
+<p>AWS đã giới thiệu <a href="https://aws.amazon.com/about-aws/whats-new/2025/12/amazon-aurora-postgresql-integration-kiro-powers/">Aurora PostgreSQL integration with Kiro powers</a>, giúp developer xây dựng ứng dụng dùng Aurora PostgreSQL nhanh hơn nhờ phát triển có hỗ trợ AI agent qua <a href="https://kiro.dev">Kiro</a>. Bạn có thể dùng Kiro power cho Aurora PostgreSQL trong <a href="https://kiro.dev/powers/#how-do-i-install-powers">Kiro IDE</a> và từ <a href="https://kiro.dev/powers/">Kiro powers webpage</a> để cài đặt một lần nhấp. Để tìm hiểu thêm, xem <a href="https://aws.amazon.com/blogs/database/introducing-amazon-aurora-powers-for-kiro/">Introducing Amazon Aurora powers for Kiro</a> và <a href="https://awslabs.github.io/mcp/servers/postgres-mcp-server">Amazon Aurora Postgres MCP Server</a>.</p>
+<p><img src="https://d2908q01vomqb2.cloudfront.net/da4b9237bacccdf19c0760cab7aec4a8359010b0/2026/02/27/2026-aurora-express-configuration-7-1024x697.png" alt=""></p>
+<h2 id="hiện-đã-khả-dụng">Hiện đã khả dụng</h2>
+<p>Bạn có thể tạo Aurora PostgreSQL serverless trong vài giây ngay hôm nay tại tất cả AWS commercial Regions. Để xem khả dụng theo khu vực và lộ trình, truy cập <a href="https://builder.aws.com/build/capabilities/explore">AWS Capabilities by Region</a>.</p>
+<p>Bạn chỉ trả phí theo mức công suất tiêu thụ dựa trên Aurora Capacity Units (ACUs), tính theo giây từ mức zero capacity, tự động khởi động, dừng, và scale up/down theo nhu cầu ứng dụng. Xem thêm tại <a href="https://aws.amazon.com/rds/aurora/pricing/">Amazon Aurora Pricing page</a>.</p>
+<p>Hãy thử ngay trong <a href="https://console.aws.amazon.com/rds/">Aurora and RDS console</a> và gửi phản hồi qua <a href="https://repost.aws/tags/TAxfQ-h0UrRZ69nv5Q_M-BRQ/aurora-postgresql">AWS re:Post for Aurora PostgreSQL</a> hoặc qua kênh AWS Support quen thuộc của bạn.</p>
 <ul>
-<li>Chúng nhỏ, tự chủ, kết hợp rời rạc</li>
-<li>Có thể tái sử dụng, giao tiếp thông qua giao diện được xác định rõ</li>
-<li>Chuyên biệt để giải quyết một việc</li>
-<li>Thường được triển khai trong <strong>event-driven architecture</strong></li>
+<li><a href="https://linkedin.com/in/channy">Channy</a></li>
 </ul>
-<p>Khi xác định vị trí tạo ranh giới giữa các microservices, cần cân nhắc:</p>
-<ul>
-<li><strong>Nội tại</strong>: công nghệ được sử dụng, hiệu suất, độ tin cậy, khả năng mở rộng</li>
-<li><strong>Bên ngoài</strong>: chức năng phụ thuộc, tần suất thay đổi, khả năng tái sử dụng</li>
-<li><strong>Con người</strong>: quyền sở hữu nhóm, quản lý <em>cognitive load</em></li>
-</ul>
-<hr>
-<h2 id="lựa-chọn-công-nghệ-và-phạm-vi-giao-tiếp">Lựa chọn công nghệ và phạm vi giao tiếp</h2>
-<table>
-<thead>
-<tr>
-<th>Phạm vi giao tiếp</th>
-<th>Các công nghệ / mô hình cần xem xét</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Trong một microservice</td>
-<td>Amazon Simple Queue Service (Amazon SQS), AWS Step Functions</td>
-</tr>
-<tr>
-<td>Giữa các microservices trong một dịch vụ</td>
-<td>AWS CloudFormation cross-stack references, Amazon Simple Notification Service (Amazon SNS)</td>
-</tr>
-<tr>
-<td>Giữa các dịch vụ</td>
-<td>Amazon EventBridge, AWS Cloud Map, Amazon API Gateway</td>
-</tr>
-</tbody>
-</table>
-<hr>
-<h2 id="the-pubsub-hub">The pub/sub hub</h2>
-<p>Việc sử dụng kiến trúc <strong>hub-and-spoke</strong> (hay message broker) hoạt động tốt với một số lượng nhỏ các microservices liên quan chặt chẽ.</p>
-<ul>
-<li>Mỗi microservice chỉ phụ thuộc vào <em>hub</em></li>
-<li>Kết nối giữa các microservice chỉ giới hạn ở nội dung của message được xuất</li>
-<li>Giảm số lượng synchronous calls vì pub/sub là <em>push</em> không đồng bộ một chiều</li>
-</ul>
-<p>Nhược điểm: cần <strong>phối hợp và giám sát</strong> để tránh microservice xử lý nhầm message.</p>
-<hr>
-<h2 id="core-microservice">Core microservice</h2>
-<p>Cung cấp dữ liệu nền tảng và lớp truyền thông, gồm:</p>
-<ul>
-<li><strong>Amazon S3</strong> bucket cho dữ liệu</li>
-<li><strong>Amazon DynamoDB</strong> cho danh mục dữ liệu</li>
-<li><strong>AWS Lambda</strong> để ghi message vào data lake và danh mục</li>
-<li><strong>Amazon SNS</strong> topic làm <em>hub</em></li>
-<li><strong>Amazon S3</strong> bucket cho artifacts như mã Lambda</li>
-</ul>
-<blockquote>
-<p>Chỉ cho phép truy cập ghi gián tiếp vào data lake qua hàm Lambda → đảm bảo nhất quán.</p>
-</blockquote>
-<hr>
-<h2 id="front-door-microservice">Front door microservice</h2>
-<ul>
-<li>Cung cấp API Gateway để tương tác REST bên ngoài</li>
-<li>Xác thực &amp; ủy quyền dựa trên <strong>OIDC</strong> thông qua <strong>Amazon Cognito</strong></li>
-<li>Cơ chế <em>deduplication</em> tự quản lý bằng DynamoDB thay vì SNS FIFO vì:
-<ol>
-<li>SNS deduplication TTL chỉ 5 phút</li>
-<li>SNS FIFO yêu cầu SQS FIFO</li>
-<li>Chủ động báo cho sender biết message là bản sao</li>
-</ol>
-</li>
-</ul>
-<hr>
-<h2 id="staging-er7-microservice">Staging ER7 microservice</h2>
-<ul>
-<li>Lambda “trigger” đăng ký với pub/sub hub, lọc message theo attribute</li>
-<li>Step Functions Express Workflow để chuyển ER7 → JSON</li>
-<li>Hai Lambda:
-<ol>
-<li>Sửa format ER7 (newline, carriage return)</li>
-<li>Parsing logic</li>
-</ol>
-</li>
-<li>Kết quả hoặc lỗi được đẩy lại vào pub/sub hub</li>
-</ul>
-<hr>
-<h2 id="tính-năng-mới-trong-giải-pháp">Tính năng mới trong giải pháp</h2>
-<h3 id="1-aws-cloudformation-cross-stack-references">1. AWS CloudFormation cross-stack references</h3>
-<p>Ví dụ <em>outputs</em> trong core microservice:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">Outputs</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">Bucket</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">Value</span>: !<span style="color:#ae81ff">Ref Bucket</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">Export</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">Name</span>: !<span style="color:#ae81ff">Sub ${AWS::StackName}-Bucket</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">ArtifactBucket</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">Value</span>: !<span style="color:#ae81ff">Ref ArtifactBucket</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">Export</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">Name</span>: !<span style="color:#ae81ff">Sub ${AWS::StackName}-ArtifactBucket</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">Topic</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">Value</span>: !<span style="color:#ae81ff">Ref Topic</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">Export</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">Name</span>: !<span style="color:#ae81ff">Sub ${AWS::StackName}-Topic</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">Catalog</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">Value</span>: !<span style="color:#ae81ff">Ref Catalog</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">Export</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">Name</span>: !<span style="color:#ae81ff">Sub ${AWS::StackName}-Catalog</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">CatalogArn</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">Value</span>: !<span style="color:#ae81ff">GetAtt Catalog.Arn</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">Export</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">Name</span>: !<span style="color:#ae81ff">Sub ${AWS::StackName}-CatalogArn</span>
-</span></span></code></pre></div>
+
 
 
 
@@ -1792,38 +1698,6 @@
             
         
                     
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
             
         
                     
@@ -1938,6 +1812,22 @@
                     
                     
 
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
                     
                         
             
@@ -2082,10 +1972,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/vi/3-blogstranslated/" title="Các bài blogs đã dịch"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="https://tunbin2697.github.io/facj-worklog-/vi/3-blogstranslated/" title="Các bài blogs đã dịch"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/vi/3-blogstranslated/3.2-blog2/" title="Blog 2" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="https://tunbin2697.github.io/facj-worklog-/vi/3-blogstranslated/3.2-blog2/" title="Tuy chinh AWS Management Console voi mau tai khoan, region va dich vu hien thi" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -2095,19 +1985,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1774794156"></script>
-    <script src="/js/perfect-scrollbar.min.js?1774794156"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1774794156"></script>
-    <script src="/js/jquery.sticky.js?1774794156"></script>
-    <script src="/js/featherlight.min.js?1774794156"></script>
-    <script src="/js/highlight.pack.js?1774794156"></script>
+    <script src="https://tunbin2697.github.io/facj-worklog-/js/clipboard.min.js?1775038441"></script>
+    <script src="https://tunbin2697.github.io/facj-worklog-/js/perfect-scrollbar.min.js?1775038441"></script>
+    <script src="https://tunbin2697.github.io/facj-worklog-/js/perfect-scrollbar.jquery.min.js?1775038441"></script>
+    <script src="https://tunbin2697.github.io/facj-worklog-/js/jquery.sticky.js?1775038441"></script>
+    <script src="https://tunbin2697.github.io/facj-worklog-/js/featherlight.min.js?1775038441"></script>
+    <script src="https://tunbin2697.github.io/facj-worklog-/js/highlight.pack.js?1775038441"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1774794156"></script>
-    <script src="/js/learn.js?1774794156"></script>
-    <script src="/js/hugo-learn.js?1774794156"></script>
+    <script src="https://tunbin2697.github.io/facj-worklog-/js/modernizr.custom-3.6.0.js?1775038441"></script>
+    <script src="https://tunbin2697.github.io/facj-worklog-/js/learn.js?1775038441"></script>
+    <script src="https://tunbin2697.github.io/facj-worklog-/js/hugo-learn.js?1775038441"></script>
 
-    <link href="/mermaid/mermaid.css?1774794156" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1774794156"></script>
+    <link href="https://tunbin2697.github.io/facj-worklog-/mermaid/mermaid.css?1775038441" rel="stylesheet" />
+    <script src="https://tunbin2697.github.io/facj-worklog-/mermaid/mermaid.js?1775038441"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

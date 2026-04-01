@@ -36,4 +36,4 @@ This page is intentionally short. Use the table of contents below to open each s
 
 ![Workshop architecture diagram](/images/5-Workshop/workshop-resource/diagram/aws%20architecture%20diagram%20workshop.png)
 
-![Private EC2 architecture diagram](/images/5-Workshop/workshop-resource/diagram/private%20ec2%20-%20aws%20architeture%20diagram%20workshop%20.png)
+![Private EC2 architecture diagram](/images/5-Workshop/workshop-resource/diagram/private%20ec2%20-%20aws%20architeture%20diagram%20workshop.png)
