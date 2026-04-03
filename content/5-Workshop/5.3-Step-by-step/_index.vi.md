@@ -8,7 +8,6 @@ pre: " <b> 5.3. </b> "
 
 # 5.3 Hướng dẫn từng bước theo phase
 
-Mục này tái dựng workshop MyFit theo đúng thứ tự thư mục ảnh trong [static/images/workshop](static/images/workshop)
 ## 5.3.x Cấu trúc phase
 
 1. [5.3.1 Phase 1 - VPC và Networking](./5.3.1-phase-1-vpc-and-networking/)

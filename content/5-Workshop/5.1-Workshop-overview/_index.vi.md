@@ -6,9 +6,47 @@ chapter: false
 pre: " <b> 5.1. </b> "
 ---
 
-## 5.1 Deploy Fitness Platfrom in AWS Cloud enviroment.
+## 5.1 Cloud-Native Fitness App Deployment on AWS
 
-Workshop này hướng dẫn bạn triển khai và xác thực Deploy Fitness Platfrom in AWS Cloud enviroment.
+Workshop này hướng dẫn bạn triển khai và xác thực Cloud-Native Fitness App Deployment on AWS.
+
+## Tổng quan dự án
+
+MyFit là nền tảng fitness cloud-native phục vụ theo dõi sức khỏe, quản lý kế hoạch tập luyện, ghi log dinh dưỡng và tích hợp trợ lý AI.
+Hệ thống gồm:
+
+1. Frontend cho trải nghiệm người dùng và theo dõi tiến độ.
+2. Backend API xử lý nghiệp vụ và bảo mật dữ liệu.
+3. Hạ tầng AWS để triển khai, mở rộng và giám sát vận hành.
+
+## Dự án được triển khai lên AWS như thế nào
+
+Quy trình triển khai theo mô hình container CI/CD:
+
+1. Developer đẩy source code lên GitHub.
+2. GitHub Actions build backend container image.
+3. Image được push lên Amazon ECR.
+4. Amazon ECS Fargate cập nhật service theo rolling deployment.
+5. Lưu lượng được định tuyến qua CloudFront đến S3 (frontend) và ALB/ECS (API).
+
+## Sơ đồ kiến trúc
+
+![kiến trúc hệ thống](/images/2-Proposal/image11.png)
+
+## Bảng lựa chọn dịch vụ AWS
+
+| Dịch vụ | Lý do sử dụng |
+| --- | --- |
+| CloudFront | Phân phối toàn cầu, giảm độ trễ, gom endpoint public |
+| S3 | Lưu trữ frontend tĩnh và media |
+| ALB | Cân bằng tải HTTP/HTTPS đến ECS |
+| ECS Fargate | Chạy container theo mô hình managed, auto scaling |
+| RDS PostgreSQL | Cơ sở dữ liệu quan hệ managed cho dữ liệu nghiệp vụ |
+| Cognito | Xác thực và quản lý danh tính người dùng |
+| ECR | Lưu trữ image container |
+| CloudWatch | Tập trung log và giám sát hệ thống |
+| Route 53 + ACM | DNS và quản lý chứng chỉ TLS |
+| Secrets Manager | Lưu trữ secret an toàn cho runtime |
 
 ## Mục tiêu
 

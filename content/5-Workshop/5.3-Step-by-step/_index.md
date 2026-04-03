@@ -8,8 +8,6 @@ pre: " <b> 5.3. </b> "
 
 # 5.3 Phase-based step-by-step
 
-This section reconstructs the MyFit workshop using the folder flow in [static/images/workshop](static/images/workshop)
-
 ## 5.3.x Phase structure
 
 1. [5.3.1 Phase 1 - VPC and Networking](./5.3.1-phase-1-vpc-and-networking/)

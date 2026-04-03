@@ -1,218 +1,265 @@
 ---
+
 title: "Proposal"
-date: 2024-01-01
+date: 2026-04-03
 weight: 2
 chapter: false
 pre: " <b> 2. </b> "
+--------------------
+
+## 1. Project Overview
+
+MyFit is a comprehensive technology platform designed to support users throughout their health management and fitness journey. To deliver a smooth and reliable experience, the system is built on three core foundations:
+
+* **User Experience (Frontend):** An intuitive and user-friendly interface that allows users to easily track progress, personal metrics, and interact with features.
+* **Core Processing System (Backend):** A powerful data processing platform ensuring accuracy, real-time synchronization, and maximum data security.
+* **Cloud Infrastructure:** Fully deployed on AWS cloud infrastructure.
+
+By leveraging Cloud Managed Services, MyFit:
+
+* Optimizes operational costs
+* Ensures 24/7 system availability
+* Supports seamless scalability as user demand grows
+
 ---
 
-This proposal presents the technical project I plan to implement during my internship and the practical value it brings to my team.
+## 2. Objectives
 
-# MyFit - Fitness Management Platform
-## A Comprehensive AWS Cloud Solution for Personal Health & Fitness Tracking
+### 2.1 Overall Objectives:
 
-## **1. Project Overview**
+* Build a fitness application supporting both mobile and web platforms.
+* Ensure stable operation on AWS infrastructure.
+* Guarantee availability and scalability based on cloud resources.
+* Provide a seamless user experience from login to health tracking.
+* Establish a clear, repeatable deployment process to reduce operational errors.
 
-MyFit is a comprehensive technology platform designed to accompany users on their health management and training journey. To deliver the smoothest and most reliable experience, the system is built on 3 core infrastructure layers:
+### 2.2 Specific Deliverables:
 
-* **User Experience (Frontend):** An intuitive, user-friendly application interface that helps users easily track progress, personal metrics and interact with features.  
-* **Central Processing System (Backend):** A powerful data processing platform ensuring accuracy, real-time synchronization and maximum protection of user information.  
-* **Operational Infrastructure (Cloud Infrastructure):** The system is fully deployed on AWS cloud computing infrastructure.
+* Backend API secured using JWT and Cognito
+* Frontend served via CloudFront for fast and stable delivery
+* Health and workout tracking dashboard
+* Separate deployment pipelines for infrastructure and application with rollout monitoring
 
-By adopting cloud managed services, MyFit not only optimizes operational costs but also commits to delivering a system that operates stably 24/7. This architecture ensures the application is always ready to scale flexibly to meet the ever-growing user base in the future without disrupting the user experience.
+---
 
-## **2. Objectives**
+## 3. Problems to Solve
 
-### **2.1. Overall Objectives:**
+Key challenges addressed in this project:
 
-* Build a fitness app system capable of serving mobile/web simultaneously.  
-* Build a fitness platform operating stably on AWS infrastructure.  
-* Ensure availability and scaling capability according to cloud resources.  
-* Ensure seamless user experience from login to health metric tracking  
-* Establish clear, repeatable deployment processes and reduce operational errors
+* **Integration:** Synchronizing configurations across frontend, backend, and infrastructure
+* **Security:** Preventing credential leaks, controlling API access, minimizing unnecessary public exposure
+* **Operations:** Monitoring logs and system health to detect issues early
+* **Scalability:** Ensuring system performance under increasing user load
 
-### **2.2. Specific Output Objectives:**
+---
 
-* Secure backend API using JWT Cognito  
-* Frontend access via CloudFront with fast and stable loading  
-* Dashboard/charts for health and workout data tracking  
-* Separated infra and app deployment process with rollout status tracking capability
+## 4. Solution Architecture
 
-## **3. Problems to Address**
+### 4.1 Idea and Objectives
 
-Key issues the project needs to handle:
+**Context and Problem**
 
-* **Integration Issues:** frontend, backend and infrastructure need synchronized environment configuration  
-* **Security Issues:** prevent credentials exposure, control API access, restrict unnecessary public resources  
-* **Operational Issues:** need log/health observation to detect errors early during deployment  
-* **Scalability Issues:** ensure system handles load well when user numbers increase
+The system is designed to manage personal health and workout planning.
 
-## **4. Solution Architecture**
+**System Capabilities:**
 
-### **4.1. Concept and Objectives**
-
-**Context and Problem Statement**
-
-The system is built to meet personal health management and training plan needs.
-
-*What is the system used for:*
-
-* Manage user profiles and synchronize login information  
-* Track body metrics, calculate health indicators  
-* Manage training plans, sessions and training logs  
+* Manage user profiles and authentication data
+* Track body metrics and calculate health indicators
+* Manage workout plans, sessions, and logs
 * Manage nutrition data by meal and by day
 
-*Who are the customers:*
+**Target Users:**
 
-* Individual users needing to track health and fitness
+* Individuals tracking health and fitness
 
-*What problems does it solve:*
+**Problems Addressed:**
 
-* Unify health data in a single platform  
-* Reduce manual operations through API and real-time applications as needed  
-* Ensure system can be deployed, operated and scaled on AWS
+* Centralize health data in a single platform
+* Reduce manual operations via APIs and real-time features
+* Ensure deployability, operability, and scalability on AWS
 
-*Use-case aligned with FCAJ/AWS:*
+**AWS/FCAJ Use-case Alignment:**
 
-* This is a clear cloud-native use case closely aligned with AWS managed services  
-* Stays on topic by focusing on deploying secure, scalable applications on AWS infrastructure
+* A clear cloud-native use case leveraging AWS managed services
+* Focused on secure, scalable, and monitored cloud deployment
 
-**Specific Objectives and Success Criteria**
+**Success Criteria**
 
-*Expected Outputs:*
+**Expected Outcomes:**
 
-* Frontend application served via CloudFront  
-* Stable backend API running on ECS Fargate  
-* User authentication via Cognito Hosted UI and JWT  
+* Frontend delivered via CloudFront
+* Backend APIs running on ECS Fargate
+* Authentication via Cognito Hosted UI and JWT
 * Centralized logging via CloudWatch
 
-*Success Evaluation Criteria:*
+**Success Metrics:**
 
-* Users successfully log in and call main APIs  
-* Core workflows (workout, health metrics, nutrition) work end-to-end  
-* ECS service rollout succeeds and reaches stable state  
-* Can quickly trace errors via logs and health checks
+* Users can log in and access core APIs
+* Core flows (workout, health metrics, nutrition) work end-to-end
+* ECS service rollout completes successfully and remains stable
+* Issues can be quickly traced via logs and health checks
 
-### **4.2. System Architecture:**
+---
 
-![Project Architecture Diagram](/images/proposal/project-architecture-diagram.png)
+### 4.2 System Architecture:
 
-### **4.3. Main Data Flows:**
+![System Architecture](/images/2-Proposal/image11.png)
 
-* **Authentication:** Mobile app connects directly to Amazon Cognito for identity management and login.  
-* **Access & Distribution:** User requests go through Route 53 (DNS) to CloudFront (CDN).  
-* **Request Routing:** CloudFront serves static interface from S3 Frontend Bucket (for web) or routes API requests through ALB.  
-* **Backend Processing:** ALB load balances and forwards API requests to Spring Boot containers running on ECS Fargate.  
-* **Task Initialization:** ECS Fargate retrieves container image from ECR and security information (DB password, API key) from Secrets Manager.  
-* **Data Storage:** Fargate executes business logic, reads/writes data from RDS PostgreSQL and handles files with S3 Media Bucket.
+---
 
-### **4.4. AWS Services Selection and Rationale:**
+### 4.3 Main Data Flow:
 
-Services currently used in the project:
+* **Authentication Layer:** Mobile app connects directly to Amazon Cognito for identity and login management.
+* **Access & Distribution Layer:** Requests go through Route 53 (DNS) to CloudFront (CDN). CloudFront serves frontend from S3 or routes API requests to ALB.
+* **Backend Processing Layer:** ALB balances traffic and forwards requests to Spring Boot containers on ECS Fargate. ECS pulls images from ECR and retrieves secrets from Secrets Manager.
+* **Data Layer:** Fargate handles logic, interacts with RDS PostgreSQL and S3 Media Bucket. Amazon Bedrock is integrated as an AI chatbot.
 
-* **Amazon CloudFront:** Content distribution (CDN), reduces latency, consolidates public endpoint for both frontend and API routing.  
-* **Amazon S3:** Persistently stores static frontend and media files at low cost.  
-* **Application Load Balancer (ALB):** Handles HTTP/HTTPS load balancing for backend services running on ECS.  
-* **Amazon ECS Fargate:** Runs backend containers in managed mode, enabling automatic scaling without physical server management.  
-* **Amazon RDS PostgreSQL:** Fully managed relational database, perfect for storing high-constraint business data.  
-* **Amazon Bedrock:** Integrates intelligent chatbot for application to support user interaction.  
-* **Amazon Cognito:** Provides user authentication solution, reducing time and cost to build custom identity management.  
-* **Amazon ECR:** Safely stores and manages backend container images.  
-* **Amazon CloudWatch:** Centralizes system logging, supports performance monitoring and operational alerting.  
-* **AWS Route 53 and ACM:** Manages domain and provides/auto-renews TLS certificate for secure HTTPS access.
+---
 
-*Why not Lambda/API Gateway at this stage:*
+### 4.4 AWS Services and Rationale:
 
-* Backend is currently a monolithic Spring Boot application, suitable for long-term container model on ECS  
-* Reduces effort to break into serverless functions in early phases  
-* Optimizes delivery time and simplifies initial operations
+**Services Used:**
 
-### **4.5. Security and Basic IAM:** 
+* Amazon CloudFront – CDN for low latency and unified public endpoint
+* Amazon S3 – Storage for static frontend and media files
+* Application Load Balancer (ALB) – HTTP/HTTPS load balancing
+* Amazon ECS Fargate – Managed container execution with auto scaling
+* Amazon RDS PostgreSQL – Managed relational database
+* Amazon Bedrock – AI chatbot integration
+* Amazon Cognito – User authentication and identity management
+* Amazon ECR – Container image registry
+* Amazon CloudWatch – Centralized logging and monitoring
+* AWS Route 53 & ACM – DNS and SSL/TLS certificate management
 
-*Principles Applied:*
+**Why not Lambda/API Gateway:**
 
-* Principle of Least Privilege for runtime roles  
-* No hard-coded access keys in source  
-* Restrict public resources at data layer
+* Backend is a Spring Boot monolith suited for container-based deployment
+* Avoids complexity of serverless decomposition in early stages
+* Speeds up delivery and simplifies operations
 
-*Current Security Implementation:*
+---
 
-* ECS Task Execution Role uses standard policy for image pull/logging  
-* ECS Task Role grants only necessary read/write permissions for media bucket  
-* DB secret retrieved from Secrets Manager instead of hard-coded  
-* RDS placed in private subnet, not public  
-* ALB restricts traffic from CloudFront prefix list  
-* Backend only accepts valid access tokens from Cognito.
+### 4.5 Security and IAM:
 
-### **4.6. Scalability and Operations:** 
+**Principles:**
 
-*Scaling:*
+* Least privilege for runtime roles
+* No hard-coded credentials
+* Minimize public exposure of data resources
 
-* ECS auto scales based on CPU, current config min 2 and max 4 tasks  
-* Layered architecture separating CloudFront and ECS for independent frontend/backend scaling
+**Implementation:**
 
-*Logging and Monitoring:*
+* ECS Task Execution Role for image pulling and logging
+* ECS Task Role limited to required S3 access
+* Database credentials stored in Secrets Manager
+* RDS deployed in private subnet
+* ALB restricted to CloudFront traffic
+* Backend validates Cognito access tokens
 
-* CloudWatch Logs for backend containers  
-* RDS export logs to track queries/DB errors  
-* ALB health check endpoint to detect unhealthy instances
+---
 
-### **4.7. Management and Automated Deployment Process (CI/CD & IaC)**
+### 4.6 Scalability and Operations:
 
-To optimize operational time and minimize manual errors, the system applies infrastructure-as-code and automated deployment:
+**Scaling:**
 
-* **Infrastructure as Code (IaC) with AWS CloudFormation:** All AWS resource configurations are defined and centrally managed through code, ensuring consistency and rapid synchronization between environments.  
-* **Continuous Deployment (CI/CD):** Applies **Dev → GitHub Actions → Amazon ECS** workflow to automate application release:  
-  1. **Dev:** Update and push source code to GitHub.  
-  2. **GitHub Actions:** Automatically triggers Docker image build and pushes to Amazon ECR.  
-  3. **Amazon ECS:** GitHub Actions calls ECS service update. ECS Fargate automatically pulls latest image and replaces old containers without service interruption (Rolling Update)
+* ECS auto scaling based on CPU (min 2, max 4 tasks)
+* Independent scaling for frontend and backend
 
-## **5. Code Snippets**
+**Monitoring:**
 
-### **5.1 Dockerfile Backend**
+* CloudWatch Logs for containers
+* RDS logs for query monitoring
+* ALB health checks for instance status
 
-![Docker File](/images/proposal/docker%20file.png)
+---
 
-### **5.2 CDK Route API Through CloudFront**
+### 4.7 CI/CD & IaC
 
-![CDK Route API via CloudFront](/images/proposal/cdk%20route%20api%20via%20cloudfront.png)
+To optimize operations and reduce manual errors:
 
-### **5.3 Script Deploy App**
+* **Infrastructure as Code (IaC):** AWS CloudFormation for consistent infrastructure management
+* **CI/CD Pipeline:**
 
-![Deploy App Script](/images/proposal/deploy%20app%20scrip.png)  
+  1. Developer pushes code to GitHub
+  2. GitHub Actions builds Docker image and pushes to Amazon ECR
+  3. ECS updates service using rolling deployment with zero downtime
 
-### **5.4 Stack Initialization**  
+---
 
-![CDK Infra Code](/images/proposal/cdk%20infra%20code.png)  
+## 5. Code Snippet
 
-### **5.5 App Screenshots:**  
+### 5.1 Dockerfile Backend
 
-![Web App 1](/images/proposal/web%20app1.png)  
-![Web App 2](/images/proposal/web%20app2.png)  
-![Web App 3](/images/proposal/web%20app3.png)  
-![Web App 4](/images/proposal/web%20app4.png)  
-![Web App 5](/images/proposal/web%20app5.png)
+![Dockerfile](/images/2-Proposal/image5.png)
 
-## **6. Budget Estimation**
+---
 
-Region: us-east-1:
+### 5.2 CDK Route API via CloudFront
 
-| Item | Service | Actual Configuration | Estimated/Month |
-| :---- | :---- | :---- | :---- |
-| Frontend CDN | CloudFront | 1 distribution, ~10GB transfer/month | ~1-5 USD |
-| Static hosting + Media | S3 | 2 buckets (frontend + media), ~10GB | ~0.5-2 USD |
-| Backend compute | ECS Fargate | 2 tasks × 0.25 vCPU × 0.5 GB RAM, 24/7 | ~15-20 USD |
-| Database | RDS PostgreSQL | t4g.micro, Multi-AZ, GP3 20GB, PostgreSQL 15 | ~30-35 USD |
-| Container registry | ECR | 1 repo, ~1GB image storage | ~0.1-1 USD |
-| Logging & Monitoring | CloudWatch | Container Insights + logs 1 week retention | ~5-15 USD |
-| Secrets Manager | Secrets Manager | 2 secrets (DB credentials & Bedrock API) | ~1 USD |
-| Load Balancer | ALB | 1 ALB, ~10 LCU/month | ~18-22 USD |
-| User authentication | Cognito | MAU ≤ 50,000 (free tier) | ~0 USD |
-| DNS + Certificate | Route 53 + ACM | 1 hosted zone, ACM free | ~0.5-1 USD |
-| Chatbot | Bedrock |  |  |
-| **Total Reference** | **Full System** |  | **~71-100 USD/month** |
+![CDK Config](/images/2-Proposal/image4.png)
+
+---
+
+### 5.3 Deploy Script
+
+![Deploy Script](/images/2-Proposal/image2.png)
+![Deploy Script](/images/2-Proposal/image10.png)
+
+---
+
+### 5.4 Stack Initialization
+
+![Stack Init](/images/2-Proposal/image6.png)
+
+---
+
+### 5.5 Application Screens
+![App](/images/2-Proposal/image9.png)
+![App](/images/2-Proposal/image1.png)
+![App](/images/2-Proposal/image8.png)
+![App](/images/2-Proposal/image7.png)
+![App](/images/2-Proposal/image3.png)
+
+---
+
+## 6. Estimated Cost
+
+**Region: us-east-1**
+
+| Category      | Service         | Configuration | Monthly Estimate |
+| ------------- | --------------- | ------------- | ---------------- |
+| Frontend CDN  | CloudFront      | ~10GB         | $1–5             |
+| Storage       | S3              | 2 buckets     | $0.5–2           |
+| Backend       | ECS             | 2 tasks       | $15–20           |
+| Database      | RDS             | t4g.micro     | $30–35           |
+| Registry      | ECR             | 1GB           | $0.1–1           |
+| Logging       | CloudWatch      | logs          | $5–15            |
+| Secrets       | Secrets Manager | 2 secrets     | ~$1              |
+| Load Balancer | ALB             | 1 ALB         | $18–22           |
+| Auth          | Cognito         | free tier     | $0               |
+| DNS + SSL     | Route53 + ACM   |               | $0.5–1           |
+
+**Total: ~$71–100/month**
 
 **Notes:**
 
-* Configuration does not use NAT Gateway (natGateways=0), saving ~32 USD/month compared to architecture with NAT  
-* Actual costs depend on traffic, log volume, data transfer and number of active users
+* No NAT Gateway → saves ~$32/month
+* Actual cost depends on traffic and usage
+
+---
+
+## 7. Timeline
+
+*(Add image here if needed)*
+
+---
+
+## 8. Risks and Mitigation
+
+| Risk                       | Impact      | Priority | Mitigation           |
+| -------------------------- | ----------- | -------- | -------------------- |
+| Sensitive data exposure    | High        | P0       | Use Secrets Manager  |
+| Wrong deploy path          | Medium-High | P0       | Pre-check scripts    |
+| OAuth mismatch             | High        | P0       | Sync environments    |
+| Health check inconsistency | Medium      | P1       | Standardize endpoint |
+| Cost increase              | Medium      | P1       | Budget alerts        |

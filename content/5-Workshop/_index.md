@@ -6,11 +6,11 @@ chapter: false
 pre: " <b> 5. </b> "
 ---
 
-## Deploy Fitness Platfrom in AWS Cloud enviroment.
+## Cloud-Native Fitness App Deployment on AWS
 
 ## Overview
 
-This is a console-first workshop for Deploy Fitness Platfrom in AWS Cloud enviroment. Content is organized by phases and validated against AWS CLI describe output.
+This is a console-first workshop for Cloud-Native Fitness App Deployment on AWS. Content is organized by phases and validated against AWS CLI describe output.
 
 ## Structure
 
