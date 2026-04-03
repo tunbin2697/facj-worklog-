@@ -17,17 +17,13 @@ pre: " <b> 1.12. </b> "
 
 | Day | Task | Start Date | Completion Date | Reference Material |
 | --- | --- | --- | --- | --- |
-| 1 | - Final Presentation Preparation <br>&emsp; + Final rehearsal with team <br>&emsp; + Prepared backup demo video for myFit app <br>&emsp; + Tested API & Bedrock technical setup | 30/03/2026 | 30/03/2026 | [Presentation] |
-| 2 | - Final Presentation <br>&emsp; + Presented **myFit** to FCAJ leadership <br>&emsp; + Live demo with Q&A session <br>&emsp; + Received commendation for robust Spring Boot & AWS architecture | 31/03/2026 | 31/03/2026 | [Presentation Recording] |
+| 1-6 | - Final Presentation Preparation & Project Submission <br>&emsp; + Submit final project link (Deadline: 05/04) <br>&emsp; + Prepared backup demo video for myFit app <br>&emsp; + Tested API & Bedrock technical setup | 30/03/2026 | 04/04/2026 | [Presentation] |
+| - | - Final Presentation <br>&emsp; + Presented **myFit** to FCJ leadership (Floor 26 at 07:45) <br>&emsp; + Format: 2 mins setup + 10 mins presentation + 10 mins Q&A | 18/04/2026 | 18/04/2026 | [Presentation Recording] |
 | 3 | - Self-Evaluation <br>&emsp; + Completed self-evaluation form <br>&emsp; + Reflected on 12-week journey <br>&emsp; + Identified technical strengths and growth areas | 01/04/2026 | 01/04/2026 | [Evaluation Form] |
-| 4 | - Program Feedback <br>&emsp; + Wrote detailed feedback for FCAJ program <br>&emsp; + Highlighted positive experiences <br>&emsp; + Suggested improvements for future interns | 02/04/2026 | 02/04/2026 | [Feedback Form] |
+| 4 | - Program Feedback <br>&emsp; + Wrote detailed feedback for FCJ program <br>&emsp; + Highlighted positive experiences <br>&emsp; + Suggested improvements for future interns | 02/04/2026 | 02/04/2026 | [Feedback Form] |
 | 6-7 | - Celebration & Wrap-up <br>&emsp; + Team celebration dinner <br>&emsp; + Knowledge transfer and project handoff <br>&emsp; + LinkedIn post about internship experience | 04/04/2026 | 05/04/2026 | [Photos] |
 
 ### Week 12 Achievements
-
-* **Final Presentation:**
-  * Successfully presented the myFit application to FCAJ stakeholders and mentors.
-  * Live demo of the React Native app and AI Bedrock Chat went smoothly without technical issues.
 
 * **Project Completion:**
   * myFit Backend (Spring Boot) and Frontend (React Native) fully functional and integrated.
@@ -58,14 +54,3 @@ pre: " <b> 1.12. </b> "
 * 6 comprehensive user journeys mapped and successfully tested
 * 12-turn sliding window memory implemented for the AI Fitness bot
 * < 25 seconds average for backend Docker Compose cold start
-
-### Final Reflection
-
-This 12-week internship through the FCAJ program has been a transformative experience. From designing the initial PostgreSQL database schemas in Week 1 to delivering a fully integrated, AI-powered React Native application in Week 12, the journey has taught me the importance of:
-
-1. **Security by design**, specifically preventing IDOR, managing stateless JWTs, and secure AWS Cognito integration.
-2. **Separation of concerns** across the stack (using Redux for auth, React Query for server cache, and keeping backend service layers clean).
-3. **Well-Architected cloud operations**, ensuring reliable containerization and planning a clear roadmap for AWS deployment.
-4. **Team collaboration and documentation** as the key to maintainability and successful project handover.
-
-I am immensely grateful to the FCAJ mentors, AWS Solution Architects, and my colleagues for making this experience unforgettable. This is not the end, but a strong foundation for my future cloud and full-stack journey! ☁️🚀

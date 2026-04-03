@@ -1,0 +1,3 @@
+use this to use aws cli to build and push new image into ecr: 
+
+$Region="us-east-1"; $AccountId=(aws sts get-caller-identity --query Account --output text).Trim(); aws ecr get-login-password --region $Region | docker login --username AWS --password-stdin "$AccountId.dkr.ecr.$Region.amazonaws.com"; docker build -t "$AccountId.dkr.ecr.$Region.amazonaws.com/myfit-backend:latest" .; docker push "$AccountId.dkr.ecr.$Region.amazonaws.com/myfit-backend:latest"

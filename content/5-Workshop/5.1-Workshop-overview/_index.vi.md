@@ -1,47 +1,43 @@
 ---
-title : "Tổng quan Workshop"
-date : 2024-01-01
-weight : 1
-chapter : false
-pre : " <b> 5.1. </b> "
----
-title : "Tổng quan Workshop"
-date : 2024-01-01
-weight : 1
-chapter : false
-pre : " <b> 5.1. </b> "
+title: "Tổng quan Workshop"
+date: 2026-04-03
+weight: 1
+chapter: false
+pre: " <b> 5.1. </b> "
 ---
 
-Workshop này mô tả mô hình bảo mật web app trên AWS:
-- Amazon EC2 chạy backend.
-- Amazon Cognito quản lý đăng nhập người dùng.
-- Application Load Balancer (ALB) áp chính sách truy cập theo đường dẫn.
+## 5.1 Deploy Fitness Platfrom in AWS Cloud enviroment.
 
-Kết quả mong muốn:
-- `/` truy cập công khai.
-- `/dashboard` yêu cầu đăng nhập.
-- `/admin` yêu cầu quyền admin.
+Workshop này hướng dẫn bạn triển khai và xác thực Deploy Fitness Platfrom in AWS Cloud enviroment.
 
-{{% notice info %}}
-Trang này giữ ở mức tổng quan ngắn gọn. Vui lòng mở từng mục bên dưới để xem chi tiết.
-{{% /notice %}}
+## Mục tiêu
 
-## Mục lục
+Xây dựng một hệ thống theo hướng production gồm:
 
-1. [5.2 Điều kiện tiên quyết](../5.2-prerequiste/)
-2. [5.3 Hướng dẫn từng bước](../5.3-step-by-step/)
-3. [5.4 Kiểm thử và đánh giá kết quả](../5.4-test-evaluate/)
-4. [5.5 Dọn dẹp tài nguyên](../5.5-cleanup/)
+1. Nền tảng mạng VPC
+2. Cơ sở dữ liệu PostgreSQL trên RDS
+3. Backend container chạy trên ECS Fargate
+4. Frontend trên S3 + CloudFront
+5. Xác thực bằng Cognito
+6. Tích hợp Bedrock API qua Secrets Manager
 
 ## Tóm tắt kiến trúc
 
-1. Người dùng gửi request vào ALB.
-2. ALB kiểm tra rule theo path.
-3. Path bảo vệ sẽ chuyển hướng sang Cognito Hosted UI.
-4. Sau khi đăng nhập, ALB forward vào EC2 kèm identity headers.
+1. Frontend đi qua CloudFront và S3.
+2. API đi từ CloudFront vào ALB và ECS service.
+3. ECS backend kết nối RDS và S3.
+4. Cognito phụ trách xác thực người dùng.
+5. Bedrock key (tùy chọn) được inject từ Secrets Manager.
 
-![Sơ đồ kiến trúc workshop](/images/5-Workshop/workshop-resource/diagram/aws%20architecture%20diagram%20workshop.png)
+## Cấu trúc workshop
 
-![Sơ đồ EC2 private](/images/5-Workshop/workshop-resource/diagram/private%20ec2%20-%20aws%20architeture%20diagram%20workshop.png)
+1. [5.2 Prerequisite - IAM roles và policy baseline](../5.2-prerequiste/)
+2. [5.3 Hướng dẫn từng bước theo phase](../5.3-step-by-step/)
+3. [5.4 Kết quả ứng dụng](../5.4-app-result/)
+4. [5.5 Triển khai CloudFormation bằng CDK và script](../5.5-cloudformation-deploy-cdk-and-script/)
+5. [5.6 Dọn dẹp tài nguyên](../5.6-clean-up-resource/)
 
-CLI (optional): use AWS CLI to automate user/group creation for larger demos.
+## Nguồn chuẩn để đối chiếu
+
+- Stack hạ tầng: [myfit-infra/lib/myfit-infra-stack.ts (đã include trong mục 5.5)](../5.5-cloudformation-deploy-cdk-and-script/)
+- Script triển khai hạ tầng: [myfit-infra/scripts/deploy-infra.ps1 (đã include trong mục 5.5)](../5.5-cloudformation-deploy-cdk-and-script/)

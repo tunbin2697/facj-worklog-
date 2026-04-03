@@ -67,30 +67,17 @@
                 href="https://tunbin2697.github.io/facj-worklog-/vi/1-worklog/1.1-week1/"
                 />
   </url><url>
-    <loc>https://tunbin2697.github.io/facj-worklog-/vi/5-workshop/5.3-step-by-step/5.3.1-create-ec2/</loc>
+    <loc>https://tunbin2697.github.io/facj-worklog-/vi/5-workshop/5.3-step-by-step/5.3.1-phase-1-vpc-and-networking/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://tunbin2697.github.io/facj-worklog-/5-workshop/5.3-step-by-step/5.3.1-create-ec2/"
+                href="https://tunbin2697.github.io/facj-worklog-/5-workshop/5.3-step-by-step/5.3.1-phase-1-vpc-and-networking/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="https://tunbin2697.github.io/facj-worklog-/vi/5-workshop/5.3-step-by-step/5.3.1-create-ec2/"
-                />
-  </url><url>
-    <loc>https://tunbin2697.github.io/facj-worklog-/vi/5-workshop/5.1-workshop-overview/</loc>
-    <lastmod>2024-01-01T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://tunbin2697.github.io/facj-worklog-/5-workshop/5.1-workshop-overview/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="https://tunbin2697.github.io/facj-worklog-/vi/5-workshop/5.1-workshop-overview/"
+                href="https://tunbin2697.github.io/facj-worklog-/vi/5-workshop/5.3-step-by-step/5.3.1-phase-1-vpc-and-networking/"
                 />
   </url><url>
     <loc>https://tunbin2697.github.io/facj-worklog-/vi/3-blogstranslated/3.2-blog2/</loc>
@@ -145,32 +132,6 @@
                 href="https://tunbin2697.github.io/facj-worklog-/vi/2-proposal/"
                 />
   </url><url>
-    <loc>https://tunbin2697.github.io/facj-worklog-/vi/5-workshop/5.2-prerequiste/</loc>
-    <lastmod>2024-01-01T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://tunbin2697.github.io/facj-worklog-/5-workshop/5.2-prerequiste/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="https://tunbin2697.github.io/facj-worklog-/vi/5-workshop/5.2-prerequiste/"
-                />
-  </url><url>
-    <loc>https://tunbin2697.github.io/facj-worklog-/vi/5-workshop/5.3-step-by-step/5.3.2-create-cognito/</loc>
-    <lastmod>2024-01-01T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://tunbin2697.github.io/facj-worklog-/5-workshop/5.3-step-by-step/5.3.2-create-cognito/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="https://tunbin2697.github.io/facj-worklog-/vi/5-workshop/5.3-step-by-step/5.3.2-create-cognito/"
-                />
-  </url><url>
     <loc>https://tunbin2697.github.io/facj-worklog-/vi/3-blogstranslated/3.3-blog3/</loc>
     <lastmod>2026-03-30T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -223,19 +184,6 @@
                 href="https://tunbin2697.github.io/facj-worklog-/vi/5-workshop/5.3-step-by-step/"
                 />
   </url><url>
-    <loc>https://tunbin2697.github.io/facj-worklog-/vi/5-workshop/5.3-step-by-step/5.3.3-request-acm/</loc>
-    <lastmod>2024-01-01T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://tunbin2697.github.io/facj-worklog-/5-workshop/5.3-step-by-step/5.3.3-request-acm/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="https://tunbin2697.github.io/facj-worklog-/vi/5-workshop/5.3-step-by-step/5.3.3-request-acm/"
-                />
-  </url><url>
     <loc>https://tunbin2697.github.io/facj-worklog-/vi/3-blogstranslated/3.4-blog4/</loc>
     <lastmod>2026-03-13T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -275,32 +223,6 @@
                 href="https://tunbin2697.github.io/facj-worklog-/vi/1-worklog/1.4-week4/"
                 />
   </url><url>
-    <loc>https://tunbin2697.github.io/facj-worklog-/vi/5-workshop/5.4-test-evaluate/</loc>
-    <lastmod>2024-01-01T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://tunbin2697.github.io/facj-worklog-/5-workshop/5.4-test-evaluate/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="https://tunbin2697.github.io/facj-worklog-/vi/5-workshop/5.4-test-evaluate/"
-                />
-  </url><url>
-    <loc>https://tunbin2697.github.io/facj-worklog-/vi/5-workshop/5.3-step-by-step/5.3.4-application-load-balancer/</loc>
-    <lastmod>2024-01-01T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://tunbin2697.github.io/facj-worklog-/5-workshop/5.3-step-by-step/5.3.4-application-load-balancer/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="https://tunbin2697.github.io/facj-worklog-/vi/5-workshop/5.3-step-by-step/5.3.4-application-load-balancer/"
-                />
-  </url><url>
     <loc>https://tunbin2697.github.io/facj-worklog-/vi/1-worklog/1.5-week5/</loc>
     <lastmod>2026-02-02T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -312,32 +234,6 @@
                 rel="alternate"
                 hreflang="vi"
                 href="https://tunbin2697.github.io/facj-worklog-/vi/1-worklog/1.5-week5/"
-                />
-  </url><url>
-    <loc>https://tunbin2697.github.io/facj-worklog-/vi/5-workshop/5.3-step-by-step/5.3.5-configure-authentication/</loc>
-    <lastmod>2024-01-01T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://tunbin2697.github.io/facj-worklog-/5-workshop/5.3-step-by-step/5.3.5-configure-authentication/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="https://tunbin2697.github.io/facj-worklog-/vi/5-workshop/5.3-step-by-step/5.3.5-configure-authentication/"
-                />
-  </url><url>
-    <loc>https://tunbin2697.github.io/facj-worklog-/vi/5-workshop/5.5-cleanup/</loc>
-    <lastmod>2024-01-01T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://tunbin2697.github.io/facj-worklog-/5-workshop/5.5-cleanup/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="https://tunbin2697.github.io/facj-worklog-/vi/5-workshop/5.5-cleanup/"
                 />
   </url><url>
     <loc>https://tunbin2697.github.io/facj-worklog-/vi/5-workshop/</loc>

@@ -1,39 +1,43 @@
 ---
-title : "Workshop Overview"
-date : 2024-01-01
-weight : 1
-chapter : false
-pre : " <b> 5.1. </b> "
+title: "Workshop Overview"
+date: 2026-04-03
+weight: 1
+chapter: false
+pre: " <b> 5.1. </b> "
 ---
 
-This workshop demonstrates a secure web application pattern on AWS:
-- Amazon EC2 hosts the backend.
-- Amazon Cognito handles user authentication.
-- Application Load Balancer (ALB) enforces access rules.
+## 5.1 Deploy Fitness Platfrom in AWS Cloud enviroment.
 
-The target behavior:
-- `/` is public.
-- `/dashboard` requires login.
-- `/admin` requires authenticated admin access.
+This workshop guides you through deploying and validating Deploy Fitness Platfrom in AWS Cloud enviroment.
 
-{{% notice info %}}
-This page is intentionally short. Use the table of contents below to open each section.
-{{% /notice %}}
+## Goal
 
-## Table of Contents
+Build a production-style stack with:
 
-1. [5.2 Prerequisites](../5.2-prerequiste/)
-2. [5.3 Step-by-step](../5.3-step-by-step/)
-3. [5.4 Test and Evaluate Results](../5.4-test-evaluate/)
-4. [5.5 Clean-up](../5.5-cleanup/)
+1. VPC and networking foundation
+2. PostgreSQL database on RDS
+3. Containerized backend on ECS Fargate
+4. Frontend on S3 + CloudFront
+5. Authentication with Cognito
+6. Bedrock API integration through Secrets Manager
 
-## Architecture Summary
+## Architecture summary
 
-1. User requests the ALB endpoint.
-2. ALB checks path-based rules.
-3. Protected paths are redirected to Cognito Hosted UI.
-4. After login, ALB forwards requests to EC2 with identity headers.
+1. Frontend traffic goes to CloudFront and S3.
+2. API traffic goes from CloudFront to ALB and ECS service.
+3. ECS backend connects to RDS and S3.
+4. Cognito is used for authentication.
+5. Optional Bedrock key is injected from Secrets Manager.
 
-![Workshop architecture diagram](/images/5-Workshop/workshop-resource/diagram/aws%20architecture%20diagram%20workshop.png)
+## Workshop structure
 
-![Private EC2 architecture diagram](/images/5-Workshop/workshop-resource/diagram/private%20ec2%20-%20aws%20architeture%20diagram%20workshop.png)
+1. [5.2 Prerequisite - IAM roles and policy baseline](../5.2-prerequiste/)
+2. [5.3 Phase-based step-by-step](../5.3-step-by-step/)
+3. [5.4 App Result](../5.4-app-result/)
+4. [5.5 CloudFormation Deploy with CDK and Script](../5.5-cloudformation-deploy-cdk-and-script/)
+5. [5.6 Clean Up Resource](../5.6-clean-up-resource/)
+
+## Source of truth
+
+- Infrastructure stack code: [myfit-infra/lib/myfit-infra-stack.ts (included in 5.5)](../5.5-cloudformation-deploy-cdk-and-script/)
+- Infra deployment script: [myfit-infra/scripts/deploy-infra.ps1 (included in 5.5)](../5.5-cloudformation-deploy-cdk-and-script/)
