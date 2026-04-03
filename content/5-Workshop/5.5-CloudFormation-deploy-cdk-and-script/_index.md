@@ -10,6 +10,11 @@ pre: " <b> 5.5. </b> "
 
 This section describes how to deploy the infrastructure stack using AWS CDK and the PowerShell automation script.
 
+> Notice:
+> This workshop was demonstrated with the pre-registered sample domain `myfit.click`.
+> Do not reuse this domain in your own environment.
+> Use your own DNS/domain values (for example `myapp.com`) when passing CDK context parameters such as `DomainName`, `HostedZoneId`, and `HostedZoneName`.
+
 ## 1. Prerequisites
 
 1. AWS CLI is configured and logged in.

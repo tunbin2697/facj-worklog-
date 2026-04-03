@@ -54,22 +54,38 @@ pre: " <b> 5.3.2. </b> "
 - Enter Allocated storage: `20` GB.
 - Enable Storage autoscaling: `Yes`.
 - Enter Maximum storage threshold: `50` GB.
-![Create RDS screen 7](/images/workshop/phase%202%20rds/create%20rds/create%20rds%207.png)
+![Create RDS storage settings](/images/workshop/fix-img-ver-01/rds/rds%20storage%20fix.png)
+
+![Create RDS autoscaling threshold](/images/workshop/fix-img-ver-01/rds/rds%20storage%20fix%20for%20scaling.png)
+
+- Enter Initial database name: `myfit`.
 - Enter Backup retention period: `7` days.
+- Keep `Enable automated backup`: `enabled`.
+- Keep `Database Insights`: `Standard`.
+- Keep `Performance Insights`: `disabled`.
+- Keep `Enhanced Monitoring`: `disabled`.
 - Enable CloudWatch logs export: `postgresql`.
 
+![Create RDS database name and backup](/images/workshop/fix-img-ver-01/rds/fix%20rds%20database%20init%20name.png)
 
-- Click `Create`.
-- Confirm status: `Complete`.
-![DB subnet group screen 5](/images/workshop/phase%202%20rds/create%20subnet%20group/subnet%20group%205.png)
+![Create RDS monitoring options](/images/workshop/fix-img-ver-01/rds/fix%20rds%20monitoring.png)
+
+- Keep `Enable replication in another AWS Region`: `disabled`.
+- Keep `Enable encryption`: `disabled`.
+- Keep `Enable deletion protection`: `enabled`.
+
+![Create RDS backup, encryption, and maintenance](/images/workshop/fix-img-ver-01/rds/fix%20rds%20back%20up%20disable%20replication%20encrypt.png)
 
 - Click `Create database`.
+
+![Create database final step](/images/workshop/fix-img-ver-01/rds/fix%20rds%20final%20pricing%20and%20create.png)
+
 - Wait until DB instance status is `available`.
 ![RDS result screen 1](/images/workshop/phase%202%20rds/create%20rds/rds%20result.png)
 
 - Copy Endpoint address: `<your-rds-endpoint>`.
 - Confirm Port: `5432`.
-![RDS result screen 2](/images/workshop/phase%202%20rds/create%20rds/rds%20result%202.png)
+![RDS result endpoint and port](/images/workshop/fix-img-ver-01/rds/fix%20rds%20result%20endpoint.png)
 
 ## 3. Check database secret in Secrets Manager (auto generated)
 

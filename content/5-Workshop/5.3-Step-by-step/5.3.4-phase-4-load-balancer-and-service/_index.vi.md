@@ -123,4 +123,4 @@ pre: " <b> 5.3.4. </b> "
 3. Xác nhận ECS service launch type là `FARGATE`, scheduling strategy là `REPLICA`, desired count là `2`.
 4. Xác nhận ECS service network dùng subnet , security group, public IP `ENABLED`.
 5. Xác nhận ECS service load balancer mapping dùng container `web` port `8080` với target group.
-6. Xác nhận auto scaling min/max là `2/4` và CPU target policy là `70` với cooldown `60/60`.
+6. Lưu ý là sau này, với thay đổi trong CDK thì auto scaling min/max là `2/4` và CPU target policy là `70` với cooldown `60/60`.

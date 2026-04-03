@@ -1,5 +1,5 @@
 ---
-title: "Tong hop tuan AWS: AWS AI/ML Scholars, Agent Plugin cho AWS Serverless, va cac cap nhat khac (30 Mar 2026)"
+title: "Tổng hợp tuần AWS: AWS AI/ML Scholars, Agent Plugin cho AWS Serverless, và các cập nhật khác (30 Mar 2026)"
 date: 2026-03-30
 weight: 3
 chapter: false
@@ -10,7 +10,7 @@ pre: " <b> 3.3. </b> "
 Bản dịch tiếng Việt phục vụ mục đích học tập. Bài gốc: "AWS Weekly Roundup: AWS AI/ML Scholars program, Agent Plugin for AWS Serverless, and more (March 30, 2026)" by Prasad Rao — https://aws.amazon.com/blogs/aws/aws-weekly-roundup-aws-ai-ml-scholars-program-agent-plugin-for-aws-serverless-and-more-march-30-2026/
 {{% /notice %}}
 
-# Tong hop tuan AWS: AWS AI/ML Scholars, Agent Plugin cho AWS Serverless, va cac cap nhat khac (30 Mar 2026)
+# Tổng hợp tuần AWS: AWS AI/ML Scholars, Agent Plugin cho AWS Serverless, và các cập nhật khác (30 Mar 2026)
 
 Tuần trước, điều làm tôi hào hứng nhất là [sự ra mắt chương trình 2026 AWS AI and ML Scholars](https://www.linkedin.com/posts/swaminathansivasubramanian_excited-to-share-that-applications-are-ugcPost-7442263176475410433-8c8k?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAUt4OcBCLB3u7KY4pbSog9XZD5vI10JCzU) do [Swami Sivasubramanian](https://www.linkedin.com/in/swaminathansivasubramanian/), VP of AWS Agentic AI, công bố, với mục tiêu cung cấp giáo dục AI miễn phí cho tối đa 100.000 học viên trên toàn thế giới. Chương trình gồm hai giai đoạn: giai đoạn Challenge để học nền tảng generative AI, sau đó là học bổng toàn phần chương trình Udacity Nanodegree kéo dài ba tháng dành cho 4.500 người có kết quả cao nhất. Bất kỳ ai từ 18 tuổi trở lên đều có thể đăng ký, không yêu cầu kinh nghiệm trước đó về AI hoặc ML. Hạn nộp hồ sơ là ngày 24/06/2026. Truy cập [trang AWS AI and ML Scholars](https://aws.amazon.com/about-aws/our-impact/scholars/?utm_source=linkedin&utm_medium=s-post&utm_campaign=launch) để tìm hiểu thêm và đăng ký.
 

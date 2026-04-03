@@ -10,6 +10,11 @@ pre: " <b> 5.5. </b> "
 
 Mục này mô tả cách triển khai hạ tầng bằng AWS CDK và script PowerShell tự động.
 
+> Lưu ý:
+> Workshop này demo bằng domain mẫu `myfit.click` đã đăng ký sẵn.
+> Không nên dùng lại domain này cho môi trường của bạn.
+> Hãy dùng DNS/domain riêng (ví dụ `myapp.com`) khi truyền các tham số CDK như `DomainName`, `HostedZoneId`, và `HostedZoneName`.
+
 ## 1. Điều kiện cần
 
 1. AWS CLI đã cấu hình và đăng nhập.

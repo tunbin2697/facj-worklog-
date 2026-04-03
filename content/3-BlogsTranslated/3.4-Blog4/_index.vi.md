@@ -1,5 +1,5 @@
 ---
-title: "Hai muoi nam Amazon S3 va nhung buoc di tiep theo"
+title: "Hai mươi năm Amazon S3 và những bước đi tiếp theo"
 date: 2026-03-13
 weight: 4
 chapter: false
@@ -10,13 +10,13 @@ pre: " <b> 3.4. </b> "
 Bản dịch tiếng Việt phục vụ mục đích học tập. Bài gốc: "Twenty years of Amazon S3 and building what's next" by Sebastien Stormacq, 13 MAR 2026 — https://aws.amazon.com/blogs/aws/twenty-years-of-amazon-s3-and-building-whats-next/
 {{% /notice %}}
 
-# Hai muoi nam Amazon S3 va nhung buoc di tiep theo
+# Hai mươi năm Amazon S3 và những bước đi tiếp theo
 
-Tac gia goc: [Sebastien Stormacq](https://aws.amazon.com/blogs/aws/author/stormacq/) | Ngay dang: 13 MAR 2026
+Tác giả gốc: [Sebastien Stormacq](https://aws.amazon.com/blogs/aws/author/stormacq/) | Ngày đăng: 13 MAR 2026
 
 Hai mươi năm trước, vào ngày 14/03/2006, [Amazon Simple Storage Service (Amazon S3)](https://aws.amazon.com/s3/) đã ra mắt một cách khá lặng lẽ với một thông báo ngắn chỉ một đoạn trên [trang What's New](https://aws.amazon.com/about-aws/whats-new/2006/03/announcing-amazon-s3---simple-storage-service/):
 
-> Amazon S3 la dich vu luu tru cho Internet. Dich vu nay duoc thiet ke de giup lap trinh vien de dang xay dung he thong tinh toan quy mo web. Amazon S3 cung cap mot giao dien web service don gian de luu tru va truy xuat moi luong du lieu, vao bat ky luc nao, tu bat ky dau tren web. No mang den cho moi developer quyen truy cap vao ha tang luu tru co do mo rong cao, do tin cay cao, toc do nhanh va chi phi hop ly ma Amazon dung de van hanh mang luoi website toan cau cua minh.
+> Amazon S3 là dịch vụ lưu trữ cho Internet. Dịch vụ này được thiết kế để giúp lập trình viên dễ dàng xây dựng hệ thống tính toán quy mô web. Amazon S3 cung cấp một giao diện web service đơn giản để lưu trữ và truy xuất mọi luồng dữ liệu, vào bất kỳ lúc nào, từ bất kỳ đâu trên web. Nó mang đến cho mọi developer quyền truy cập vào hạ tầng lưu trữ có độ mở rộng cao, độ tin cậy cao, tốc độ nhanh và chi phí hợp lý mà Amazon dùng để vận hành mạng lưới website toàn cầu của mình.
 
 Ngay cả [bài blog của Jeff Barr](https://aws.amazon.com/blogs/aws/amazon_s3/) khi đó cũng chỉ có vài đoạn ngắn, được viết trước khi ông lên máy bay đi sự kiện developer ở California. Không ví dụ code. Không demo. Không nhiều truyền thông. Khi ấy, chưa ai biết lần ra mắt đó sẽ định hình cả ngành công nghiệp.
 

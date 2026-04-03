@@ -6,7 +6,29 @@ chapter: false
 pre: " <b> 5.3.6. </b> "
 ---
 
-## 1. Tạo Cognito user pool và app client
+## 1. Cấu hình Google identity provider
+
+- Mở Amazon Cognito Console ở region `us-east-1`.
+- Mở user pool của bạn và vào `Social and external providers`.
+- Bấm `Add identity provider`.
+![Cognito social providers entry](/images/workshop/Phase%206%20Authentication%20and%20DNS/cognito/google%20provider1.png)
+
+- Chọn provider type `Google`.
+- Nhập Google OAuth `Client ID` và `Client secret` từ Google Cloud Console.
+- Đặt authorized scopes: `openid email profile`.
+- Lưu thay đổi.
+
+- Xác nhận provider `Google` đã tồn tại.
+- Xác nhận mapping có các trường chính:
+  - `email -> email`
+  - `email_verified -> email_verified`
+  - `name -> name`
+  - `picture -> picture`
+  - `username -> sub`
+![Cognito Google provider details](/images/workshop/Phase%206%20Authentication%20and%20DNS/cognito/google%20provider2.png)
+![Cognito Google provider mappings](/images/workshop/Phase%206%20Authentication%20and%20DNS/cognito/google%20provider3.png)
+
+## 2. Tạo User Pool Cognito và App Client
 
 - Mở Amazon Cognito Console ở region `us-east-1`.
 - Mở `User pools`.
@@ -24,7 +46,7 @@ pre: " <b> 5.3.6. </b> "
 - Bấm `Create user directory`.
 ![Cognito app setup and return URL](/images/workshop/Phase%206%20Authentication%20and%20DNS/cognito/create%20user%20pool%203.png)
 
-## 2. Cấu hình managed login pages
+## 3. Cấu hình managed login pages
 
 - Mở user pool của bạn, sau đó mở `App clients`.
 - Chọn app client `Fitme-cognito-web-auth-service`.
@@ -51,28 +73,12 @@ pre: " <b> 5.3.6. </b> "
 - Bấm `Save changes`.
 ![Cognito managed login OIDC scopes](/images/workshop/Phase%206%20Authentication%20and%20DNS/cognito/create%20user%20pool%206.png)
 
-## 3. Cấu hình Google identity provider
+## 4. Kiểm tra Hosted Zone và bản ghi Route 53
 
-- Trong cùng user pool, mở `Social and external providers`.
-- Bấm `Add identity provider`.
-![Cognito social providers entry](/images/workshop/Phase%206%20Authentication%20and%20DNS/cognito/google%20provider1.png)
-
-- Chọn provider type `Google`.
-- Nhập Google OAuth `Client ID` và `Client secret` từ Google Cloud Console.
-- Đặt authorized scopes: `openid email profile`.
-- Lưu thay đổi.
-
-- Xác nhận provider `Google` đã tồn tại.
-- Xác nhận mapping có các trường chính:
-  - `email -> email`
-  - `email_verified -> email_verified`
-  - `name -> name`
-  - `picture -> picture`
-  - `username -> sub`
-![Cognito Google provider details](/images/workshop/Phase%206%20Authentication%20and%20DNS/cognito/google%20provider2.png)
-![Cognito Google provider mappings](/images/workshop/Phase%206%20Authentication%20and%20DNS/cognito/google%20provider3.png)
-
-## 4. Verify Route 53 hosted zone và records
+> Lưu ý:
+> Domain mẫu `myfit.click` trong workshop đã được team đăng ký qua MatBao và chỉ dùng để minh họa.
+> Khi tự triển khai, bạn nên dùng domain và DNS zone của riêng bạn.
+> Nếu muốn setup dễ hơn, bạn có thể mua domain trực tiếp trên Route 53 (ví dụ `myapp.com`) và dùng domain đó xuyên suốt các bước.
 
 - Mở Route 53 Console - `Hosted zones`.
 - Xác nhận hosted zone `myfit.click` tồn tại và type là `Public`.
@@ -86,7 +92,7 @@ pre: " <b> 5.3.6. </b> "
   - `NS` và `SOA` records mặc định tồn tại.
 ![Route 53 records list](/images/workshop/Phase%206%20Authentication%20and%20DNS/route53%20dns/create%20hosted%20zone%202.png)
 
-## 5. Checklist hoàn tất phase
+## 5. Danh sách kiểm tra hoàn tất phase
 
 1. Xác nhận Cognito user pool ID là `us-east-1_9AoKPqZO1`.
 2. Xác nhận app client ID là `661fm3mj7s5qcmoldri1mem9sr`.

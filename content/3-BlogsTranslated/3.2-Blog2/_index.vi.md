@@ -1,5 +1,5 @@
 ---
-title: "Tuy chinh AWS Management Console voi mau tai khoan, region va dich vu hien thi"
+title: "Tùy chỉnh AWS Management Console với màu tài khoản, region và dịch vụ hiển thị"
 date: 2026-03-26
 weight: 2
 chapter: false
@@ -10,9 +10,9 @@ pre: " <b> 3.2. </b> "
 Bản dịch tiếng Việt phục vụ mục đích học tập. Bài gốc: "Customize your AWS Management Console experience with visual settings including account color, region and service visibility" by Channy Yun, 26 MAR 2026 — https://aws.amazon.com/blogs/aws/customize-your-aws-management-console-experience-with-visual-settings-including-account-color-region-and-service-visibility/
 {{% /notice %}}
 
-# Tuy chinh AWS Management Console voi mau tai khoan, region va dich vu hien thi
+# Tùy chỉnh AWS Management Console với màu tài khoản, region và dịch vụ hiển thị
 
-Tac gia goc: [Channy Yun (윤석찬)](https://aws.amazon.com/blogs/aws/author/channy-yun/) | Ngay dang: 26 MAR 2026
+Tác giả gốc: [Channy Yun (윤석찬)](https://aws.amazon.com/blogs/aws/author/channy-yun/) | Ngày đăng: 26 MAR 2026
 
 Vào tháng 8/2025, AWS đã giới thiệu khả năng [AWS User Experience Customization (UXC)](https://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/getting-started-uxc.html), cho phép tùy chỉnh giao diện người dùng (UI) theo nhu cầu cụ thể để hoàn thành công việc hiệu quả hơn. Với khả năng này, quản trị viên tài khoản có thể tùy chỉnh một số thành phần giao diện của [AWS Management Console](https://console.aws.amazon.com/), ví dụ như [gán màu cho tài khoản AWS](https://aws.amazon.com/about-aws/whats-new/2025/08/aws-management-console-assigning-color-aws-account/) để dễ nhận diện.
 

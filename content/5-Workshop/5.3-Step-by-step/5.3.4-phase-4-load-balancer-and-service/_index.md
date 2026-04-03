@@ -121,4 +121,4 @@ pre: " <b> 5.3.4. </b> "
 3. Verify that the ECS service launch type is `FARGATE`, the scheduling strategy is `REPLICA`, and the desired count is `2`.
 4. Verify that the ECS service network uses the correct subnets, security groups, and has public IP set to `ENABLED`.
 5. Verify that the ECS service load balancer mapping uses container `web` on port `8080` with the target group.
-6. Verify that auto scaling min/max is `2/4` and the CPU target policy is `70` with cooldown `60/60`.
+6. Notice that later update in CDK change that auto scaling min/max is `2/4` and the CPU target policy is `70` with cooldown `60/60`.

@@ -51,22 +51,39 @@ pre: " <b> 5.3.2. </b> "
 - Nhập Allocated storage: `20` GB.
 - Bật Storage autoscaling: `Yes`.
 - Nhập Maximum storage threshold: `50` GB.
-![Create RDS screen 7](/images/workshop/phase%202%20rds/create%20rds/create%20rds%207.png)
+![Create RDS storage settings](/images/workshop/fix-img-ver-01/rds/rds%20storage%20fix.png)
+
+![Create RDS autoscaling threshold](/images/workshop/fix-img-ver-01/rds/rds%20storage%20fix%20for%20scaling.png)
+
+- Nhập Initial database name: `myfit`.
 
 - Nhập Backup retention period: `7` days.
+- Giữ `Enable automated backup`: `enabled`.
+- Giữ `Database Insights`: `Standard`.
+- Giữ `Performance Insights`: `disabled`.
+- Giữ `Enhanced Monitoring`: `disabled`.
 - Bật CloudWatch logs export: `postgresql`.
 
-- Bấm `Create`.
-- Xác nhận status: `Complete`.
-![DB subnet group screen 5](/images/workshop/phase%202%20rds/create%20subnet%20group/subnet%20group%205.png)
+![Create RDS database name and backup](/images/workshop/fix-img-ver-01/rds/fix%20rds%20database%20init%20name.png)
+
+![Create RDS monitoring options](/images/workshop/fix-img-ver-01/rds/fix%20rds%20monitoring.png)
+
+- Giữ `Enable replication in another AWS Region`: `disabled`.
+- Giữ `Enable encryption`: `disabled`.
+- Giữ `Enable deletion protection`: `enabled`.
+
+![Create RDS backup, encryption, and maintenance](/images/workshop/fix-img-ver-01/rds/fix%20rds%20back%20up%20disable%20replication%20encrypt.png)
 
 - Bấm `Create database`.
+
+![Create database final step](/images/workshop/fix-img-ver-01/rds/fix%20rds%20final%20pricing%20and%20create.png)
+
 - Chờ đến khi DB instance status là `available`.
 ![RDS result screen 1](/images/workshop/phase%202%20rds/create%20rds/rds%20result.png)
 
 - Sao chép Endpoint address: `<your-rds-endpoint>`.
 - Xác nhận Port: `5432`.
-![RDS result screen 2](/images/workshop/phase%202%20rds/create%20rds/rds%20result%202.png)
+![RDS result endpoint and port](/images/workshop/fix-img-ver-01/rds/fix%20rds%20result%20endpoint.png)
 
 ## 3. Kiểm tra database secret trong Secrets Manager (tự động tạo)
 

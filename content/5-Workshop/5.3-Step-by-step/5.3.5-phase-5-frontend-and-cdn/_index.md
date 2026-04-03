@@ -17,7 +17,7 @@ pre: " <b> 5.3.5. </b> "
 - Select `Request a public certificate`, then click `Next`.
 ![Choose public certificate](/images/workshop/Phase%205%20Frontend%20and%20CDN/cloudfront/acm/3.png)
 
-- Enter fully qualified domain name as `<your-domain>` (example: `auth.baokhangdev.click`).
+- Enter fully qualified domain name as `<your-domain>` (example: `auth.example.com`).
 - Keep export option as `Disable export`.
 - Select validation method `DNS validation`.
 - Keep key algorithm `RSA 2048`.
@@ -62,6 +62,53 @@ pre: " <b> 5.3.5. </b> "
 - Set `AWS:SourceArn` to your CloudFront distribution ARN pattern:
 	`arn:aws:cloudfront::<account-id>:distribution/<your-distribution-id>`
 - Save changes.
+
+Use the following bucket policy JSON:
+
+```json
+{
+	"Version": "2012-10-17",
+	"Statement": [
+		{
+			"Effect": "Allow",
+			"Principal": {
+				"AWS": "arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity <YOUR_CLOUDFRONT_OAI_ID>"
+			},
+			"Action": [
+				"s3:GetBucket*",
+				"s3:GetObject*",
+				"s3:List*"
+			],
+			"Resource": [
+				"arn:aws:s3:::<your-s3-bucket-name>",
+				"arn:aws:s3:::<your-s3-bucket-name>/*"
+			]
+		},
+		{
+			"Effect": "Allow",
+			"Principal": {
+				"AWS": "arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity <YOUR_CLOUDFRONT_OAI_ID>"
+			},
+			"Action": "s3:GetObject",
+			"Resource": "arn:aws:s3:::<your-s3-bucket-name>/*"
+		},
+		{
+			"Sid": "AllowCloudFrontServicePrincipal",
+			"Effect": "Allow",
+			"Principal": {
+				"Service": "cloudfront.amazonaws.com"
+			},
+			"Action": "s3:GetObject",
+			"Resource": "arn:aws:s3:::<your-s3-bucket-name>/*",
+			"Condition": {
+				"ArnLike": {
+					"AWS:SourceArn": "arn:aws:cloudfront::YOUR_ACCOUNT_ID:distribution/<your-cloudfront-name>"
+				}
+			}
+		}
+	]
+}
+```
 ![S3 bucket policy screen](/images/workshop/Phase%205%20Frontend%20and%20CDN/s3/create5.png)
 
 - Open `Objects` tab and upload your frontend build output.

@@ -1,5 +1,5 @@
 ---
-title: "Cong bo Amazon Aurora PostgreSQL serverless co the tao co so du lieu trong vai giay"
+title: "Công bố Amazon Aurora PostgreSQL serverless có thể tạo cơ sở dữ liệu trong vài giây"
 date: 2026-03-25
 weight: 1
 chapter: false
@@ -10,9 +10,9 @@ pre: " <b> 3.1. </b> "
 Bản dịch tiếng Việt phục vụ mục đích học tập. Bài gốc: "Announcing Amazon Aurora PostgreSQL serverless database creation in seconds" by Channy Yun, 25 MAR 2026 — https://aws.amazon.com/blogs/aws/announcing-amazon-aurora-postgresql-serverless-database-creation-in-seconds/
 {{% /notice %}}
 
-# Cong bo Amazon Aurora PostgreSQL serverless co the tao co so du lieu trong vai giay
+# Công bố Amazon Aurora PostgreSQL serverless có thể tạo cơ sở dữ liệu trong vài giây
 
-Tac gia goc: [Channy Yun (윤석찬)](https://aws.amazon.com/blogs/aws/author/channy-yun/) | Ngay dang: 25 MAR 2026
+Tác giả gốc: [Channy Yun (윤석찬)](https://aws.amazon.com/blogs/aws/author/channy-yun/) | Ngày đăng: 25 MAR 2026
 
 Tại re:Invent 2025, [Colin Lazier](https://www.linkedin.com/in/colinlazier/), Phó Chủ tịch mảng cơ sở dữ liệu tại AWS, đã nhấn mạnh tầm quan trọng của việc xây dựng sản phẩm theo tốc độ của ý tưởng, giúp rút ngắn hành trình từ ý tưởng đến ứng dụng chạy thực tế. Khách hàng hiện đã có thể tạo bảng [Amazon DynamoDB](https://aws.amazon.com/dynamodb/) sẵn sàng cho production và cơ sở dữ liệu [Amazon Aurora DSQL](https://aws.amazon.com/rds/aurora/dsql/) chỉ trong vài giây. Trước đó, ông cũng đã [demo trước](https://youtu.be/MBvyZENChk0?si=meDKK2zJturw-hK0&t=1084) khả năng tạo cơ sở dữ liệu [Amazon Aurora serverless](https://aws.amazon.com/rds/aurora/serverless/) với tốc độ tương tự, và kể từ đó nhiều khách hàng đã yêu cầu khả năng này.
 

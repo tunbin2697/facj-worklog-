@@ -6,7 +6,29 @@ chapter: false
 pre: " <b> 5.3.6. </b> "
 ---
 
-## 1. Create Cognito user pool and app client
+## 1. Configure Google identity provider
+
+- Open Amazon Cognito Console in region `us-east-1`.
+- Open your user pool and go to `Social and external providers`.
+- Click `Add identity provider`.
+![Cognito social providers entry](/images/workshop/Phase%206%20Authentication%20and%20DNS/cognito/google%20provider1.png)
+
+- Select provider type `Google`.
+- Enter your Google OAuth `Client ID` and `Client secret` from Google Cloud Console.
+- Set authorized scopes: `openid email profile`.
+- Save changes.
+
+- Verify provider `Google` is present.
+- Verify mappings include these key fields:
+  - `email -> email`
+  - `email_verified -> email_verified`
+  - `name -> name`
+  - `picture -> picture`
+  - `username -> sub`
+![Cognito Google provider details](/images/workshop/Phase%206%20Authentication%20and%20DNS/cognito/google%20provider2.png)
+![Cognito Google provider mappings](/images/workshop/Phase%206%20Authentication%20and%20DNS/cognito/google%20provider3.png)
+
+## 2. Create Cognito user pool and app client
 
 - Open Amazon Cognito Console in region `us-east-1`.
 - Open `User pools`.
@@ -24,7 +46,7 @@ pre: " <b> 5.3.6. </b> "
 - Click `Create user directory`.
 ![Cognito app setup and return URL](/images/workshop/Phase%206%20Authentication%20and%20DNS/cognito/create%20user%20pool%203.png)
 
-## 2. Configure managed login pages
+## 3. Configure managed login pages
 
 - Open your user pool, then open `App clients`.
 - Select app client `Fitme-cognito-web-auth-service`.
@@ -51,28 +73,12 @@ pre: " <b> 5.3.6. </b> "
 - Click `Save changes`.
 ![Cognito managed login OIDC scopes](/images/workshop/Phase%206%20Authentication%20and%20DNS/cognito/create%20user%20pool%206.png)
 
-## 3. Configure Google identity provider
-
-- In the same user pool, open `Social and external providers`.
-- Click `Add identity provider`.
-![Cognito social providers entry](/images/workshop/Phase%206%20Authentication%20and%20DNS/cognito/google%20provider1.png)
-
-- Select provider type `Google`.
-- Enter your Google OAuth `Client ID` and `Client secret` from Google Cloud Console.
-- Set authorized scopes: `openid email profile`.
-- Save changes.
-
-- Verify provider `Google` is present.
-- Verify mappings include these key fields:
-  - `email -> email`
-  - `email_verified -> email_verified`
-  - `name -> name`
-  - `picture -> picture`
-  - `username -> sub`
-![Cognito Google provider details](/images/workshop/Phase%206%20Authentication%20and%20DNS/cognito/google%20provider2.png)
-![Cognito Google provider mappings](/images/workshop/Phase%206%20Authentication%20and%20DNS/cognito/google%20provider3.png)
-
 ## 4. Verify Route 53 hosted zone and records
+
+> Notice:
+> The workshop sample domain `myfit.click` is already registered by our team through MatBao and is shown only as a reference.
+> For your own setup, use your own domain and DNS zone.
+> If you want easier end-to-end setup, you can purchase a domain directly in Route 53 (for example, `myapp.com`) and use that domain in all steps.
 
 - Open Route 53 Console - `Hosted zones`.
 - Confirm hosted zone `myfit.click` exists and type is `Public`.
