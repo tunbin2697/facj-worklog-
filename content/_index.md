@@ -21,7 +21,7 @@ chapter: false
 
 &emsp; **Major:** Artificial Intelligence
 
-&emsp; **Class:** AWS082025
+&emsp; **Class:** SE192274
 
 &emsp; **Internship Company:** Bootcamp - First Cloud AI Journey @ AWS Study Group
 

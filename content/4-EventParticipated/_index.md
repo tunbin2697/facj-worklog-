@@ -35,3 +35,16 @@ During my internship, I participated in some events. Each one was a memorable ex
 
 &emsp;**Outcomes / Value Gained:** Through this event, I gained a deeper understanding of AI agent architectures, effective prompt design strategies, and how AI systems can be integrated with IoT infrastructure. The event also helped me understand how cloud services on AWS can support scalable AI applications. These insights are valuable for my future work in AI system development and cloud-based architectures.
 
+### [Event 3](4.3-Event3/)
+&emsp;**Event Name:** Cloud Mastery 2026 #2 - Kubernetes, IaC, and Elixir in DevOps
+
+&emsp;**Date & Time:** April 4, 2026
+
+&emsp;**Location:** Ho Chi Minh City
+
+&emsp;**Role:** Attendee
+
+&emsp;**Description:** This event covered three practical cloud engineering themes: Kubernetes architecture and operations, Infrastructure as Code approaches on AWS (CloudFormation, AWS CDK, Terraform), and Elixir/OTP for highly concurrent and fault-tolerant backend systems. The sessions connected foundational concepts with real implementation paths in production-oriented environments.
+
+&emsp;**Outcomes / Value Gained:** Through this event, I strengthened my understanding of Kubernetes components and operational workflows, gained clearer criteria for selecting IaC tools based on team and cloud strategy, and learned how runtime choices like Elixir/OTP can significantly improve resilience and optimize infrastructure cost in high-throughput systems.
+

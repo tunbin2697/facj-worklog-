@@ -35,3 +35,16 @@ Trong quá trình thực tập, em đã tham gia các events, với mỗi event 
 &emsp;**Mô tả sự kiện:** Sự kiện tập trung vào các xu hướng mới trong lĩnh vực trí tuệ nhân tạo, bao gồm AI Agents, kỹ thuật Prompt Engineering và việc tích hợp AI với hệ thống IoT trên nền tảng AWS. Các diễn giả đã giới thiệu về khái niệm AI Agent có khả năng lập kế hoạch và thực hiện các tác vụ nhiều bước, đồng thời có thể tương tác với các công cụ và dịch vụ bên ngoài. Bên cạnh đó, phần trình bày về Prompt Engineering giúp người tham dự hiểu cách xây dựng prompt hiệu quả để tối ưu chất lượng kết quả từ các mô hình ngôn ngữ lớn và giảm chi phí sử dụng. Ngoài ra, sự kiện cũng trình bày một số dự án AIoT thực tế, minh họa cách sử dụng các thiết bị như Raspberry Pi, Arduino kết hợp với các dịch vụ AWS như IoT Core và Rekognition để xây dựng các hệ thống tự động thông minh.
 
 &emsp;**Kết quả và giá trị đạt được:** Thông qua sự kiện này, em hiểu rõ hơn về kiến trúc của AI Agents, cách thiết kế prompt hiệu quả cho các hệ thống AI, cũng như cách tích hợp trí tuệ nhân tạo với các thiết bị IoT trong các hệ thống thực tế. Đồng thời, em cũng có thêm góc nhìn về cách các dịch vụ AWS hỗ trợ xây dựng các hệ thống AI có khả năng mở rộng và vận hành trên nền tảng cloud.
+
+### [Event 3](4.3-Event3/)
+&emsp;**Tên sự kiện:** Cloud Mastery 2026 #2 - Kubernetes, IaC và Elixir trong DevOps
+
+&emsp;**Ngày & Thời gian:** 04/04/2026
+
+&emsp;**Địa điểm:** Thành phố Hồ Chí Minh
+
+&emsp;**Vai trò:** Người tham dự
+
+&emsp;**Mô tả sự kiện:** Sự kiện xoay quanh ba chủ đề cloud engineering thực tiễn: kiến trúc và vận hành Kubernetes, các hướng tiếp cận Infrastructure as Code trên AWS (CloudFormation, AWS CDK, Terraform), và Elixir/OTP cho các hệ thống backend có tính đồng thời cao và khả năng chịu lỗi tốt. Nội dung giúp kết nối kiến thức nền tảng với lộ trình triển khai thực tế trong môi trường production.
+
+&emsp;**Kết quả và giá trị đạt được:** Thông qua sự kiện này, em củng cố hiểu biết về các thành phần Kubernetes và quy trình vận hành, có tiêu chí rõ ràng hơn trong việc lựa chọn công cụ IaC theo chiến lược cloud và năng lực đội ngũ, đồng thời học thêm cách lựa chọn runtime như Elixir/OTP để tăng độ bền hệ thống và tối ưu chi phí hạ tầng cho các workload thông lượng cao.

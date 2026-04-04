@@ -17,7 +17,7 @@ chapter: false
 
 &emsp; **Ngành:** Trí tuệ Nhân tạo
 
-&emsp; **Lớp:** AWS082025
+&emsp; **Lớp:** SE192274
 
 &emsp; **Công ty thực tập:** Bootcamp - First Cloud AI Journey @ AWS Study Group
 
