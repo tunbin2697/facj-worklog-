@@ -248,13 +248,7 @@ To optimize operations and reduce manual errors:
 
 ---
 
-## 7. Timeline
-
-*(Add image here if needed)*
-
----
-
-## 8. Risks and Mitigation
+## 7. Risks and Mitigation
 
 | Risk                       | Impact      | Priority | Mitigation           |
 | -------------------------- | ----------- | -------- | -------------------- |
