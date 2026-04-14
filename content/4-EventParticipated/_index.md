@@ -9,7 +9,7 @@ pre: " <b> 4. </b> "
 
 During my internship, I participated in some events. Each one was a memorable experience that provided new, interesting, and useful knowledge, along with gifts and wonderful moments.
 
-### [Event 1](4.1-Event1/)  
+### [Event 1](4.1-event1/)  
 &emsp;**Event Name:** AWS re:Invent 2025 Recap - Vietnam Edition  
 
 &emsp;**Date & Time:** January 27, 2026  
@@ -22,7 +22,7 @@ During my internship, I participated in some events. Each one was a memorable ex
 
 &emsp;**Outcomes / Value Gained:** Through this event, I gained insights into emerging trends such as Agentic AI and multimodal RAG systems within the AWS ecosystem. I also learned about more cost-efficient approaches to vector storage using S3 Vector and explored how Bedrock Agents could potentially be applied to conversational or automation features in cloud-based applications. Furthermore, the event provided opportunities to interact with AWS Solution Architects and learn best practices related to serverless architecture and scalable cloud system design.
 
-### [Event 2](4.2-Event2/)  
+### [Event 2](4.2-event2/)  
 &emsp;**Event Name:** Cloud Mastery 2026 #1 AI From Scratch  
 
 &emsp;**Date & Time:** 09:00, March 14, 2026  
@@ -35,7 +35,7 @@ During my internship, I participated in some events. Each one was a memorable ex
 
 &emsp;**Outcomes / Value Gained:** Through this event, I gained a deeper understanding of AI agent architectures, effective prompt design strategies, and how AI systems can be integrated with IoT infrastructure. The event also helped me understand how cloud services on AWS can support scalable AI applications. These insights are valuable for my future work in AI system development and cloud-based architectures.
 
-### [Event 3](4.3-Event3/)
+### [Event 3](4.3-event3/)
 &emsp;**Event Name:** Cloud Mastery 2026 #2 - Kubernetes, IaC, and Elixir in DevOps
 
 &emsp;**Date & Time:** April 4, 2026
@@ -47,4 +47,17 @@ During my internship, I participated in some events. Each one was a memorable ex
 &emsp;**Description:** This event covered three practical cloud engineering themes: Kubernetes architecture and operations, Infrastructure as Code approaches on AWS (CloudFormation, AWS CDK, Terraform), and Elixir/OTP for highly concurrent and fault-tolerant backend systems. The sessions connected foundational concepts with real implementation paths in production-oriented environments.
 
 &emsp;**Outcomes / Value Gained:** Through this event, I strengthened my understanding of Kubernetes components and operational workflows, gained clearer criteria for selecting IaC tools based on team and cloud strategy, and learned how runtime choices like Elixir/OTP can significantly improve resilience and optimize infrastructure cost in high-throughput systems.
+
+### [Event 4](4.4-event4/)
+&emsp;**Event Name:** Cloud Mastery 2026 #3 - Networking, Security, and IAM on AWS
+
+&emsp;**Date & Time:** April 11, 2026
+
+&emsp;**Location:** Ho Chi Minh City
+
+&emsp;**Role:** Attendee
+
+&emsp;**Description:** This event focused on three core cloud security domains: AWS networking design, identity and access management, and network/application protection services. The sessions explained practical architectures with VPC, Subnet, IGW, and NAT Gateway; differences between Security Group and NACL; IAM governance models with least privilege, MFA, Identity Center (SSO), SCP, and Permission Boundaries; and layered protection with AWS WAF, Shield, Network Firewall, and Firewall Manager.
+
+&emsp;**Outcomes / Value Gained:** Through this event, I improved my understanding of secure AWS network isolation, identity governance across multi-account environments, and defense-in-depth strategies for web and infrastructure protection. The content also provided practical guidance for designing safer cloud systems using both preventive controls and centralized policy management.
 

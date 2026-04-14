@@ -48,3 +48,16 @@ Trong quá trình thực tập, em đã tham gia các events, với mỗi event 
 &emsp;**Mô tả sự kiện:** Sự kiện xoay quanh ba chủ đề cloud engineering thực tiễn: kiến trúc và vận hành Kubernetes, các hướng tiếp cận Infrastructure as Code trên AWS (CloudFormation, AWS CDK, Terraform), và Elixir/OTP cho các hệ thống backend có tính đồng thời cao và khả năng chịu lỗi tốt. Nội dung giúp kết nối kiến thức nền tảng với lộ trình triển khai thực tế trong môi trường production.
 
 &emsp;**Kết quả và giá trị đạt được:** Thông qua sự kiện này, em củng cố hiểu biết về các thành phần Kubernetes và quy trình vận hành, có tiêu chí rõ ràng hơn trong việc lựa chọn công cụ IaC theo chiến lược cloud và năng lực đội ngũ, đồng thời học thêm cách lựa chọn runtime như Elixir/OTP để tăng độ bền hệ thống và tối ưu chi phí hạ tầng cho các workload thông lượng cao.
+
+### [Event 4](4.4-Event4/)
+&emsp;**Tên sự kiện:** Cloud Mastery 2026 #3 - Networking, Security, and IAM on AWS
+
+&emsp;**Ngày & Thời gian:** 11/04/2026
+
+&emsp;**Địa điểm:** Thành phố Hồ Chí Minh
+
+&emsp;**Vai trò:** Người tham dự
+
+&emsp;**Mô tả sự kiện:** Sự kiện tập trung vào ba mảng bảo mật cloud quan trọng: thiết kế mạng trên AWS, quản lý định danh và phân quyền, cùng các dịch vụ bảo vệ network/application. Nội dung trình bày kiến trúc thực tiễn với VPC, Subnet, IGW, NAT Gateway; phân biệt Security Group và NACL; mô hình quản trị IAM theo nguyên tắc least privilege với MFA, Identity Center (SSO), SCP và Permission Boundaries; đồng thời giới thiệu mô hình phòng thủ nhiều lớp với AWS WAF, Shield, Network Firewall và Firewall Manager.
+
+&emsp;**Kết quả và giá trị đạt được:** Thông qua sự kiện này, em hiểu rõ hơn về cách cô lập mạng an toàn trên AWS, quản trị định danh trong môi trường multi-account, và xây dựng chiến lược phòng thủ nhiều lớp cho hạ tầng và ứng dụng web. Nội dung cũng cung cấp định hướng thực tế để thiết kế hệ thống cloud an toàn hơn bằng cả biện pháp phòng ngừa và quản trị policy tập trung.
